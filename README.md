@@ -7,7 +7,7 @@
 
 ### 👨🏻‍💻 &nbsp;About Me
 
-💡 &nbsp; I'm a software enginer at [CodeTalker Innovations](https://codetalkerinnov.com/) CodeTalker Innovations, currently working in the field of Web Development.\
+💡 &nbsp; I'm a software enginer at [CodeTalker Innovations](https://codetalkerinnov.com/), currently working in the field of Web Development.\
 🎓 &nbsp;I'm currently studying Software Enginering at Virtual University of Pakistan 😊.\
 🌱 &nbsp;I'm on track for learning everything 😁.\
 ✍️ &nbsp;In my free time, I watch movies 🎥 or sleep 🛌.\
@@ -41,24 +41,14 @@
 
 
 
+### 🐱My Github stats:
+![Haroon Abid's github stats](https://github-readme-stats.vercel.app/api?username=dev-buntoo&show_icons=true&count_private=true&hide=contribs,prs,stars,issues&theme=dracula)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=dev-buntoo&layout=compact&text_color=daf7dc&bg_color=151515)](https://github.com/anuraghazra/github-readme-stats)
 
+<!--START_SECTION:waka-->
+<!--END_SECTION:waka-->
 
+---
 
-
-<!-- old readme -->
-<!-- ### Hi there 👋 -->
-
-<!--
-**dev-buntoo/dev-buntoo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 😜Here's a Joke for you:
+<img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
