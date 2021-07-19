@@ -42,8 +42,8 @@
 
 
 ### 🐱My Github stats:
-![Haroon Abid's github stats](https://github-readme-stats.vercel.app/api?username=dev-buntoo&show_icons=true&count_private=true&hide=contribs,prs,stars,issues&theme=dracula)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=dev-buntoo&layout=compact&text_color=daf7dc&bg_color=151515)](https://github.com/anuraghazra/github-readme-stats)
+![Haroon Abid's github stats](https://github-readme-stats-dev-buntoo.vercel.app/api?username=dev-buntoo&show_icons=true&count_private=true&hide=contribs,prs,stars,issues&theme=dracula)
+[![Top Langs](https://github-readme-stats-dev-buntoo.vercel.app/api/top-langs/?username=dev-buntoo&layout=compact&text_color=daf7dc&bg_color=151515)]
 
 <!--START_SECTION:waka-->
 <!--END_SECTION:waka-->
