@@ -41,14 +41,5 @@
 
 
 
-### 🐱My Github stats:
-![Haroon Abid's github stats](https://github-readme-stats-dev-buntoo.vercel.app/api?username=dev-buntoo&show_icons=true&count_private=true&theme=dracula)
-[![Top Langs](https://github-readme-stats-dev-buntoo.vercel.app/api/top-langs/?username=dev-buntoo&layout=compact&count_private=true&text_color=daf7dc&bg_color=151515)
-
-<!--START_SECTION:waka-->
-<!--END_SECTION:waka-->
-
----
-
 ### 😜Here's a Joke for you:
 <img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
