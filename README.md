@@ -1,7 +1,7 @@
-![BannerGIF](https://github.com/dev-buntoo/dev-buntoo/blob/main/profile-banner.gif)
+# Hello there 👋
 
+## I'm Haroon Abid. Full Stack Developer From Pakistan 
 
-### Hello there 👋
 ![profile count](https://komarev.com/ghpvc/?username=dev-buntoo&color=red)&nbsp;
 [![GitHub Haroon Abid](https://img.shields.io/github/followers/dev-buntoo?label=follow&style=social)](https://github.com/dev-buntoo)&nbsp;
 
