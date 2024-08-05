@@ -7,7 +7,7 @@
 
 ### 👨🏻‍💻 &nbsp;About Me
 
-💡 &nbsp; I'm a software enginer at [CodeTalker Innovations](https://codetalkerinnov.com/), currently working in the field of Web Development.\
+💡 &nbsp; I'm a software enginer at [SayG](https://sayg.bh), currently working in the field of Web Development.\
 🎓 &nbsp;I'm currently studying Software Enginering at Virtual University of Pakistan 😊.\
 🌱 &nbsp;I'm on track for learning everything 😁.\
 ✍️ &nbsp;In my free time, I watch movies 🎥 or sleep 🛌.\
