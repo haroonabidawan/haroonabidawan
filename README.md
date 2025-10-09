@@ -20,19 +20,35 @@
 
 ## 🧬 Values That Power My Work
 
-- 🧠 **Curiosity:** Always learning, always evolving.
-- ⚡ **Velocity:** Delivering fast, reliable solutions.
-- 🛡️ **Security:** Protecting data and users.
-- 🤝 **Collaboration:** Teams win, not individuals.
+- 🧠 **Curiosity:** Always learning, exploring new frameworks, and adopting best practices.
+- ⚡ **Velocity:** Delivering features quickly with robust CI/CD pipelines and automated testing.
+- 🛡️ **Security:** Integrating tools like Gitleaks, Keycloak, and secure OAuth flows across platforms.
+- 🤝 **Collaboration:** Open to code reviews, documentation contributions, and team mentoring.
+- 🔍 **Transparency:** Clear documentation and open communication in every project.
+- 🦾 **Resilience:** Architecting microservices and cloud-native apps that scale reliably.
+- 🧩 **Integration:** Specialized in connecting APIs, databases, and cloud services for seamless user experiences.
+- 🗣️ **Communication:** Clear technical writing, rich documentation, and effective team coordination.
+- 🔄 **Continuous Improvement:** Frequent refactors, upgrades, and tech migrations show your commitment to evolving codebases.
+- 🎯 **User-Centric Development:** Attention to frontend experiences, authentication flows, and robust APIs for real business needs.
+- 🧑‍🔬 **Experimentation:** Early adoption of new tech (Keycloak, Prisma, Docker, modern frontend frameworks) and building demo sites.
+- 🏁 **Delivery:** Fast turnaround from concept to release, proven by consistent merged PRs across diverse stacks.
 
 ---
 
 ## 💎 What Makes Me Stand Out
 
-- 🏆 Multi-domain expertise: Backend, frontend, cloud, data
-- 🚀 Startup agility + Enterprise reliability
-- 🛠️ Automation evangelist: CI/CD, infra-as-code, security best practices
-- 🌍 Community builder: Mentoring, open source, knowledge sharing
+- 🏆 Multi-domain expertise: Full stack—backend (Laravel, Node.js, Prisma), frontend (Vue, React, Next.js), infra (Docker, GitHub Actions), data (SQL, migrations).
+- 🚀 Startup agility + Enterprise reliability: Experience in rapid prototyping and scaling for production.
+- 🛠️ Automation evangelist: CI/CD, infra-as-code, automated seeding/migration, security enforcement.
+- 🌍 Community builder: Open source contributions, developer enablement, and knowledge sharing.
+- 🌐 API & Auth Champion: Advanced authentication flows (Keycloak, OAuth), API gateways, integration.
+- 🗄️ Data Architect: Designed scalable, flexible schemas for SaaS and B2B platforms.
+- 🧠 Problem Solver: Tackled complex challenges in unified authentication, microservices orchestration, and multi-tenant SaaS.
+- 🧩 Context Switching: Ability to work across backend, frontend, infra, and cloud in microservices, monoliths, and hybrid architectures.
+- 🚦 Process Automation: Integrated automated migrations, GitHub Actions, and security checks for developer velocity.
+- 🚢 Production Experience: Delivered and maintained live SaaS products, not just prototypes or experiments.
+- 🎓 Mentorship: Guided other developers and improved team skillsets through code reviews and documentation.
+- 🌱 Open Source Spirit: Public contributions across multiple organizations and collaborative projects.
 
 ---
 
@@ -49,7 +65,7 @@
 ## 🔥 Skills Heatmap
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=php,laravel,vue,react,js,ts,csharp,docker,prisma,keycloak,git,github,linux,netlify,aws" />
+  <img src="https://skillicons.dev/icons?i=php,laravel,vue,react,js,ts,csharp,docker,prisma,keycloak,git,github,linux,netlify,aws,nodejs,nextjs,nginx,mysql,redis,graphql,rest,oauth,openssl,githubactions,dockercompose" />
 </p>
 
 ---
