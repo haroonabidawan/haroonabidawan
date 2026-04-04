@@ -22,32 +22,36 @@ export function TechStack() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 500)
+    const timer = setTimeout(() => setVisible(true), 400)
     return () => clearTimeout(timer)
   }, [])
 
   return (
     <section
-      className={`py-12 sm:py-16 px-6 transition-all duration-700 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+      className={`py-12 sm:py-16 px-6 transition-all duration-700 ease-out ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
     >
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-2xl">
         {/* Section label */}
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="h-px flex-1 bg-border max-w-[60px]" />
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">Stack</span>
-          <div className="h-px flex-1 bg-border max-w-[60px]" />
+        <div className="flex items-center justify-center gap-4 mb-10">
+          <div className="h-px flex-1 bg-border max-w-16" />
+          <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
+            Stack
+          </span>
+          <div className="h-px flex-1 bg-border max-w-16" />
         </div>
 
         {/* Tech pills */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5">
+        <div className="flex flex-wrap justify-center gap-2">
           {techs.map((tech, index) => (
             <span
               key={tech}
-              className="group px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-muted-foreground bg-card border border-border rounded-md hover:border-primary/50 hover:text-foreground transition-all duration-200 cursor-default"
+              className="px-3 py-1.5 text-xs font-mono text-muted-foreground border border-border rounded-md hover:text-foreground hover:border-primary/40 transition-all duration-200 cursor-default select-none"
               style={{
-                transitionDelay: visible ? `${index * 30}ms` : '0ms',
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(8px)',
+                transitionDelay: `${index * 25}ms`,
               }}
             >
               {tech}
