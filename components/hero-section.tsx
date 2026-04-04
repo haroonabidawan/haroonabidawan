@@ -33,28 +33,17 @@ export function HeroSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none animate-glow" />
 
       <div className="relative mx-auto max-w-2xl text-center">
-        {/* Eyebrow */}
-        <div
-          className={`inline-flex items-center gap-2 mb-8 transition-all duration-700 ease-out ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-          }`}
-        >
-          <span className="font-mono text-[11px] text-muted-foreground tracking-widest uppercase">
-            Full Stack
-          </span>
-          <span className="w-6 h-px bg-border" />
-          <span className="font-mono text-[11px] text-primary tracking-widest uppercase">
-            AI Engineer
-          </span>
-        </div>
-
-        {/* Main headline */}
+        {/* Main headline - two lines */}
         <h1
           className={`text-[2.5rem] sm:text-5xl md:text-6xl font-semibold tracking-[-0.035em] leading-[1.1] mb-6 transition-all duration-700 delay-75 ease-out ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <span className="block text-foreground">Haroon Abid Awan</span>
+          <span className="block text-foreground">Senior Full Stack &</span>
+          <span className="block">
+            <span className="text-primary">AI Automation</span>
+            <span className="text-foreground"> Engineer</span>
+          </span>
         </h1>
 
         {/* Subheadline */}
