@@ -16,7 +16,7 @@
   --secondary: oklch(0.961 0 0);
   --secondary-foreground: oklch(0.255 0 0);
   --muted: oklch(0.92 0 0);
-  --muted-foreground: oklch(0.45 0 0);
+  --muted-foreground: oklch(0.5 0 0);
   --accent: oklch(0.657 0.172 248.2);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -24,14 +24,14 @@
   --border: oklch(0.88 0 0);
   --input: oklch(0.88 0 0);
   --ring: oklch(0.657 0.172 248.2);
-  --radius: 0.5rem;
+  --radius: 0.625rem;
 }
 
 /* Dark mode - #2e2e2e bg, #f4f4f4 text, #ffffff surface at low opacity, #3498ff accent */
 .dark {
   --background: oklch(0.255 0 0);
   --foreground: oklch(0.961 0 0);
-  --card: oklch(1 0 0 / 0.03);
+  --card: oklch(1 0 0 / 0.04);
   --card-foreground: oklch(0.961 0 0);
   --popover: oklch(0.3 0 0);
   --popover-foreground: oklch(0.961 0 0);
@@ -40,12 +40,12 @@
   --secondary: oklch(0.32 0 0);
   --secondary-foreground: oklch(0.961 0 0);
   --muted: oklch(0.32 0 0);
-  --muted-foreground: oklch(0.6 0 0);
+  --muted-foreground: oklch(0.55 0 0);
   --accent: oklch(0.657 0.172 248.2);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.35 0 0);
+  --border: oklch(1 0 0 / 0.08);
   --input: oklch(0.38 0 0);
   --ring: oklch(0.657 0.172 248.2);
 }
@@ -87,34 +87,7 @@
   }
 }
 
-/* Grid pattern - more techy than dots */
-.grid-pattern {
-  background-image: 
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Animated grid highlight line */
-@keyframes grid-scan {
-  0% { transform: translateY(-100%); opacity: 0; }
-  10% { opacity: 0.5; }
-  90% { opacity: 0.5; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
-.grid-scan-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(to bottom, transparent, var(--primary), transparent);
-  opacity: 0.03;
-  animation: grid-scan 8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* Blinking cursor animation */
+/* Blinking cursor */
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -124,105 +97,38 @@
   animation: blink 1s step-end infinite;
 }
 
-/* Progress bar animation - never reaches 100% */
-@keyframes progress {
+/* Progress bar - smooth, never reaches 100% */
+@keyframes progress-fill {
   0% { width: 0%; }
-  30% { width: 55%; }
-  60% { width: 78%; }
-  80% { width: 89%; }
-  100% { width: 94%; }
+  100% { width: 92%; }
 }
 
 .animate-progress {
-  animation: progress 4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: progress-fill 3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* Subtle glow pulse */
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.02; transform: scale(1); }
-  50% { opacity: 0.05; transform: scale(1.02); }
+/* Subtle glow */
+@keyframes glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.6; }
 }
 
 .animate-glow {
-  animation: glow-pulse 6s ease-in-out infinite;
+  animation: glow 4s ease-in-out infinite;
 }
 
-/* Pulse for status dot */
-@keyframes status-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.9); }
-}
-
-.animate-status {
-  animation: status-pulse 2s ease-in-out infinite;
-}
-
-/* Typing cursor */
-@keyframes typing-cursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Tech pill hover lift */
-@keyframes pill-hover {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-2px); }
-}
-
-/* Card border glow on hover */
-.card-hover {
-  position: relative;
-  overflow: hidden;
-}
-
-.card-hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
-  transition: left 0.5s ease;
-}
-
-.card-hover:hover::before {
-  left: 100%;
-}
-
-/* Noise texture overlay - very subtle */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  opacity: 0.015;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* Selection color */
+/* Selection */
 ::selection {
-  background-color: oklch(0.657 0.172 248.2 / 0.2);
+  background-color: oklch(0.657 0.172 248.2 / 0.25);
 }
 
-/* Focus ring */
+/* Focus */
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
-/* Smooth transitions - exclude transform to avoid jank */
-* {
-  transition-property: background-color, border-color, color, opacity;
-  transition-duration: 150ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Number ticker animation */
-@keyframes count-up {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-count {
-  animation: count-up 0.6s ease-out forwards;
+/* Smooth theme transition */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

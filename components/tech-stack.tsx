@@ -22,36 +22,34 @@ export function TechStack() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 400)
-    return () => clearTimeout(timer)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    const element = document.getElementById("tech-stack")
+    if (element) observer.observe(element)
+
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section
-      className={`py-12 sm:py-16 px-6 transition-all duration-700 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      }`}
-    >
-      <div className="mx-auto max-w-2xl">
-        {/* Section label */}
-        <div className="flex items-center justify-center gap-4 mb-10">
-          <div className="h-px flex-1 bg-border max-w-16" />
-          <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
-            Stack
-          </span>
-          <div className="h-px flex-1 bg-border max-w-16" />
-        </div>
-
-        {/* Tech pills */}
-        <div className="flex flex-wrap justify-center gap-2">
+    <section id="tech-stack" className="py-20 sm:py-28 px-6">
+      <div className="mx-auto max-w-3xl">
+        {/* Tech pills - simple centered wrap */}
+        <div className="flex flex-wrap justify-center gap-2.5">
           {techs.map((tech, index) => (
             <span
               key={tech}
-              className="px-3 py-1.5 text-xs font-mono text-muted-foreground border border-border rounded-md hover:text-foreground hover:border-primary/40 transition-all duration-200 cursor-default select-none"
+              className={`px-4 py-2 text-sm text-muted-foreground border border-border rounded-full hover:text-foreground hover:border-primary/50 transition-all duration-300 cursor-default select-none ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+              }`}
               style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(8px)',
-                transitionDelay: `${index * 25}ms`,
+                transitionDelay: visible ? `${index * 40}ms` : "0ms",
               }}
             >
               {tech}

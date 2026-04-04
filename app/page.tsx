@@ -6,18 +6,9 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      {/* Noise texture for depth */}
-      <div className="noise-overlay" />
-      
-      {/* Grid pattern background */}
-      <div className="fixed inset-0 grid-pattern opacity-30 dark:opacity-[0.08] pointer-events-none" />
-      
-      {/* Animated scan line */}
-      <div className="grid-scan-line" />
-      
-      {/* Radial vignette */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--background)_75%)] pointer-events-none" />
+    <main className="relative min-h-screen">
+      {/* Single subtle glow - only decoration */}
+      <div className="fixed top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/[0.07] rounded-full blur-[150px] pointer-events-none animate-glow" />
       
       <div className="relative z-10">
         <Navbar />
