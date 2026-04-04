@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
+import Image from "next/image"
 
 export function Navbar() {
   const [isDark, setIsDark] = useState(true)
@@ -22,15 +23,22 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-5xl px-6 py-5 flex items-center justify-between">
-        {/* Logo with terminal style */}
-        <div className="flex items-center gap-1">
-          <span className="font-mono text-[11px] text-muted-foreground tracking-wide">
-            <span className="text-primary">~</span>/dev/
-          </span>
-          <span className="text-[15px] font-medium tracking-[-0.02em] text-foreground">
-            haroon
-          </span>
-          <span className="w-[1.5px] h-[14px] bg-primary ml-0.5 animate-blink" />
+        {/* Logo */}
+        <div className="flex items-center gap-3">
+          <div className="relative w-8 h-8 rounded-md overflow-hidden border border-border">
+            <Image
+              src="/logo.jpg"
+              alt="Haroon Abid Awan"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="text-[15px] font-semibold tracking-[-0.02em] text-foreground">
+              Haroon Abid Awan
+            </span>
+            <span className="w-[2px] h-[14px] bg-primary ml-0.5 animate-blink" />
+          </div>
         </div>
 
         {/* Right side */}
