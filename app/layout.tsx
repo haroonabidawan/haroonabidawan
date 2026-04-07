@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-/** Same UI / display stack as the home hero (Space Grotesk). */
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
@@ -34,7 +33,17 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {/* Letterbox bars — cinematic frame on every page */}
+        <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-10 bg-background md:h-14" />
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-10 bg-background md:h-14" />
+        {/* Vignette — darkens edges to pull focus to center */}
+        <div
+          className="pointer-events-none fixed inset-0 z-10"
+          style={{ boxShadow: "inset 0 0 220px var(--vignette)" }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

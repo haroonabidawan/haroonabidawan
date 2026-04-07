@@ -1,0 +1,37 @@
+---
+description: Punctuation rules for copy in this project
+alwaysApply: true
+---
+
+# Punctuation Standards
+
+## Em Dash (—) is banned
+
+Never use the em dash character (—) in any copy, JSX, strings, or comments.
+
+### Replacements
+
+| Instead of | Use |
+|-----------|-----|
+| `word — word` | `word. Word` (split into two sentences) |
+| `building — check back` | `building. Check back` |
+| `from the logo — to the palette` | `from the logo to the palette` (just remove it) |
+| `Title — subtitle` | `Title: subtitle` (use a colon) |
+
+### Examples
+
+```tsx
+// ❌ BAD
+<span>Currently coding this portfolio — check back soon.</span>
+
+// ✅ GOOD
+<span>Currently coding this portfolio. Check back soon.</span>
+```
+
+```tsx
+// ❌ BAD
+note: "Helped shape this site — from logo to palette."
+
+// ✅ GOOD
+note: "Helped shape this site, from logo to palette."
+```

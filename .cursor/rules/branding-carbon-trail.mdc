@@ -25,7 +25,7 @@ alwaysApply: true
 
 ## Typography
 
-- UI + headings use Inter (`font-sans`).
+- UI + headings use Space Grotesk (`font-sans`).
 - Wordmark, code blocks, and small labels use JetBrains Mono (`font-mono` or `.font-wordmark`).
 - Type scale:
   - Display `72px / 900`

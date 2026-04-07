@@ -14,6 +14,9 @@
   --text-accent: #90c0a0;
   --text-inverse: #0c0c0c;
 
+  /* Cinematic overlay */
+  --vignette: rgba(0, 0, 0, 0.72);
+
   /* Semantic aliases for app usage */
   --background: var(--bg-base);
   --foreground: var(--text-primary);

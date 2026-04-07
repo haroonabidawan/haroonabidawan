@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <main className="relative flex min-h-screen w-full items-center justify-center px-6 py-10">
+      <main className="relative z-20 flex min-h-screen w-full items-center justify-center px-6 py-20 md:py-24">
         <AnimatePresence mode="wait">
 
           {phase === "greetings" ? (
@@ -62,11 +62,10 @@ export default function Home() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, y: -12, filter: "blur(6px)" }}
               transition={{ duration: 0.7, ease: EASE_OUT }}
-              className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center text-center"
-            >
+              className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center text-center"            >
               {/* Extra padding so diacritics above/below never clip */}
               <p
-                className="font-sans text-[clamp(2.8rem,9vw,6.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground"
+                className="font-sans text-[clamp(2.8rem,9vw,6.2rem)] font-black leading-none tracking-[-0.02em] text-foreground"
                 style={{ padding: "0.35em 0.1em", overflow: "visible" }}
               >
                 <AnimatePresence mode="wait">
@@ -114,64 +113,68 @@ export default function Home() {
               key="main-content"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1.0, ease: EASE_OUT }}
+              transition={{ duration: 1.4, ease: EASE_OUT }}
               className="mx-auto flex w-full max-w-5xl flex-col items-center text-center"
             >
-              <div className="mt-8 flex flex-col items-center gap-2">
+              {/* Identity — appears as one composition */}
+              <div className="mt-8 flex flex-col items-center gap-3">
                 <motion.p
-                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 1.0, delay: 0.1, ease: CINEMA }}
-                  className="font-sans text-sm font-medium uppercase tracking-widest text-muted-foreground"
+                  initial={{ opacity: 0, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, filter: "blur(0px)" }}
+                  transition={{ duration: 1.6, delay: 0.2, ease: CINEMA }}
+                  className="type-eyebrow text-muted-foreground"
                 >
                   I&apos;m
                 </motion.p>
 
                 <motion.h1
-                  initial={{ opacity: 0, y: 32, filter: "blur(12px)" }}
+                  initial={{ opacity: 0, y: 6, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 1.1, delay: 0.22, ease: CINEMA }}
-                  className="font-sans max-w-4xl whitespace-nowrap text-[clamp(2.1rem,6.2vw,4.4rem)] font-bold leading-[1.03] tracking-[-0.015em] text-foreground"
+                  transition={{ duration: 1.8, delay: 0.34, ease: CINEMA }}
+                  className="font-sans max-w-4xl whitespace-nowrap text-[clamp(2.6rem,8vw,5.8rem)] font-extrabold leading-[1.0] tracking-[-0.02em] text-foreground"
                 >
-                  Haroon Abid Awan,
+                  Haroon Abid Awan
                 </motion.h1>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.9, delay: 0.42, ease: CINEMA }}
-                  className="font-wordmark text-sm tracking-[0.02em] text-muted-foreground md:text-base"
+                  initial={{ opacity: 0, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, filter: "blur(0px)" }}
+                  transition={{ duration: 1.4, delay: 0.6, ease: CINEMA }}
+                  className="font-wordmark text-sm tracking-[0.02em] text-secondary-foreground md:text-base"
                 >
                   Full Stack Engineer & AI Automation Specialist
                 </motion.p>
               </div>
 
+              {/* Value prop — materialises as a single line */}
               <motion.p
-                initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 1.1, delay: 0.72, ease: CINEMA }}
-                className="font-sans mt-12 max-w-4xl text-balance text-[clamp(1.05rem,2.3vw,1.55rem)] font-semibold leading-[1.3] tracking-[-0.01em] text-foreground"
+                initial={{ opacity: 0, filter: "blur(5px)" }}
+                animate={{ opacity: 1, filter: "blur(0px)" }}
+                transition={{ duration: 1.6, delay: 1.0, ease: CINEMA }}
+                className="font-sans mt-16 max-w-4xl text-balance text-[clamp(1.05rem,2.3vw,1.55rem)] font-semibold leading-[1.3] tracking-[-0.01em] text-foreground"
               >
                 I design{" "}
                 <span className="text-accent">systems that scale</span> and{" "}
                 <span className="text-accent">AI that ships</span>.
               </motion.p>
 
+              {/* Status — quiet, secondary */}
               <motion.p
-                initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.9, delay: 0.96, ease: CINEMA }}
-                className="mt-10 max-w-3xl type-body text-secondary-foreground"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.4, delay: 1.5, ease: CINEMA }}
+                className="mt-5 max-w-3xl type-body text-secondary-foreground"
               >
-                <span className="font-medium text-foreground">Currently coding this portfolio.</span>{" "}
-                Check back soon.
+                <span className="font-medium text-foreground">Chopping, mixing, and baking this portfolio.</span>{" "}
+                Still in the oven.
               </motion.p>
 
+              {/* Social + logo — one unified block */}
               <motion.div
-                initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.95, delay: 1.22, ease: CINEMA }}
-                className="mt-8 flex flex-col items-center gap-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.4, delay: 2.0, ease: CINEMA }}
+                className="mt-16 flex flex-col items-center gap-6"
               >
                 <Image
                   src="/logo.png"
@@ -260,22 +263,22 @@ export default function Home() {
               </motion.div>
 
               <motion.p
-                initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.9, delay: 1.55, ease: CINEMA }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.2, delay: 2.6, ease: CINEMA }}
                 className="mt-6 font-wordmark text-xs tracking-[0.08em] text-muted-foreground"
               >
                 © 2026 Haroon Abid Awan
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 8, filter: "blur(3px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.9, delay: 1.7, ease: CINEMA }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.2, delay: 2.8, ease: CINEMA }}
                 className="mt-3 flex items-center gap-4"
               >
                 <Link
-                  href="/credits"
+                  href="/credits-and-thanks"
                   className="font-mono text-xs text-muted-foreground underline-offset-4 transition-opacity hover:opacity-90 hover:underline"
                 >
                   Credits & Thanks
