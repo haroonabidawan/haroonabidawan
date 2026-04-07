@@ -1,68 +1,156 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "motion/react";
+
 export default function Home() {
   return (
     <div
-      className="flex min-h-screen flex-col bg-background text-foreground"
+      className="relative min-h-screen overflow-hidden"
       style={{ backgroundColor: "#0C0C0C", color: "#E8E0D0" }}
     >
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center gap-10 px-6 py-20 md:px-12">
-        <div className="space-y-5">
-          <p className="type-eyebrow font-wordmark text-accent" style={{ color: "#90C0A0" }}>
-            Carbon Trail
-          </p>
-          <h1 className="type-h1 max-w-4xl text-text-primary md:type-display" style={{ color: "#E8E0D0" }}>
-            Sustainable digital systems, crafted with precision.
-          </h1>
-          <p className="type-body max-w-2xl text-text-secondary" style={{ color: "#A8A090" }}>
-            Fresh Next.js + TypeScript foundation now uses your Carbon Trail
-            palette, typography, and semantic Tailwind tokens.
-          </p>
-        </div>
+      <div
+        className="pointer-events-none absolute inset-0 opacity-80"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 18%, rgba(78,122,86,0.24), transparent 42%), radial-gradient(circle at 8% 88%, rgba(58,90,64,0.2), transparent 38%)",
+        }}
+      />
+      <main className="relative flex min-h-screen w-full items-center justify-center px-6 py-10">
+        <section className="mx-auto flex w-full max-w-5xl flex-col items-start text-left">
+          <motion.div
+            initial={{ opacity: 0, y: -16, scale: 0.92 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <Image
+              src="/logo.png"
+              alt="Haroon Abid Awan logo"
+              width={180}
+              height={180}
+              className="h-28 w-28 object-contain md:h-40 md:w-40"
+              priority
+            />
+          </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <section
-            className="rounded-2xl border border-border bg-card p-6"
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            className="mt-8 max-w-4xl font-sans text-[clamp(2.3rem,6.8vw,4.8rem)] font-black leading-[1.02] tracking-[-0.02em]"
+            style={{ color: "#E8E0D0" }}
+          >
+            <span className="block">Hey,</span>
+            <span className="block whitespace-nowrap">I&apos;m Haroon Abid Awan.</span>
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" }}
+            className="mt-3 flex flex-wrap items-center justify-start gap-2"
+          >
+            {[
+              "Senior Full Stack Engineer",
+              "AI Automation Specialist",
+              "Scalable Product Architect",
+            ].map((item, index, arr) => (
+              <motion.p
+                key={item}
+                className="type-eyebrow font-wordmark"
+                style={{ color: "#A8A090", textTransform: "none" }}
+              >
+                {item}
+                {index < arr.length - 1 ? <span className="mx-2 opacity-50">/</span> : null}
+              </motion.p>
+            ))}
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.24, ease: "easeOut" }}
+            className="mt-5 max-w-2xl type-body"
+            style={{ color: "#A8A090" }}
+          >
+            A fresh portfolio experience is currently in the works. New details,
+            selected work, and deeper case studies are coming very soon.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+            className="mt-5 max-w-3xl type-body"
+            style={{ color: "#E8E0D0" }}
+          >
+            I design and ship robust web platforms, intelligent automation
+            workflows, and production-grade systems that keep performance and
+            maintainability at the center.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.33, ease: "easeOut" }}
+            className="mt-6 flex items-center gap-4"
+          >
+            <motion.a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ y: -2, scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              aria-label="LinkedIn"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border"
+              style={{ borderColor: "#2E2E2E", color: "#90C0A0", backgroundColor: "#1A1A1A" }}
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38 1.56 1.56 0 0 1 6.94 8.5Zm1.36 1.19H5.58V19h2.72V9.69Zm4.34 0H9.96V19h2.68v-4.88c0-1.29.24-2.53 1.84-2.53 1.58 0 1.6 1.48 1.6 2.62V19H18.8v-5.35c0-2.63-.57-4.65-3.65-4.65-1.48 0-2.47.81-2.87 1.58h-.04V9.69Z" />
+              </svg>
+            </motion.a>
+
+            <motion.a
+              href="mailto:hello@example.com"
+              whileHover={{ y: -2, scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              aria-label="Email"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border"
+              style={{ borderColor: "#2E2E2E", color: "#90C0A0", backgroundColor: "#1A1A1A" }}
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 stroke-current" fill="none" strokeWidth="1.8">
+                <path d="M4 7.2C4 6.54 4.54 6 5.2 6h13.6c.66 0 1.2.54 1.2 1.2v9.6c0 .66-.54 1.2-1.2 1.2H5.2c-.66 0-1.2-.54-1.2-1.2V7.2Z" />
+                <path d="m5 8 7 5 7-5" />
+              </svg>
+            </motion.a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+            className="mt-8 inline-flex items-center gap-3 rounded-full border px-5 py-2"
             style={{ borderColor: "#2E2E2E", backgroundColor: "#1A1A1A" }}
           >
-            <h2 className="type-h3 text-text-primary" style={{ color: "#E8E0D0" }}>
-              Design Tokens
-            </h2>
-            <p className="mt-2 type-body text-text-secondary" style={{ color: "#A8A090" }}>
-              Color roles are centralized in CSS variables and exposed in
-              Tailwind (`bg-background`, `text-foreground`, `border-border`,
-              `bg-primary`).
-            </p>
-          </section>
-
-          <section
-            className="rounded-2xl border border-border bg-secondary p-6"
-            style={{ borderColor: "#2E2E2E", backgroundColor: "#252525" }}
-          >
-            <h2 className="type-h3 text-text-primary" style={{ color: "#E8E0D0" }}>
-              Typography System
-            </h2>
-            <p className="mt-2 type-body text-text-secondary" style={{ color: "#A8A090" }}>
-              Inter powers UI and headings. JetBrains Mono powers wordmark,
-              code, and labels with the defined display-to-eyebrow scale.
-            </p>
-          </section>
-        </div>
-
-        <div className="flex flex-wrap gap-4">
-          <a
-            className="inline-flex h-11 items-center justify-center rounded-full bg-(--accent-hover) px-6 text-sm font-medium text-primary-foreground shadow-[0_0_0_1px_var(--accent)] transition-colors hover:bg-primary"
-            href="#"
-            style={{ backgroundColor: "#4E7A56", color: "#0C0C0C" }}
-          >
-            Primary Action
-          </a>
-          <a
-            className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-card px-6 text-sm text-text-secondary transition-colors hover:bg-secondary hover:text-text-primary"
-            href="#"
-            style={{ borderColor: "#2E2E2E", backgroundColor: "#1A1A1A", color: "#A8A090" }}
-          >
-            Secondary Action
-          </a>
-        </div>
+            <motion.svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              style={{ color: "#4E7A56" }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+            >
+              <path d="M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z" />
+              <path d="M19.5 12a7.5 7.5 0 0 0-.08-1.1l2-1.56-2-3.47-2.43.72a7.62 7.62 0 0 0-1.9-1.1L14.7 3h-4.01l-.39 2.49a7.6 7.6 0 0 0-1.9 1.1l-2.43-.72-2 3.47 2 1.56a7.5 7.5 0 0 0 0 2.2l-2 1.56 2 3.47 2.43-.72a7.62 7.62 0 0 0 1.9 1.1L10.69 21h4.01l.39-2.49a7.6 7.6 0 0 0 1.9-1.1l2.43.72 2-3.47-2-1.56c.05-.36.08-.73.08-1.1Z" />
+            </motion.svg>
+            <span className="type-eyebrow font-wordmark" style={{ color: "#90C0A0" }}>
+              SYSTEM CALIBRATION IN PROGRESS
+            </span>
+          </motion.div>
+        </section>
       </main>
     </div>
   );
