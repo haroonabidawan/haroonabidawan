@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Carbon Trail palette */
+  --bg-base: #0c0c0c;
+  --surface: #1a1a1a;
+  --surface-alt: #252525;
+  --border-strong: #2e2e2e;
+  --accent: #3a5a40;
+  --accent-hover: #4e7a56;
+  --text-primary: #e8e0d0;
+  --text-secondary: #a8a090;
+  --text-muted: #5a5248;
+  --text-accent: #90c0a0;
+  --text-inverse: #0c0c0c;
+
+  /* Semantic aliases for app usage */
+  --background: var(--bg-base);
+  --foreground: var(--text-primary);
+  --card: var(--surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface-alt);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent);
+  --primary-foreground: var(--text-inverse);
+  --secondary: var(--surface-alt);
+  --secondary-foreground: var(--text-secondary);
+  --muted: var(--surface);
+  --muted-foreground: var(--text-muted);
+  --destructive: #a13f3f;
+  --destructive-foreground: var(--text-primary);
+  --border: var(--border-strong);
+  --input: var(--surface-alt);
+  --ring: var(--accent);
+
+  /* Typography */
+  --font-ui-family: var(--font-ui), "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono-family: var(--font-mono-brand), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --text-display-size: 4.5rem; /* 72px */
+  --text-h1-size: 3rem; /* 48px */
+  --text-h2-size: 2rem; /* 32px */
+  --text-h3-size: 1.25rem; /* 20px */
+  --text-body-size: 1rem; /* 16px */
+  --text-eyebrow-size: 0.6875rem; /* 11px */
+  --tracking-eyebrow: 0.3125rem; /* 5px */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-accent: var(--text-accent);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --font-sans: var(--font-ui-family);
+  --font-mono: var(--font-mono-family);
+
+  --text-display: var(--text-display-size);
+  --text-display--line-height: 1;
+  --text-display--font-weight: 900;
+  --text-h1: var(--text-h1-size);
+  --text-h1--line-height: 1.1;
+  --text-h1--font-weight: 800;
+  --text-h2: var(--text-h2-size);
+  --text-h2--line-height: 1.2;
+  --text-h2--font-weight: 700;
+  --text-h3: var(--text-h3-size);
+  --text-h3--line-height: 1.35;
+  --text-h3--font-weight: 500;
+  --text-body: var(--text-body-size);
+  --text-body--line-height: 1.6;
+  --text-body--font-weight: 300;
+  --text-eyebrow: var(--text-eyebrow-size);
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--font-weight: 200;
+  --tracking-eyebrow: var(--tracking-eyebrow);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
 }
 
+html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-family: var(--font-ui-family);
+  font-size: var(--text-body-size);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--text-accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+.font-wordmark,
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono-family);
+}
+
+.type-display {
+  font-size: var(--text-display-size);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.type-h1 {
+  font-size: var(--text-h1-size);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.type-h2 {
+  font-size: var(--text-h2-size);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.type-h3 {
+  font-size: var(--text-h3-size);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.type-body {
+  font-size: var(--text-body-size);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.type-eyebrow {
+  font-size: var(--text-eyebrow-size);
+  font-weight: 200;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  line-height: 1.4;
 }
