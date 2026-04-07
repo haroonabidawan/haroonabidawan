@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { Space_Grotesk } from "next/font/google";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["700"] });
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -61,40 +64,50 @@ export default function Home() {
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-                className="mt-8 max-w-4xl font-sans text-[clamp(2.3rem,6.8vw,4.8rem)] font-black leading-[1.02] tracking-[-0.02em]"
+                className={`${spaceGrotesk.className} mt-8 max-w-4xl text-[clamp(2.1rem,6.2vw,4.4rem)] font-bold leading-[1.03] tracking-[-0.015em]`}
                 style={{ color: "#E8E0D0" }}
               >
-                <span className="block">Hey,</span>
-                <span className="block whitespace-nowrap">I&apos;m Haroon Abid Awan.</span>
+                <motion.span
+                  initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
+                  className="block text-[1.25em] md:text-[1.32em]"
+                >
+                  Hey,
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.8, delay: 0.92, ease: "easeOut" }}
+                  className="mt-5 block whitespace-nowrap"
+                >
+                  I&apos;m Haroon Abid Awan.
+                </motion.span>
               </motion.h1>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" }}
-                className="mt-3 flex flex-wrap items-center justify-start gap-2"
-              >
+              <div className="mt-8 space-y-2">
                 {[
-                  "Senior Full Stack Engineer",
-                  "AI Automation Specialist",
+                  "Senior Full Stack Engineer/",
+                  "AI Automation Specialist/",
                   "Scalable Product Architect",
-                ].map((item, index, arr) => (
+                ].map((item, index) => (
                   <motion.p
                     key={item}
+                    initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    transition={{ duration: 0.62, delay: 1.24 + index * 0.18, ease: "easeOut" }}
                     className="type-eyebrow font-wordmark"
                     style={{ color: "#A8A090", textTransform: "none" }}
                   >
                     {item}
-                    {index < arr.length - 1 ? <span className="mx-2 opacity-50">/</span> : null}
                   </motion.p>
                 ))}
-              </motion.div>
+              </div>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.24, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.72, delay: 1.86, ease: "easeOut" }}
                 className="mt-5 max-w-2xl type-body"
                 style={{ color: "#A8A090" }}
               >
@@ -103,9 +116,9 @@ export default function Home() {
               </motion.p>
 
               <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.72, delay: 2.04, ease: "easeOut" }}
                 className="mt-5 max-w-3xl type-body"
                 style={{ color: "#E8E0D0" }}
               >
@@ -115,9 +128,9 @@ export default function Home() {
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.33, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 12, filter: "blur(3px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.6, delay: 2.2, ease: "easeOut" }}
                 className="mt-6 flex items-center gap-4"
               >
                 <motion.a
@@ -151,9 +164,9 @@ export default function Home() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 12, filter: "blur(3px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.6, delay: 2.34, ease: "easeOut" }}
                 className="mt-8 inline-flex items-center gap-3 rounded-full border px-5 py-2"
                 style={{ borderColor: "#2E2E2E", backgroundColor: "#1A1A1A" }}
               >
