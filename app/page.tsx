@@ -153,8 +153,8 @@ export default function Home() {
                 transition={{ duration: 1.6, delay: 1.0, ease: CINEMA }}
                 className="font-sans mt-16 max-w-4xl text-balance text-[clamp(1.05rem,2.3vw,1.55rem)] font-semibold leading-[1.3] tracking-[-0.01em] text-foreground"
               >
-                I design{" "}
-                <span className="text-accent">systems that scale</span> and{" "}
+                I engineer the invisible.{" "}
+                <span className="text-accent">Systems that scale</span> and{" "}
                 <span className="text-accent">AI that ships</span>.
               </motion.p>
 

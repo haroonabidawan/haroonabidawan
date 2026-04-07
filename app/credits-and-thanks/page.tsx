@@ -11,7 +11,7 @@ const contributors = [
     handle: "Sarah P.",
     url: "https://www.sarahmp.com/",
     role: "Logo design, logo selection & colour palette",
-    note: "Frontend developer and creative technologist based in Bahrain. Sarah's eye for design helped shape the visual identity of this site, from the logo to the Carbon Trail colour palette.",
+    note: "Based in Bahrain with an eye sharp enough to cut through noise. Sarah shaped the visual soul of this site — from the wordmark to the Carbon Trail palette. If this place has taste, she seasoned it.",
     location: "Bahrain",
   },
 ];
@@ -48,13 +48,13 @@ export default function CreditsPage() {
           {...fadeUp(0.2)}
           className="mt-3 text-[clamp(1.6rem,4vw,2.4rem)] font-extrabold leading-tight tracking-tight text-foreground"
         >
-          The people behind this site.
+          Every great film needs a crew.
         </motion.h1>
         <motion.p
           {...fadeUp(0.32)}
           className="mt-3 max-w-lg text-sm font-light leading-relaxed text-secondary-foreground"
         >
-          Good work is rarely solo. These are the people who gave their time, taste, and talent to this project.
+          Great work is never a solo act. These are the people who sharpened the details, seasoned the decisions, and made this thing worth watching.
         </motion.p>
 
         <motion.div
@@ -127,16 +127,16 @@ export default function CreditsPage() {
           {...fadeUp(0.66)}
           className="mt-6 rounded-lg border border-border bg-card px-5 py-4"
         >
-          <p className="font-sans text-sm font-medium text-foreground">Want to contribute?</p>
+          <p className="font-sans text-sm font-medium text-foreground">Pull up a chair.</p>
           <p className="mt-1 text-sm font-light leading-relaxed text-secondary-foreground">
-            Feedback, design input, code review. All welcome. Reach out at{" "}
+            This kitchen always has room for one more. Sharp eyes, clean code, strong opinions — all welcome. Drop a line at{" "}
             <a
               href="mailto:Haroon.abid.1999@gmail.com"
               className="font-mono text-accent underline-offset-4 hover:underline"
             >
               Haroon.abid.1999@gmail.com
             </a>{" "}
-            and you might end up on this page.
+            and you might earn a seat at this table.
           </p>
         </motion.div>
 
