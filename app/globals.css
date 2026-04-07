@@ -1,134 +1,26 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
-/* Light mode - #f4f4f4 bg, #2e2e2e text, #ffffff surface, #3498ff accent */
 :root {
-  --background: oklch(0.961 0 0);
-  --foreground: oklch(0.255 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.255 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.255 0 0);
-  --primary: oklch(0.657 0.172 248.2);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.961 0 0);
-  --secondary-foreground: oklch(0.255 0 0);
-  --muted: oklch(0.92 0 0);
-  --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.657 0.172 248.2);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.88 0 0);
-  --input: oklch(0.88 0 0);
-  --ring: oklch(0.657 0.172 248.2);
-  --radius: 0.625rem;
-}
-
-/* Dark mode - #2e2e2e bg, #f4f4f4 text, #ffffff surface at low opacity, #3498ff accent */
-.dark {
-  --background: oklch(0.255 0 0);
-  --foreground: oklch(0.961 0 0);
-  --card: oklch(1 0 0 / 0.04);
-  --card-foreground: oklch(0.961 0 0);
-  --popover: oklch(0.3 0 0);
-  --popover-foreground: oklch(0.961 0 0);
-  --primary: oklch(0.657 0.172 248.2);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.32 0 0);
-  --secondary-foreground: oklch(0.961 0 0);
-  --muted: oklch(0.32 0 0);
-  --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(0.657 0.172 248.2);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(1 0 0 / 0.08);
-  --input: oklch(0.38 0 0);
-  --ring: oklch(0.657 0.172 248.2);
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground antialiased;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
-/* Blinking cursor */
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.animate-blink {
-  animation: blink 1s step-end infinite;
-}
-
-/* Progress bar - smooth, never reaches 100% */
-@keyframes progress-fill {
-  0% { width: 0%; }
-  100% { width: 92%; }
-}
-
-.animate-progress {
-  animation: progress-fill 3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-/* Subtle glow */
-@keyframes glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.6; }
-}
-
-.animate-glow {
-  animation: glow 4s ease-in-out infinite;
-}
-
-/* Selection */
-::selection {
-  background-color: oklch(0.657 0.172 248.2 / 0.25);
-}
-
-/* Focus */
-:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Smooth theme transition */
-html {
-  transition: background-color 0.3s ease, color 0.3s ease;
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
