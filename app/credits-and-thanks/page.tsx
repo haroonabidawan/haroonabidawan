@@ -30,10 +30,10 @@ export default function CreditsPage() {
           Credits & Thanks
           </p>
           <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
-            Every great film needs a crew.
+            Great work is never a solo act.
           </h1>
           <p className="mx-auto mt-1.5 max-w-lg text-sm font-light text-secondary-foreground">
-            The people who sharpened the details, seasoned the decisions, and made this thing worth watching.
+            The crew behind the texture, tone, and final cut.
           </p>
         </motion.div>
 
@@ -103,7 +103,7 @@ export default function CreditsPage() {
             </div>
             <div className="flex-1 overflow-y-auto px-4 py-3 text-left [scrollbar-width:thin]">
               <p className="text-[0.75rem] font-light leading-relaxed text-secondary-foreground">
-                This kitchen always has room for one more. Sharp eyes, clean code, strong opinions: all welcome.
+                This kitchen always has room for one more. Sharp eyes, clean code, strong opinions. All welcome.
               </p>
             </div>
           </motion.article>

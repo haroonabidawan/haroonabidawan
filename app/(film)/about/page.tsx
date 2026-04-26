@@ -7,7 +7,7 @@ import { CINEMA } from "@/lib/motion";
 const scenes = [
   {
     key: "opening-shot",
-    label: "Opening shot",
+    label: "Act I · Opening shot",
     title: "A system is already running before anyone enters the room.",
     body: [
       "The screen is dark. Somewhere behind it, tenants are logging in, jobs are moving, reports are being written, and no one is holding their breath.",
@@ -16,7 +16,7 @@ const scenes = [
   },
   {
     key: "conflict",
-    label: "The problem enters",
+    label: "Act II · Rising tension",
     title: "The easy demo is never the final scene.",
     body: [
       "A SaaS product needs more than clean screens. It needs tenancy boundaries, APIs that stay honest, queues that do not panic, and data that lands where it should.",
@@ -25,7 +25,7 @@ const scenes = [
   },
   {
     key: "craft",
-    label: "The craft",
+    label: "Act III · The craft",
     title: "Laravel and NestJS are home bases. The rest is the set.",
     body: [
       "I have the most miles in PHP, Laravel, Node, and NestJS. I move through React, Next.js, Vue, Nuxt, PostgreSQL, Redis, Docker, and AWS when the scene asks for it.",
@@ -34,7 +34,7 @@ const scenes = [
   },
   {
     key: "closing-frame",
-    label: "Closing frame",
+    label: "Act IV · Closing frame",
     title: "I own the shot I promise.",
     body: [
       "Schema, APIs, deploys, documentation, edge cases, and the awkward handoff. I would rather make the next engineer comfortable than make myself look clever.",
@@ -57,7 +57,7 @@ export default function PositionPage() {
           A quiet build, told like a film.
         </h1>
         <p className="mt-1.5 text-sm font-light text-secondary-foreground">
-          Four scenes. One way of working.
+          Hook first. Proof second. Trust by the final frame.
         </p>
       </motion.div>
 

@@ -19,10 +19,10 @@ export default function CraftPage() {
       >
         <p className="type-eyebrow text-accent">Skills</p>
         <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
-          The toolkit, grouped like mise en place.
+          The toolkit behind the camera.
         </h1>
         <p className="mt-1.5 text-sm font-light text-secondary-foreground">
-          Every discipline gets its own drawer.
+          Every tool has a role before the first take.
         </p>
       </motion.div>
 

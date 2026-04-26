@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 import { profile } from "@/lib/profile";
 
 const items = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "Title" },
   { href: "/about", label: "About" },
-  { href: "/work", label: "Work" },
-  { href: "/projects", label: "Projects" },
-  { href: "/craft", label: "Craft" },
+  { href: "/timeline", label: "Timeline" },
+  { href: "/frames", label: "Frames" },
+  { href: "/toolkit", label: "Toolkit" },
   { href: "/contact", label: "Contact" },
-  { href: "/credits-and-thanks", label: "Credits" },
+  { href: "/credits", label: "Credits" },
 ] as const;
 
 export function AppNav() {

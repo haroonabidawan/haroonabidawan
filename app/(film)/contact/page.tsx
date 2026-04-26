@@ -24,11 +24,11 @@ export default function ContactPage() {
             <p className="type-eyebrow text-accent">Contact</p>
 
             <h1 className="mt-3 text-[clamp(1.35rem,3.2vw,1.9rem)] font-bold leading-tight tracking-tight text-foreground">
-              If the fit is right, we roll.
+              If the fit is right, we roll cameras.
             </h1>
 
             <p className="mt-3 max-w-sm text-sm font-light leading-relaxed text-secondary-foreground">
-              I read what you send. I answer like an adult.
+              Send a brief. I reply clearly and move fast.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -77,7 +77,7 @@ export default function ContactPage() {
         </p>
         <div className="flex items-center gap-4">
           <Link
-            href="/credits-and-thanks"
+            href="/credits"
             className="font-mono text-[0.65rem] text-muted-foreground underline-offset-4 transition-opacity hover:opacity-90 hover:underline"
           >
             Credits & Thanks

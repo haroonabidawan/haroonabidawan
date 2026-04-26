@@ -18,10 +18,10 @@ export default function ProjectsPage() {
       >
         <p className="type-eyebrow text-accent">Projects</p>
         <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
-          A longer lens on selected work.
+          Selected frames from the real work.
         </h1>
         <p className="mt-1.5 text-sm font-light text-secondary-foreground">
-          Each one is a different setup. Same discipline underneath.
+          Problem. Decision. Outcome.
         </p>
       </motion.div>
 
@@ -47,13 +47,32 @@ export default function ProjectsPage() {
             </div>
 
             <div className="flex flex-1 flex-col overflow-y-auto px-4 py-3 [scrollbar-width:thin]">
-              <p className="text-[0.72rem] font-medium leading-snug text-foreground">{p.hook}</p>
-              <p className="mt-1.5 text-[0.7rem] font-light leading-relaxed text-muted-foreground">
-                {p.detail}
-              </p>
+              <div className="space-y-2">
+                <div>
+                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-accent">Problem</p>
+                  <p className="mt-1 text-[0.72rem] font-light leading-snug text-secondary-foreground">
+                    {p.hook}
+                  </p>
+                </div>
+                <div>
+                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-accent">Decision</p>
+                  <p className="mt-1 text-[0.72rem] font-light leading-snug text-secondary-foreground">
+                    {p.detail}
+                  </p>
+                </div>
+                <div>
+                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-accent">Outcome</p>
+                  <p className="mt-1 text-[0.72rem] font-light leading-snug text-secondary-foreground">
+                    {p.outcome}
+                  </p>
+                </div>
+              </div>
 
-              <div className="mt-auto pt-3">
-                <div className="flex flex-wrap gap-1.5">
+              <div className="mt-3 border-t border-border pt-2.5">
+                <p className="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-muted-foreground">
+                  Owned
+                </p>
+                <div className="mt-1.5 flex flex-wrap gap-1.5">
                   {p.stack.map((s) => (
                     <span
                       key={s}
@@ -63,9 +82,6 @@ export default function ProjectsPage() {
                     </span>
                   ))}
                 </div>
-                <p className="mt-2.5 border-t border-border pt-2.5 text-[0.65rem] font-medium leading-snug text-accent">
-                  {p.outcome}
-                </p>
               </div>
             </div>
           </motion.article>
