@@ -15,7 +15,8 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Haroon Abid Awan",
-  description: "Portfolio coming soon.",
+  description:
+    "Senior full stack and AI-enabled automation engineer. Multi-tenant SaaS, Laravel, NestJS, and calm systems that ship.",
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
     shortcut: [{ url: "/icon.png", type: "image/png" }],
@@ -34,10 +35,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* Letterbox bars — cinematic frame on every page */}
-        <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-10 bg-background md:h-14" />
-        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-10 bg-background md:h-14" />
-        {/* Vignette — darkens edges to pull focus to center */}
+        {/* Vignette: darkens edges to pull focus to center */}
         <div
           className="pointer-events-none fixed inset-0 z-10"
           style={{ boxShadow: "inset 0 0 220px var(--vignette)" }}
