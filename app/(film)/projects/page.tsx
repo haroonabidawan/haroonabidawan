@@ -32,7 +32,7 @@ export default function ProjectsPage() {
             initial={{ opacity: 0, x: 20, filter: "blur(6px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.55, delay: i * 0.07, ease: CINEMA }}
-            className="flex w-[min(72vw,230px)] max-h-52 shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[230px]"
+            className="flex w-[min(92vw,460px)] max-h-52 shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[460px]"
           >
             <div className="flex items-start justify-between gap-3 border-b border-border px-4 py-3">
               <div className="min-w-0">

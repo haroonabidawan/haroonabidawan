@@ -36,7 +36,7 @@ export default function PositionPage() {
             initial={{ opacity: 0, x: 20, filter: "blur(6px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.55, delay: i * 0.08, ease: CINEMA }}
-            className="flex w-[min(72vw,260px)] max-h-52 shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[260px]"
+            className="flex w-[min(92vw,520px)] max-h-52 shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[520px]"
           >
             <div className="border-b border-border px-4 py-3">
               <h2 className="text-sm font-bold leading-tight tracking-tight text-foreground">

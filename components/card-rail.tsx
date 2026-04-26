@@ -35,8 +35,9 @@ export function CardRail({ children, label }: CardRailProps) {
   const scroll = (dir: 1 | -1) => {
     const el = ref.current;
     if (!el) return;
-    const first = el.firstElementChild as HTMLElement | null;
-    const step = first ? first.offsetWidth + 12 : 300;
+    const row = el.firstElementChild as HTMLElement | null;
+    const firstCard = row?.firstElementChild as HTMLElement | null;
+    const step = firstCard ? firstCard.offsetWidth + 12 : 300;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
@@ -44,9 +45,10 @@ export function CardRail({ children, label }: CardRailProps) {
     <div className="flex w-full flex-col overflow-hidden">
       <div
         ref={ref}
-        className="flex w-full items-center gap-3 overflow-x-auto py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="w-full overflow-x-auto py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {children}
+        {/* w-max + mx-auto: row is centered when it fits; when wider than viewport, scrolls normally */}
+        <div className="mx-auto flex w-max items-center gap-3">{children}</div>
       </div>
 
       <div className="flex w-full shrink-0 items-center justify-between border-t border-border py-2.5">

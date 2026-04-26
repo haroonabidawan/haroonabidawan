@@ -33,7 +33,7 @@ export default function CraftPage() {
             initial={{ opacity: 0, x: 20, filter: "blur(6px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.55, delay: i * 0.06, ease: CINEMA }}
-            className="flex w-[min(55vw,180px)] max-h-52 shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[180px]"
+            className="flex w-[min(88vw,360px)] max-h-52 shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[360px]"
           >
             <div className="border-b border-border px-4 py-2.5">
               <h2 className="font-mono text-[0.58rem] uppercase tracking-[0.18em] text-muted-foreground">
@@ -59,7 +59,7 @@ export default function CraftPage() {
           initial={{ opacity: 0, x: 20, filter: "blur(6px)" }}
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.55, delay: skillGroups.length * 0.06, ease: CINEMA }}
-          className="flex w-[min(65vw,220px)] max-h-52 shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[220px]"
+          className="flex w-[min(92vw,440px)] max-h-52 shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[440px]"
         >
           <div className="border-b border-border px-4 py-2.5">
             <h2 className="font-mono text-[0.58rem] uppercase tracking-[0.18em] text-muted-foreground">
