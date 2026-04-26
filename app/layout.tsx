@@ -35,6 +35,14 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <div
+          className="pointer-events-none fixed inset-0 z-8 opacity-35"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent 0%, transparent 47%, color-mix(in oklab, var(--foreground) 7%, transparent) 50%, transparent 53%, transparent 100%)",
+            backgroundSize: "100% 9rem",
+          }}
+        />
         {/* Vignette: darkens edges to pull focus to center */}
         <div
           className="pointer-events-none fixed inset-0 z-10"

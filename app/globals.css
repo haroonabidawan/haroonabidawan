@@ -116,6 +116,38 @@ body {
   line-height: 1.6;
 }
 
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  opacity: 0.18;
+  background:
+    radial-gradient(circle at 20% 15%, color-mix(in oklab, var(--text-accent) 18%, transparent), transparent 26rem),
+    radial-gradient(circle at 82% 72%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 24rem),
+    linear-gradient(115deg, transparent 0%, color-mix(in oklab, var(--surface-alt) 20%, transparent) 44%, transparent 70%);
+  animation: slow-light-drift 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  opacity: 0.08;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      color-mix(in oklab, var(--foreground) 18%, transparent) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(circle, color-mix(in oklab, var(--foreground) 28%, transparent) 0 0.7px, transparent 0.8px);
+  background-size: 100% 4px, 4px 4px;
+  mix-blend-mode: overlay;
+}
+
 a {
   color: var(--text-accent);
 }
@@ -171,3 +203,19 @@ samp {
 }
 
 /* Hero landing uses palette vars only (no hex in components). */
+
+@keyframes slow-light-drift {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}

@@ -35,7 +35,7 @@ export function CardRail({ children, label }: CardRailProps) {
   const scroll = (dir: 1 | -1) => {
     const el = ref.current;
     if (!el) return;
-    const row = el.firstElementChild as HTMLElement | null;
+    const row = el.querySelector<HTMLElement>("[data-card-row]");
     const firstCard = row?.firstElementChild as HTMLElement | null;
     const step = firstCard ? firstCard.offsetWidth + 12 : 300;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
@@ -45,10 +45,21 @@ export function CardRail({ children, label }: CardRailProps) {
     <div className="flex w-full flex-col overflow-hidden">
       <div
         ref={ref}
-        className="w-full overflow-x-auto py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="w-full overflow-x-auto py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {/* w-max + mx-auto: row is centered when it fits; when wider than viewport, scrolls normally */}
-        <div className="mx-auto flex w-max items-center gap-3">{children}</div>
+        <div className="mx-auto w-max rounded-2xl border border-border/70 bg-background/40 p-3 shadow-[0_0_70px_color-mix(in_oklab,var(--accent)_10%,transparent)]">
+          <div className="flex h-2 items-center gap-3 px-1" aria-hidden="true">
+            {Array.from({ length: 18 }).map((_, i) => (
+              <span key={`top-${i}`} className="h-1 w-1 rounded-full bg-border/70" />
+            ))}
+          </div>
+          <div data-card-row className="my-3 flex w-max items-stretch gap-3">{children}</div>
+          <div className="flex h-2 items-center gap-3 px-1" aria-hidden="true">
+            {Array.from({ length: 18 }).map((_, i) => (
+              <span key={`bottom-${i}`} className="h-1 w-1 rounded-full bg-border/70" />
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="flex w-full shrink-0 items-center justify-between border-t border-border py-2.5">
