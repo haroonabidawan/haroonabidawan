@@ -5,8 +5,8 @@ const siteUrl = "https://haroonabidawan.com";
 const routes = [
   "/",
   "/about",
-  "/timeline",
-  "/frames",
+  "/experience",
+  "/work",
   "/projects",
   "/toolkit",
   "/contact",

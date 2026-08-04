@@ -151,8 +151,8 @@ export default function Home() {
               animate={showTagline ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
               transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.28, ease: CINEMA }}
             >
-              <SceneLinkButton href="/frames" label="See the work" />
-              <SceneLinkButton href="/timeline" label="Open experience" />
+              <SceneLinkButton href="/work" label="See the work" />
+              <SceneLinkButton href="/experience" label="Open experience" />
               <SceneLinkButton href="/about" label="About" />
             </motion.div>
 

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
-type NavEvent = "nav_frames" | "nav_timeline" | "nav_contact" | null;
+type NavEvent = "nav_work" | "nav_experience" | "nav_contact" | null;
 
 type MobileTab = {
   href: string;
@@ -15,11 +15,11 @@ type MobileTab = {
   icon: "home" | "work" | "path" | "contact";
 };
 
-/** Same labels as desktop web nav. */
+/** Same labels as desktop web nav. Labels match route segments. */
 const mobileTabs: MobileTab[] = [
   { href: "/", label: "Home", event: null, icon: "home" },
-  { href: "/frames", label: "Work", event: "nav_frames", icon: "work" },
-  { href: "/timeline", label: "Experience", event: "nav_timeline", icon: "path" },
+  { href: "/work", label: "Work", event: "nav_work", icon: "work" },
+  { href: "/experience", label: "Experience", event: "nav_experience", icon: "path" },
   { href: "/contact", label: "Contact", event: "nav_contact", icon: "contact" },
 ];
 
@@ -34,8 +34,8 @@ const moreActiveHrefs = new Set<string>(moreLinks.map((l) => l.href));
 
 const desktopItems = [
   { href: "/about", label: "About", event: null as NavEvent },
-  { href: "/timeline", label: "Experience", event: "nav_timeline" as NavEvent },
-  { href: "/frames", label: "Work", event: "nav_frames" as NavEvent },
+  { href: "/experience", label: "Experience", event: "nav_experience" as NavEvent },
+  { href: "/work", label: "Work", event: "nav_work" as NavEvent },
   { href: "/toolkit", label: "Toolkit", event: null as NavEvent },
   { href: "/contact", label: "Contact", event: "nav_contact" as NavEvent },
   { href: "/credits", label: "Credits", event: null as NavEvent },
@@ -43,7 +43,7 @@ const desktopItems = [
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
-  if (href === "/frames") return pathname === "/frames" || pathname === "/projects";
+  if (href === "/work") return pathname === "/work" || pathname === "/projects";
   return pathname === href;
 }
 
@@ -193,7 +193,7 @@ export function AppNav() {
         <div className="pointer-events-auto relative z-50 mx-auto flex max-w-md items-stretch gap-1 rounded-2xl border border-border/80 bg-card/95 px-1 py-1.5 shadow-[0_12px_40px_color-mix(in_oklab,var(--bg-base)_85%,transparent)] backdrop-blur-xl">
           {mobileTabs.map(({ href, label, event, icon }) => {
             const active = isActive(pathname, href);
-            const grow = href === "/timeline" ? "flex-[1.55]" : "flex-1";
+            const grow = href === "/experience" ? "flex-[1.55]" : "flex-1";
             return (
               <Link
                 key={href}

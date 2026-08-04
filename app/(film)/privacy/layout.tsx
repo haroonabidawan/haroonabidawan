@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "How this portfolio handles contact, analytics, and your data. Short, plain, and specific.",
+    "Contact handling, Google Analytics 4 on this portfolio, and what I do with your data. Short, plain, and specific.",
 };
 
 export default function PrivacyLayout({

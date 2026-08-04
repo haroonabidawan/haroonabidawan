@@ -9,7 +9,7 @@ import { CINEMA } from "@/lib/motion";
 const sections = [
   {
     title: "What this site collects",
-    body: "This portfolio does not run an account system or store form submissions on a server of mine. If you email or call, that conversation lives in the channel you chose.",
+    body: "This portfolio does not run an account system or store form submissions on a server of mine. If you email or call, that conversation lives in the channel you chose. Page traffic is measured with Google Analytics, as described below.",
   },
   {
     title: "Contact",
@@ -17,7 +17,11 @@ const sections = [
   },
   {
     title: "Analytics",
-    body: "Analytics load only if a measurement ID is configured in the deployment environment. When active, they help me see which pages and CTAs earn attention. No ads. No remarketing lists sold to third parties.",
+    body: "This site uses Google Analytics 4 (GA4). It records page views, device and browser basics, approximate location, and a few interaction events such as navigation and Send a brief. Google may set cookies or similar identifiers for that measurement. I use the numbers to see which scenes and CTAs earn attention. No ads on this site. I do not sell remarketing lists or traffic data to third parties.",
+  },
+  {
+    title: "Google's role",
+    body: "GA4 is processed by Google under their terms and privacy policy. You can limit ad personalization and measurement cookies in your browser settings, or through Google's own controls where available.",
   },
   {
     title: "Third-party sites",

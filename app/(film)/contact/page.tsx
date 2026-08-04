@@ -128,8 +128,8 @@ export default function ContactPage() {
           showPrimary={false}
           eyebrow="Keep exploring"
           links={[
-            { href: "/frames", label: "See the work" },
-            { href: "/timeline", label: "Open experience" },
+            { href: "/work", label: "See the work" },
+            { href: "/experience", label: "Open experience" },
             { href: "/toolkit", label: "Toolkit" },
             { href: "/about", label: "About" },
             { href: "/credits", label: "Credits" },

@@ -22,6 +22,16 @@ const marks = {
   about: MarkAbout,
 } as const;
 
+const labels = {
+  midnight: "Midnight systems",
+  frames: "Product frames",
+  path: "Career path",
+  toolkit: "Toolkit",
+  brief: "Send a brief",
+  crew: "Credits crew",
+  about: "About",
+} as const;
+
 export type SceneMarkKind = keyof typeof marks;
 
 type SceneMarkProps = {
@@ -29,18 +39,22 @@ type SceneMarkProps = {
   className?: string;
 };
 
-/** Soft entrance mark above a scene header. Brand line art only. */
+/**
+ * Soft entrance mark above a scene header.
+ * Decorative: adjacent eyebrow/heading already names the scene.
+ */
 export function SceneMark({ kind, className }: SceneMarkProps) {
   const reduceMotion = useReducedMotion();
   const Mark = marks[kind];
 
   return (
     <motion.div
-      initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.96 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 8, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: reduceMotion ? 0 : 0.8, ease: CINEMA }}
+      transition={{ duration: reduceMotion ? 0 : 0.75, ease: CINEMA }}
       className={["mb-5 flex justify-center", className].filter(Boolean).join(" ")}
-      aria-hidden={false}
+      aria-hidden="true"
+      title={labels[kind]}
     >
       <div className="relative">
         <div

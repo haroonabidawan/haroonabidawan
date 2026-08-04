@@ -28,7 +28,7 @@ export default function ProjectsPage() {
           {projects.length} projects. Scroll the list.
         </p>
         <Link
-          href="/frames"
+          href="/work"
           className="mt-5 inline-flex font-mono text-xs text-secondary-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
         >
           Back to featured frames
@@ -51,8 +51,8 @@ export default function ProjectsPage() {
 
       <SceneOutro
         links={[
-          { href: "/frames", label: "Featured work" },
-          { href: "/timeline", label: "Open experience" },
+          { href: "/work", label: "Featured work" },
+          { href: "/experience", label: "Open experience" },
           { href: "/about", label: "About" },
         ]}
       />

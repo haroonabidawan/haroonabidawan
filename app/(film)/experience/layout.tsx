@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "Roles where trust was earned. Problem, decision, outcome across Bespoke, Nordic, Fathom, and earlier chapters.",
 };
 
-export default function TimelineLayout({
+export default function ExperienceLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return children;

@@ -344,7 +344,7 @@ export const profile = {
     },
   ],
   languages: [
-    "English (Native)",
+    "English (Fluent, near-native)",
     "Urdu (Native)",
     "Punjabi (Native)",
   ],

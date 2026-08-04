@@ -69,8 +69,8 @@ export default function AboutPage() {
         <SceneOutro
           ctaTo="email"
           links={[
-            { href: "/frames", label: "See the work" },
-            { href: "/timeline", label: "Open experience" },
+            { href: "/work", label: "See the work" },
+            { href: "/experience", label: "Open experience" },
             { href: "/toolkit", label: "Toolkit" },
           ]}
         />
