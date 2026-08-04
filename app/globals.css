@@ -44,7 +44,7 @@
   --text-h2-size: 2rem; /* 32px */
   --text-h3-size: 1.25rem; /* 20px */
   --text-body-size: 1rem; /* 16px */
-  --text-eyebrow-size: 0.6875rem; /* 11px */
+  --text-eyebrow-size: 0.75rem; /* 12px */
   --tracking-eyebrow: 0.3125rem; /* 5px */
 }
 
@@ -196,10 +196,38 @@ samp {
 
 .type-eyebrow {
   font-size: var(--text-eyebrow-size);
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   line-height: 1.4;
+}
+
+/* Film page clearance: floating mobile dock + iOS home indicator */
+.film-page {
+  padding-bottom: calc(6.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .film-page {
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Mobile: full width stack cards. md+: filmstrip widths */
+.film-card {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .film-card {
+    width: min(92vw, 560px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .film-card {
+    width: 640px;
+  }
 }
 
 /* Hero landing uses palette vars only (no hex in components). */
@@ -217,5 +245,14 @@ samp {
 @media (prefers-reduced-motion: reduce) {
   body::before {
     animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

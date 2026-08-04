@@ -1,96 +1,142 @@
 "use client";
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { PageShell } from "@/components/page-shell";
+import { SceneMark } from "@/components/illustrations/scene-mark";
+import { PrimaryCta } from "@/components/primary-cta";
+import { SceneOutro } from "@/components/scene-outro";
 import { SocialLinks } from "@/components/social-links";
 import { profile } from "@/lib/profile";
 import { CINEMA } from "@/lib/motion";
 
+const secondaryBtn =
+  "inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-transparent px-5 py-2.5 font-wordmark text-sm text-secondary-foreground transition-colors hover:border-accent hover:text-accent";
+
 export default function ContactPage() {
-  const router = useRouter();
-
   return (
-    <div className="flex min-h-0 w-full max-w-3xl flex-1 flex-col overflow-hidden">
-      <div className="flex min-h-0 flex-1 flex-col items-center justify-center overflow-hidden">
-        <PageShell>
-          <motion.div
-            initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1, ease: CINEMA }}
-            className="flex w-full flex-col items-center text-center"
-          >
-            <p className="type-eyebrow text-accent">Contact</p>
+    <div className="relative flex w-full flex-col items-center py-4 text-center">
+      {/* Quiet atmosphere. Not a second hero. */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-56"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 68%)",
+        }}
+        aria-hidden="true"
+      />
 
-            <h1 className="mt-3 text-[clamp(1.35rem,3.2vw,1.9rem)] font-bold leading-tight tracking-tight text-foreground">
-              If the fit is right, we roll cameras.
-            </h1>
+      <motion.div
+        initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 1, ease: CINEMA }}
+        className="relative flex w-full max-w-3xl flex-col items-center"
+      >
+        <SceneMark kind="brief" />
+        <p className="type-eyebrow text-accent">Contact</p>
 
-            <p className="mt-3 max-w-sm text-sm font-light leading-relaxed text-secondary-foreground">
-              Send a brief. I reply clearly and move fast.
-            </p>
+        <h1 className="mt-3 max-w-xl text-[clamp(1.5rem,3.6vw,2.15rem)] font-bold leading-tight tracking-tight text-foreground">
+          Send the brief. I&apos;ll reply with a clear next step.
+        </h1>
 
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href={`mailto:${profile.email}`}
-                className="rounded-full border border-border bg-card/60 px-4 py-2 font-wordmark text-sm text-accent transition-colors hover:border-accent"
-              >
-                {profile.email}
-              </a>
-              <a
-                href={`tel:${profile.phoneTel}`}
-                className="rounded-full border border-border bg-card/60 px-4 py-2 font-wordmark text-sm text-accent transition-colors hover:border-accent"
-              >
-                {profile.phoneDisplay}
-              </a>
-            </div>
-
-            <div className="mt-5">
-              <SocialLinks />
-            </div>
-
-            <div className="mx-auto mt-8 w-full max-w-sm rounded-xl border border-border bg-card/40">
-              <div className="border-b border-border px-4 py-3">
-                <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground">
-                  {profile.openTo.title}
-                </p>
-              </div>
-              <ul className="px-4 py-3 space-y-2.5">
-                {profile.openTo.items.map((item) => (
-                  <li key={item} className="flex gap-3 text-left">
-                    <span className="mt-[0.6em] h-px w-3 shrink-0 bg-border" />
-                    <span className="text-xs font-light leading-relaxed text-secondary-foreground md:text-sm">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        </PageShell>
-      </div>
-
-      <div className="flex shrink-0 items-center justify-between border-t border-border px-5 py-3 md:px-8">
-        <p className="font-wordmark text-[0.62rem] tracking-[0.06em] text-muted-foreground/60">
-          © 2026 {profile.name}
+        <p className="mt-4 max-w-md text-base font-normal leading-relaxed text-secondary-foreground">
+          {profile.location}. {profile.availability}.
+          <span className="mt-1 block text-foreground/90">If the fit is right, we roll cameras.</span>
         </p>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/credits"
-            className="font-mono text-[0.65rem] text-muted-foreground underline-offset-4 transition-opacity hover:opacity-90 hover:underline"
+
+        {/* One reach cluster. No icon-only doubles. */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <PrimaryCta />
+          <a
+            href={profile.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            className={secondaryBtn}
           >
-            Credits & Thanks
-          </Link>
-          <button
-            type="button"
-            onClick={() => router.push("/")}
-            className="font-mono text-[0.65rem] text-muted-foreground/50 underline-offset-4 transition-opacity hover:opacity-90 hover:underline"
-          >
-            replay intro
-          </button>
+            WhatsApp
+          </a>
+          <a href={`tel:${profile.phoneTel}`} className={secondaryBtn}>
+            Call
+          </a>
         </div>
-      </div>
+
+        <p className="mt-4 font-mono text-sm tracking-[0.04em] text-secondary-foreground">
+          {profile.email}
+        </p>
+
+        {/* Two jobs, side by side on desktop. Hairlines, not cards. */}
+        <div className="mt-14 grid w-full gap-10 text-left md:grid-cols-2 md:gap-12">
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: CINEMA }}
+            className="border-t border-border pt-6"
+          >
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
+              The brief
+            </p>
+            <p className="mt-2 text-sm text-secondary-foreground">
+              Four lines. Enough to start.
+            </p>
+            <ol className="mt-5 space-y-3">
+              {profile.briefIncludes.map((item, i) => (
+                <li key={item} className="flex gap-3">
+                  <span className="shrink-0 font-mono text-xs tabular-nums text-muted-foreground">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-base font-normal leading-relaxed text-foreground/90">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </motion.section>
+
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.18, ease: CINEMA }}
+            className="border-t border-border pt-6"
+          >
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
+              Open to
+            </p>
+            <p className="mt-2 text-sm text-secondary-foreground">
+              Roles and spikes that earn the chair.
+            </p>
+            <ul className="mt-5 space-y-3">
+              {profile.openTo.items.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-[0.75em] h-px w-3 shrink-0 bg-accent/60" />
+                  <span className="text-base font-normal leading-relaxed text-foreground/90">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </motion.section>
+        </div>
+
+        <div className="mt-14 flex w-full flex-col items-center border-t border-border pt-8">
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-secondary-foreground">
+            Elsewhere
+          </p>
+          <div className="mt-4">
+            <SocialLinks includeDirect={false} />
+          </div>
+        </div>
+
+        <SceneOutro
+          showPrimary={false}
+          eyebrow="Keep exploring"
+          links={[
+            { href: "/frames", label: "See the work" },
+            { href: "/timeline", label: "Open experience" },
+            { href: "/toolkit", label: "Toolkit" },
+            { href: "/about", label: "About" },
+            { href: "/credits", label: "Credits" },
+            { href: "/privacy", label: "Privacy" },
+          ]}
+        />
+      </motion.div>
     </div>
   );
 }

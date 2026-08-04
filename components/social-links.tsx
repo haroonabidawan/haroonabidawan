@@ -8,17 +8,20 @@ const spring = { type: "spring" as const, stiffness: 380, damping: 22 };
 type Size = "sm" | "md";
 
 const sizeClasses: Record<Size, string> = {
-  sm: "h-9 w-9 [&_svg]:h-4 [&_svg]:w-4",
-  md: "h-10 w-10 md:h-11 md:w-11 [&_svg]:h-5 [&_svg]:w-5",
+  sm: "h-11 w-11 [&_svg]:h-4 [&_svg]:w-4",
+  md: "h-12 w-12 [&_svg]:h-5 [&_svg]:w-5",
 };
 
 export function SocialLinks({
   size = "md",
   className = "",
+  includeDirect = true,
 }: {
   size?: Size;
   /** Merged onto the outer row (e.g. tighter gap in the nav). */
   className?: string;
+  /** Phone + WhatsApp. Turn off when those live in a labeled CTA row. */
+  includeDirect?: boolean;
 }) {
   const cn = `inline-flex items-center justify-center rounded-full border border-border bg-card text-secondary-foreground transition-colors hover:text-accent ${sizeClasses[size]}`;
 
@@ -55,6 +58,36 @@ export function SocialLinks({
       </motion.a>
 
       <motion.a
+        href={profile.links.instagram}
+        target="_blank"
+        rel="noreferrer"
+        whileHover={{ y: -3, scale: 1.06 }}
+        whileTap={{ scale: 0.95 }}
+        transition={spring}
+        aria-label="Instagram"
+        className={cn}
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24" className="fill-current">
+          <path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9A3.1 3.1 0 1 1 12 8.9a3.1 3.1 0 0 1 0 6.2Zm6.1-8.15a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM12 4.4c-2.07 0-2.33.01-3.14.05-.8.04-1.35.17-1.83.36a3.7 3.7 0 0 0-1.34.87 3.7 3.7 0 0 0-.87 1.34c-.19.48-.32 1.03-.36 1.83C4.41 9.67 4.4 9.93 4.4 12s.01 2.33.05 3.14c.04.8.17 1.35.36 1.83.2.5.46.93.87 1.34.41.41.84.67 1.34.87.48.19 1.03.32 1.83.36.81.04 1.07.05 3.14.05s2.33-.01 3.14-.05c.8-.04 1.35-.17 1.83-.36a3.7 3.7 0 0 0 1.34-.87 3.7 3.7 0 0 0 .87-1.34c.19-.48.32-1.03.36-1.83.04-.81.05-1.07.05-3.14s-.01-2.33-.05-3.14c-.04-.8-.17-1.35-.36-1.83a3.7 3.7 0 0 0-.87-1.34 3.7 3.7 0 0 0-1.34-.87c-.48-.19-1.03-.32-1.83-.36C14.33 4.41 14.07 4.4 12 4.4Zm0 1.7c2.04 0 2.28.01 3.08.05.74.03 1.15.16 1.42.26.36.14.61.31.88.58.27.27.44.52.58.88.1.27.23.68.26 1.42.04.8.05 1.04.05 3.08s-.01 2.28-.05 3.08c-.03.74-.16 1.15-.26 1.42-.14.36-.31.61-.58.88a2.37 2.37 0 0 1-.88.58c-.27.1-.68.23-1.42.26-.8.04-1.04.05-3.08.05s-2.28-.01-3.08-.05c-.74-.03-1.15-.16-1.42-.26a2.37 2.37 0 0 1-.88-.58 2.37 2.37 0 0 1-.58-.88c-.1-.27-.23-.68-.26-1.42C6.11 14.28 6.1 14.04 6.1 12s.01-2.28.05-3.08c.03-.74.16-1.15.26-1.42.14-.36.31-.61.58-.88.27-.27.52-.44.88-.58.27-.1.68-.23 1.42-.26.8-.04 1.04-.05 3.08-.05Z" />
+        </svg>
+      </motion.a>
+
+      <motion.a
+        href={profile.links.facebook}
+        target="_blank"
+        rel="noreferrer"
+        whileHover={{ y: -3, scale: 1.06 }}
+        whileTap={{ scale: 0.95 }}
+        transition={spring}
+        aria-label="Facebook"
+        className={cn}
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24" className="fill-current">
+          <path d="M13.5 21v-7.5H16l.5-3h-3V8.7c0-.9.2-1.5 1.6-1.5H16.5V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.5H8v3h2.3V21h3.2Z" />
+        </svg>
+      </motion.a>
+
+      <motion.a
         href={`mailto:${profile.email}`}
         whileHover={{ y: -3, scale: 1.06 }}
         whileTap={{ scale: 0.95 }}
@@ -68,18 +101,37 @@ export function SocialLinks({
         </svg>
       </motion.a>
 
-      <motion.a
-        href={`tel:${profile.phoneTel}`}
-        whileHover={{ y: -3, scale: 1.06 }}
-        whileTap={{ scale: 0.95 }}
-        transition={spring}
-        aria-label="Phone"
-        className={cn}
-      >
-        <svg aria-hidden="true" viewBox="0 0 24 24" className="stroke-current" fill="none" strokeWidth="1.8">
-          <path d="M6.5 4.5h3l1.2 3-1.6 1.6a12 12 0 0 0 5.3 5.3l1.6-1.6 3 1.2v3a1.5 1.5 0 0 1-1.4 1.5 17 17 0 0 1-15-15A1.5 1.5 0 0 1 6.5 4.5Z" />
-        </svg>
-      </motion.a>
+      {includeDirect ? (
+        <>
+          <motion.a
+            href={`tel:${profile.phoneTel}`}
+            whileHover={{ y: -3, scale: 1.06 }}
+            whileTap={{ scale: 0.95 }}
+            transition={spring}
+            aria-label="Phone"
+            className={cn}
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="stroke-current" fill="none" strokeWidth="1.8">
+              <path d="M6.5 4.5h3l1.2 3-1.6 1.6a12 12 0 0 0 5.3 5.3l1.6-1.6 3 1.2v3a1.5 1.5 0 0 1-1.4 1.5 17 17 0 0 1-15-15A1.5 1.5 0 0 1 6.5 4.5Z" />
+            </svg>
+          </motion.a>
+
+          <motion.a
+            href={profile.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{ y: -3, scale: 1.06 }}
+            whileTap={{ scale: 0.95 }}
+            transition={spring}
+            aria-label="WhatsApp"
+            className={cn}
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="fill-current">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.79 14.04c-.24.68-1.42 1.25-1.96 1.33-.5.07-1.14.1-1.84-.12-.42-.13-.97-.32-1.67-.62-2.94-1.27-4.85-4.24-5-4.44-.14-.2-1.18-1.57-1.18-3 0-1.42.74-2.12 1.01-2.41.26-.28.58-.35.77-.35h.55c.18 0 .42-.07.66.5.24.58.82 2 .89 2.15.07.15.12.32.02.52-.1.2-.15.32-.29.5-.15.17-.3.38-.43.51-.14.14-.29.29-.12.56.16.28.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.2.7-.81.88-1.09.19-.28.37-.23.63-.14.26.1 1.66.78 1.95.92.28.14.47.21.54.33.07.12.07.68-.17 1.36Z" />
+            </svg>
+          </motion.a>
+        </>
+      ) : null}
     </div>
   );
 }

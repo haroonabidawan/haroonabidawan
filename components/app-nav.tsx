@@ -3,93 +3,257 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { profile } from "@/lib/profile";
+import { useEffect, useId, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
-const items = [
-  { href: "/", label: "Title" },
+type NavEvent = "nav_frames" | "nav_timeline" | "nav_contact" | null;
+
+type MobileTab = {
+  href: string;
+  label: string;
+  event: NavEvent;
+  icon: "home" | "work" | "path" | "contact";
+};
+
+/** Same labels as desktop web nav. */
+const mobileTabs: MobileTab[] = [
+  { href: "/", label: "Home", event: null, icon: "home" },
+  { href: "/frames", label: "Work", event: "nav_frames", icon: "work" },
+  { href: "/timeline", label: "Experience", event: "nav_timeline", icon: "path" },
+  { href: "/contact", label: "Contact", event: "nav_contact", icon: "contact" },
+];
+
+/** Desktop-only extras that do not fit the primary dock. */
+const moreLinks = [
   { href: "/about", label: "About" },
-  { href: "/timeline", label: "Timeline" },
-  { href: "/frames", label: "Frames" },
   { href: "/toolkit", label: "Toolkit" },
-  { href: "/contact", label: "Contact" },
   { href: "/credits", label: "Credits" },
 ] as const;
 
+const moreActiveHrefs = new Set(moreLinks.map((l) => l.href));
+
+const desktopItems = [
+  { href: "/about", label: "About", event: null as NavEvent },
+  { href: "/timeline", label: "Experience", event: "nav_timeline" as NavEvent },
+  { href: "/frames", label: "Work", event: "nav_frames" as NavEvent },
+  { href: "/toolkit", label: "Toolkit", event: null as NavEvent },
+  { href: "/contact", label: "Contact", event: "nav_contact" as NavEvent },
+  { href: "/credits", label: "Credits", event: null as NavEvent },
+];
+
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  if (href === "/frames") return pathname === "/frames" || pathname === "/projects";
+  return pathname === href;
+}
+
+function TabIcon({
+  name,
+  active,
+}: {
+  name: MobileTab["icon"] | "more";
+  active: boolean;
+}) {
+  const stroke = active ? "stroke-accent" : "stroke-current";
+
+  switch (name) {
+    case "home":
+      return (
+        <svg viewBox="0 0 24 24" className={`h-5 w-5 ${stroke}`} fill="none" strokeWidth="1.7" aria-hidden="true">
+          <path d="M4.5 10.5 12 4l7.5 6.5V20a1 1 0 0 1-1 1h-4.5v-5.5h-4V21H5.5a1 1 0 0 1-1-1v-9.5Z" strokeLinejoin="round" />
+        </svg>
+      );
+    case "work":
+      return (
+        <svg viewBox="0 0 24 24" className={`h-5 w-5 ${stroke}`} fill="none" strokeWidth="1.7" aria-hidden="true">
+          <rect x="3.5" y="3.5" width="7" height="7" rx="1.5" />
+          <rect x="13.5" y="3.5" width="7" height="7" rx="1.5" />
+          <rect x="3.5" y="13.5" width="7" height="7" rx="1.5" />
+          <rect x="13.5" y="13.5" width="7" height="7" rx="1.5" />
+        </svg>
+      );
+    case "path":
+      return (
+        <svg viewBox="0 0 24 24" className={`h-5 w-5 ${stroke}`} fill="none" strokeWidth="1.7" aria-hidden="true">
+          <path d="M6 4v12.5a2.5 2.5 0 1 0 2.5 2.5" strokeLinecap="round" />
+          <path d="M6 8h8.5a2.5 2.5 0 0 0 0-5H12" strokeLinecap="round" />
+          <circle cx="17.5" cy="19" r="2.5" className={active ? "fill-accent/20" : "fill-none"} />
+        </svg>
+      );
+    case "contact":
+      return (
+        <svg viewBox="0 0 24 24" className={`h-5 w-5 ${stroke}`} fill="none" strokeWidth="1.7" aria-hidden="true">
+          <path d="M5 7.5C5 6.67 5.67 6 6.5 6h11c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5h-11A1.5 1.5 0 0 1 5 16.5v-9Z" />
+          <path d="m6.5 8 5.5 4 5.5-4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case "more":
+      return (
+        <svg viewBox="0 0 24 24" className={`h-5 w-5 ${stroke}`} fill="none" strokeWidth="1.7" aria-hidden="true">
+          <circle cx="6.5" cy="12" r="1.35" className={active ? "fill-accent" : "fill-current"} />
+          <circle cx="12" cy="12" r="1.35" className={active ? "fill-accent" : "fill-current"} />
+          <circle cx="17.5" cy="12" r="1.35" className={active ? "fill-accent" : "fill-current"} />
+        </svg>
+      );
+  }
+}
+
+function tabClass(active: boolean, grow = "flex-1") {
+  return [
+    "relative flex min-h-14 min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl px-0.5 py-1.5 transition-colors",
+    grow,
+    active ? "bg-accent/15 text-accent" : "text-secondary-foreground active:bg-background/60",
+  ].join(" ");
+}
+
+const tabLabelClass =
+  "max-w-full px-0.5 text-center font-mono text-[0.58rem] font-medium uppercase leading-none tracking-[0.04em]";
+
 export function AppNav() {
   const pathname = usePathname();
+  const [moreOpen, setMoreOpen] = useState(false);
+  const panelId = useId();
+  const moreActive = moreOpen || moreActiveHrefs.has(pathname);
+
+  useEffect(() => {
+    setMoreOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMoreOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [moreOpen]);
 
   return (
-    <nav
-      className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background/90 backdrop-blur-md"
-      aria-label="Site"
-    >
-      {/* Mobile: two rows, links above logo and socials */}
-      <div className="flex flex-col md:hidden">
-        {/* Links row, centered and scrollable if needed */}
-        <div className="flex items-center justify-center overflow-x-auto border-b border-border/50 px-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {items.map(({ href, label }) => {
-            const active = href === "/" ? pathname === "/" : pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={[
-                  "shrink-0 px-2.5 py-2 font-mono text-[0.58rem] uppercase tracking-widest transition-all",
-                  active ? "text-accent" : "text-muted-foreground",
-                ].join(" ")}
-              >
-                {label}
-              </Link>
-            );
-          })}
-        </div>
+    <nav className="fixed bottom-0 left-0 right-0 z-40" aria-label="Site">
+      {/* Mobile more sheet */}
+      <div className="md:hidden">
+        {moreOpen ? (
+          <button
+            type="button"
+            aria-label="Close more menu"
+            className="fixed inset-0 z-40 bg-background/55 backdrop-blur-sm"
+            onClick={() => setMoreOpen(false)}
+          />
+        ) : null}
 
-        {/* Logo + socials row */}
-        <div className="flex items-center justify-between px-3 py-1.5">
-          <Link href="/" className="opacity-80 transition-opacity hover:opacity-100" aria-label="Home">
-            <Image src="/logo.png" alt="" width={64} height={64} className="h-6 w-6 object-contain" />
-          </Link>
-          <div className="flex items-center gap-1">
-            <a href={profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub"
-              className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:text-accent">
-              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
-                <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.49v-1.73c-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.1-1.45-1.1-1.45-.9-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.89 1.52 2.33 1.08 2.9.82.09-.64.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.57 9.57 0 0 1 12 6.84c.85 0 1.7.11 2.5.32 1.9-1.3 2.74-1.03 2.74-1.03.56 1.38.21 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.83-2.34 4.68-4.57 4.93.36.31.68.91.68 1.84v2.73c0 .27.18.59.69.49A10 10 0 0 0 12 2Z" />
-              </svg>
-            </a>
-            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"
-              className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:text-accent">
-              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
-                <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38 1.56 1.56 0 0 1 6.94 8.5Zm1.36 1.19H5.58V19h2.72V9.69Zm4.34 0H9.96V19h2.68v-4.88c0-1.29.24-2.53 1.84-2.53 1.58 0 1.6 1.48 1.6 2.62V19H18.8v-5.35c0-2.63-.57-4.65-3.65-4.65-1.48 0-2.47.81-2.87 1.58h-.04V9.69Z" />
-              </svg>
-            </a>
-            <a href={`mailto:${profile.email}`} aria-label="Email"
-              className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:text-accent">
-              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 stroke-current" fill="none" strokeWidth="1.8">
-                <path d="M4 7.2C4 6.54 4.54 6 5.2 6h13.6c.66 0 1.2.54 1.2 1.2v9.6c0 .66-.54 1.2-1.2 1.2H5.2c-.66 0-1.2-.54-1.2-1.2V7.2Z" />
-                <path d="m5 8 7 5 7-5" />
-              </svg>
-            </a>
+        <div
+          id={panelId}
+          role="dialog"
+          aria-modal="true"
+          aria-label="More pages"
+          aria-hidden={!moreOpen}
+          className={[
+            "pointer-events-none fixed inset-x-0 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-50 px-3 transition duration-300",
+            moreOpen ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+          ].join(" ")}
+        >
+          <div
+            className={[
+              "mx-auto max-w-md overflow-hidden rounded-2xl border border-border/80 bg-card/95 shadow-[0_16px_48px_color-mix(in_oklab,var(--bg-base)_88%,transparent)] backdrop-blur-xl",
+              moreOpen ? "pointer-events-auto" : "pointer-events-none",
+            ].join(" ")}
+          >
+            <div className="border-b border-border px-4 py-3">
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">More</p>
+            </div>
+            <ul className="divide-y divide-border">
+              {moreLinks.map((item) => {
+                const active = isActive(pathname, item.href);
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setMoreOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={[
+                        "flex min-h-14 items-center justify-between gap-3 px-4 py-3 transition-colors",
+                        active ? "bg-accent/10 text-accent" : "text-foreground active:bg-background/50",
+                      ].join(" ")}
+                    >
+                      <span className="font-wordmark text-sm">{item.label}</span>
+                      <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 shrink-0 stroke-current" fill="none" strokeWidth="1.8" aria-hidden="true">
+                        <path d="M6 3l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* Desktop: single row */}
-      <div className="mx-auto hidden max-w-5xl items-center gap-3 px-5 py-2.5 md:flex">
-        <Link href="/" className="shrink-0 opacity-80 transition-opacity hover:opacity-100" aria-label="Home">
+      {/* Mobile tab bar */}
+      <div className="pointer-events-none px-2 pb-[calc(0.65rem+env(safe-area-inset-bottom))] pt-2 md:hidden">
+        <div className="pointer-events-auto relative z-50 mx-auto flex max-w-md items-stretch gap-1 rounded-2xl border border-border/80 bg-card/95 px-1 py-1.5 shadow-[0_12px_40px_color-mix(in_oklab,var(--bg-base)_85%,transparent)] backdrop-blur-xl">
+          {mobileTabs.map(({ href, label, event, icon }) => {
+            const active = isActive(pathname, href);
+            const grow = href === "/timeline" ? "flex-[1.55]" : "flex-1";
+            return (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => {
+                  setMoreOpen(false);
+                  if (event) trackEvent(event);
+                }}
+                aria-current={active ? "page" : undefined}
+                className={tabClass(active, grow)}
+              >
+                {active ? (
+                  <span aria-hidden="true" className="absolute inset-x-2 top-1 h-0.5 rounded-full bg-accent/80" />
+                ) : null}
+                <TabIcon name={icon} active={active} />
+                <span className={tabLabelClass}>{label}</span>
+              </Link>
+            );
+          })}
+
+          <button
+            type="button"
+            aria-label="More"
+            aria-expanded={moreOpen}
+            aria-controls={panelId}
+            onClick={() => setMoreOpen((v) => !v)}
+            className={tabClass(moreActive, "flex-[0.9]")}
+          >
+            {moreActive ? (
+              <span aria-hidden="true" className="absolute inset-x-2 top-1 h-0.5 rounded-full bg-accent/80" />
+            ) : null}
+            <TabIcon name="more" active={moreActive} />
+            <span className={tabLabelClass}>More</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop */}
+      <div className="mx-auto hidden max-w-6xl items-center gap-3 border-t border-border bg-background/90 px-5 py-2.5 backdrop-blur-md md:flex">
+        <Link href="/" className="shrink-0 opacity-90 transition-opacity hover:opacity-100" aria-label="Home">
           <Image src="/logo.png" alt="" width={64} height={64} className="h-8 w-8 object-contain" />
         </Link>
 
-        <div className="flex min-w-0 flex-1 items-center justify-center overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="flex items-center gap-0.5">
-            {items.map(({ href, label }) => {
-              const active = href === "/" ? pathname === "/" : pathname === href;
+        <div className="flex min-w-0 flex-1 items-center justify-center">
+          <div className="flex flex-wrap items-center justify-center gap-1">
+            {desktopItems.map(({ href, label, event }) => {
+              const active = isActive(pathname, href);
               return (
                 <Link
                   key={href}
                   href={href}
+                  onClick={() => {
+                    if (event) trackEvent(event);
+                  }}
+                  aria-current={active ? "page" : undefined}
                   className={[
-                    "shrink-0 rounded-full px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-widest transition-all",
-                    active ? "bg-card text-accent" : "text-muted-foreground hover:text-secondary-foreground",
+                    "inline-flex min-h-12 shrink-0 items-center rounded-full px-3.5 py-2 font-mono text-xs uppercase tracking-wider transition-all",
+                    active
+                      ? "bg-card text-accent"
+                      : "text-secondary-foreground hover:text-foreground",
                   ].join(" ")}
                 >
                   {label}
@@ -99,27 +263,7 @@ export function AppNav() {
           </div>
         </div>
 
-        <div className="flex shrink-0 items-center gap-1.5">
-          <a href={profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub"
-            className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:text-accent">
-            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
-              <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.49v-1.73c-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.1-1.45-1.1-1.45-.9-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.89 1.52 2.33 1.08 2.9.82.09-.64.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.57 9.57 0 0 1 12 6.84c.85 0 1.7.11 2.5.32 1.9-1.3 2.74-1.03 2.74-1.03.56 1.38.21 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.83-2.34 4.68-4.57 4.93.36.31.68.91.68 1.84v2.73c0 .27.18.59.69.49A10 10 0 0 0 12 2Z" />
-            </svg>
-          </a>
-          <a href={profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"
-            className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:text-accent">
-            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
-              <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38 1.56 1.56 0 0 1 6.94 8.5Zm1.36 1.19H5.58V19h2.72V9.69Zm4.34 0H9.96V19h2.68v-4.88c0-1.29.24-2.53 1.84-2.53 1.58 0 1.6 1.48 1.6 2.62V19H18.8v-5.35c0-2.63-.57-4.65-3.65-4.65-1.48 0-2.47.81-2.87 1.58h-.04V9.69Z" />
-            </svg>
-          </a>
-          <a href={`mailto:${profile.email}`} aria-label="Email"
-            className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors hover:text-accent">
-            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 stroke-current" fill="none" strokeWidth="1.8">
-              <path d="M4 7.2C4 6.54 4.54 6 5.2 6h13.6c.66 0 1.2.54 1.2 1.2v9.6c0 .66-.54 1.2-1.2 1.2H5.2c-.66 0-1.2-.54-1.2-1.2V7.2Z" />
-              <path d="m5 8 7 5 7-5" />
-            </svg>
-          </a>
-        </div>
+        <div className="h-8 w-8 shrink-0" aria-hidden="true" />
       </div>
     </nav>
   );

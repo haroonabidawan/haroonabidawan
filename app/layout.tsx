@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@/components/analytics";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,14 +15,33 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Haroon Abid Awan",
+  metadataBase: new URL("https://haroonabidawan.com"),
+  title: {
+    default: "Haroon Abid Awan",
+    template: "%s · Haroon Abid Awan",
+  },
   description:
-    "Senior full stack and AI-enabled automation engineer. Multi-tenant SaaS, Laravel, NestJS, and calm systems that ship.",
+    "Senior full stack and AI-enabled automation engineer. Multi-tenant SaaS, Laravel, NestJS, FastAPI, and calm systems that ship.",
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
     shortcut: [{ url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/icon.png", type: "image/png" }],
   },
+  openGraph: {
+    title: "Haroon Abid Awan",
+    description:
+      "Calm systems. Clear ownership. Software you can run at midnight without holding your breath.",
+    url: "https://haroonabidawan.com",
+    siteName: "Haroon Abid Awan",
+    type: "website",
+    images: [{ url: "/stills/hireme.webp", width: 1280, height: 800, alt: "Haroon Abid Awan" }],
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -32,9 +52,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Analytics />
         <div
           className="pointer-events-none fixed inset-0 z-8 opacity-35"
           style={{

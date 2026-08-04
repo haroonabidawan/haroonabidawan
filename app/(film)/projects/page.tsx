@@ -1,7 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
-import { CardRail } from "@/components/card-rail";
+import { SceneMark } from "@/components/illustrations/scene-mark";
+import { ProjectCard } from "@/components/project-card";
+import { SceneOutro } from "@/components/scene-outro";
 import { profile } from "@/lib/profile";
 import { CINEMA } from "@/lib/motion";
 
@@ -9,84 +12,50 @@ const projects = profile.projects;
 
 export default function ProjectsPage() {
   return (
-    <div className="flex w-full max-w-5xl flex-col items-center overflow-hidden text-center">
+    <div className="flex w-full flex-col items-center text-center">
       <motion.div
         initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.9, ease: CINEMA }}
-        className="w-full max-w-2xl shrink-0 pb-4"
+        className="w-full max-w-3xl pb-8 md:pb-10"
       >
-        <p className="type-eyebrow text-accent">Projects</p>
+        <SceneMark kind="frames" />
+        <p className="type-eyebrow text-accent">All frames</p>
         <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
-          Selected frames from the real work.
+          Every frame that made the cut.
         </h1>
-        <p className="mt-1.5 text-sm font-light text-secondary-foreground">
-          Problem. Decision. Outcome.
+        <p className="mt-2 text-base text-secondary-foreground">
+          {projects.length} projects. Scroll the list.
         </p>
+        <Link
+          href="/frames"
+          className="mt-5 inline-flex font-mono text-xs text-secondary-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
+        >
+          Back to featured frames
+        </Link>
       </motion.div>
 
-      <CardRail label={`${projects.length} projects`}>
+      <div className="grid w-full max-w-6xl grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {projects.map((p, i) => (
-          <motion.article
+          <motion.div
             key={p.name}
-            initial={{ opacity: 0, x: 20, filter: "blur(6px)" }}
-            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.55, delay: i * 0.07, ease: CINEMA }}
-            className="flex w-[min(80vw,440px)] max-h-[60vh] shrink-0 flex-col overflow-hidden rounded-xl border border-border bg-card/40 md:w-[440px]"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.35), ease: CINEMA }}
+            className="flex h-full min-w-0"
           >
-            <div className="flex items-start justify-between gap-3 border-b border-border px-4 py-3">
-              <div className="min-w-0">
-                <p className="font-mono text-[0.55rem] uppercase tracking-[0.14em] text-accent">{p.tag}</p>
-                <h2 className="mt-0.5 font-sans text-sm font-semibold leading-tight text-foreground">
-                  {p.name}
-                </h2>
-              </div>
-              <p className="shrink-0 font-mono text-[0.52rem] text-muted-foreground/50 tabular-nums">
-                {String(i + 1).padStart(2, "0")}/{String(projects.length).padStart(2, "0")}
-              </p>
-            </div>
-
-            <div className="flex flex-1 flex-col overflow-y-auto px-4 py-3 [scrollbar-width:thin]">
-              <div className="space-y-2">
-                <div>
-                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-accent">Problem</p>
-                  <p className="mt-1 text-[0.72rem] font-light leading-snug text-secondary-foreground">
-                    {p.hook}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-accent">Decision</p>
-                  <p className="mt-1 text-[0.72rem] font-light leading-snug text-secondary-foreground">
-                    {p.detail}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-accent">Outcome</p>
-                  <p className="mt-1 text-[0.72rem] font-light leading-snug text-secondary-foreground">
-                    {p.outcome}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-3 border-t border-border pt-2.5">
-                <p className="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-muted-foreground">
-                  Owned
-                </p>
-                <div className="mt-1.5 flex flex-wrap gap-1.5">
-                  {p.stack.map((s) => (
-                    <span
-                      key={s}
-                      className="rounded-full border border-border bg-background px-2 py-0.5 font-mono text-[0.55rem] text-secondary-foreground"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.article>
+            <ProjectCard project={p} index={i} total={projects.length} variant="compact" />
+          </motion.div>
         ))}
-      </CardRail>
+      </div>
+
+      <SceneOutro
+        links={[
+          { href: "/frames", label: "Featured work" },
+          { href: "/timeline", label: "Open experience" },
+          { href: "/about", label: "About" },
+        ]}
+      />
     </div>
   );
 }
