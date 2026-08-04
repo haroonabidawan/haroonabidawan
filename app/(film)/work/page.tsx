@@ -44,7 +44,7 @@ export default function WorkPage() {
 
       <SceneOutro
         links={[
-          { href: "/projects", label: "Browse every frame" },
+          { href: "/services", label: "Services" },
           { href: "/experience", label: "Open experience" },
           { href: "/toolkit", label: "Toolkit" },
         ]}

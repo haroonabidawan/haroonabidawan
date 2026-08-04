@@ -6,26 +6,27 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
-type NavEvent = "nav_work" | "nav_experience" | "nav_contact" | null;
+type NavEvent = "nav_work" | "nav_experience" | "nav_services" | "nav_contact" | null;
 
 type MobileTab = {
   href: string;
   label: string;
   event: NavEvent;
-  icon: "home" | "work" | "path" | "contact";
+  icon: "home" | "work" | "services" | "contact";
 };
 
 /** Same labels as desktop web nav. Labels match route segments. */
 const mobileTabs: MobileTab[] = [
   { href: "/", label: "Home", event: null, icon: "home" },
   { href: "/work", label: "Work", event: "nav_work", icon: "work" },
-  { href: "/experience", label: "Experience", event: "nav_experience", icon: "path" },
+  { href: "/services", label: "Services", event: "nav_services", icon: "services" },
   { href: "/contact", label: "Contact", event: "nav_contact", icon: "contact" },
 ];
 
-/** Desktop-only extras that do not fit the primary dock. */
+/** Desktop extras that sit in the mobile More sheet. */
 const moreLinks = [
   { href: "/about", label: "About" },
+  { href: "/experience", label: "Experience" },
   { href: "/toolkit", label: "Toolkit" },
   { href: "/credits", label: "Credits" },
 ] as const;
@@ -36,14 +37,15 @@ const desktopItems = [
   { href: "/about", label: "About", event: null as NavEvent },
   { href: "/experience", label: "Experience", event: "nav_experience" as NavEvent },
   { href: "/work", label: "Work", event: "nav_work" as NavEvent },
+  { href: "/services", label: "Services", event: "nav_services" as NavEvent },
   { href: "/toolkit", label: "Toolkit", event: null as NavEvent },
   { href: "/contact", label: "Contact", event: "nav_contact" as NavEvent },
-  { href: "/credits", label: "Credits", event: null as NavEvent },
 ];
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   if (href === "/work") return pathname === "/work" || pathname === "/projects";
+  if (href === "/services") return pathname === "/services" || pathname.startsWith("/services/");
   return pathname === href;
 }
 
@@ -72,12 +74,12 @@ function TabIcon({
           <rect x="13.5" y="13.5" width="7" height="7" rx="1.5" />
         </svg>
       );
-    case "path":
+    case "services":
       return (
         <svg viewBox="0 0 24 24" className={`h-5 w-5 ${stroke}`} fill="none" strokeWidth="1.7" aria-hidden="true">
-          <path d="M6 4v12.5a2.5 2.5 0 1 0 2.5 2.5" strokeLinecap="round" />
-          <path d="M6 8h8.5a2.5 2.5 0 0 0 0-5H12" strokeLinecap="round" />
-          <circle cx="17.5" cy="19" r="2.5" className={active ? "fill-accent/20" : "fill-none"} />
+          <rect x="4" y="6.5" width="16" height="11" rx="1.5" />
+          <path d="M8 6.5V5.5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" strokeLinecap="round" />
+          <circle cx="12" cy="12" r="1.6" className={active ? "fill-accent/25" : "fill-none"} />
         </svg>
       );
     case "contact":
@@ -193,7 +195,7 @@ export function AppNav() {
         <div className="pointer-events-auto relative z-50 mx-auto flex max-w-md items-stretch gap-1 rounded-2xl border border-border/80 bg-card/95 px-1 py-1.5 shadow-[0_12px_40px_color-mix(in_oklab,var(--bg-base)_85%,transparent)] backdrop-blur-xl">
           {mobileTabs.map(({ href, label, event, icon }) => {
             const active = isActive(pathname, href);
-            const grow = href === "/experience" ? "flex-[1.55]" : "flex-1";
+            const grow = href === "/services" ? "flex-[1.45]" : "flex-1";
             return (
               <Link
                 key={href}
@@ -232,38 +234,40 @@ export function AppNav() {
       </div>
 
       {/* Desktop */}
-      <div className="mx-auto hidden max-w-6xl items-center gap-3 border-t border-border bg-background/90 px-5 py-2.5 backdrop-blur-md md:flex">
-        <Link href="/" className="shrink-0 opacity-90 transition-opacity hover:opacity-100" aria-label="Home">
-          <Image src="/logo.png" alt="" width={64} height={64} className="h-8 w-8 object-contain" />
-        </Link>
+      <div className="hidden border-t border-border bg-background/90 backdrop-blur-md md:block">
+        <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-2.5">
+          <Link href="/" className="shrink-0 opacity-90 transition-opacity hover:opacity-100" aria-label="Home">
+            <Image src="/logo.png" alt="" width={64} height={64} className="h-8 w-8 object-contain" />
+          </Link>
 
-        <div className="flex min-w-0 flex-1 items-center justify-center">
-          <div className="flex flex-wrap items-center justify-center gap-1">
-            {desktopItems.map(({ href, label, event }) => {
-              const active = isActive(pathname, href);
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  onClick={() => {
-                    if (event) trackEvent(event);
-                  }}
-                  aria-current={active ? "page" : undefined}
-                  className={[
-                    "inline-flex min-h-12 shrink-0 items-center rounded-full px-3.5 py-2 font-mono text-xs uppercase tracking-wider transition-all",
-                    active
-                      ? "bg-card text-accent"
-                      : "text-secondary-foreground hover:text-foreground",
-                  ].join(" ")}
-                >
-                  {label}
-                </Link>
-              );
-            })}
+          <div className="flex min-w-0 flex-1 items-center justify-center">
+            <div className="flex flex-wrap items-center justify-center gap-1">
+              {desktopItems.map(({ href, label, event }) => {
+                const active = isActive(pathname, href);
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => {
+                      if (event) trackEvent(event);
+                    }}
+                    aria-current={active ? "page" : undefined}
+                    className={[
+                      "inline-flex min-h-12 shrink-0 items-center rounded-full px-3.5 py-2 font-mono text-xs uppercase tracking-wider transition-all",
+                      active
+                        ? "bg-card text-accent"
+                        : "text-secondary-foreground hover:text-foreground",
+                    ].join(" ")}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
 
-        <div className="h-8 w-8 shrink-0" aria-hidden="true" />
+          <div className="h-8 w-8 shrink-0" aria-hidden="true" />
+        </div>
       </div>
     </nav>
   );

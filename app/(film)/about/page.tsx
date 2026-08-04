@@ -70,7 +70,7 @@ export default function AboutPage() {
           ctaTo="email"
           links={[
             { href: "/work", label: "See the work" },
-            { href: "/experience", label: "Open experience" },
+            { href: "/services", label: "Services" },
             { href: "/toolkit", label: "Toolkit" },
           ]}
         />

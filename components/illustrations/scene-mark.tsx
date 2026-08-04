@@ -9,6 +9,7 @@ import {
   MarkFrames,
   MarkMidnight,
   MarkPath,
+  MarkServices,
   MarkToolkit,
 } from "@/components/illustrations/marks";
 
@@ -20,6 +21,7 @@ const marks = {
   brief: MarkBrief,
   crew: MarkCrew,
   about: MarkAbout,
+  services: MarkServices,
 } as const;
 
 const labels = {
@@ -30,6 +32,7 @@ const labels = {
   brief: "Send a brief",
   crew: "Credits crew",
   about: "About",
+  services: "Services",
 } as const;
 
 export type SceneMarkKind = keyof typeof marks;

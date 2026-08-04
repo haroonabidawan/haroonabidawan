@@ -17,6 +17,7 @@ const markSrc = {
   brief: "/illustrations/brief.webp",
   crew: "/illustrations/crew.webp",
   about: "/illustrations/about.webp",
+  services: "/illustrations/services.webp",
 } as const;
 
 type MarkKind = keyof typeof markSrc;
@@ -66,4 +67,8 @@ export function MarkCrew({ className }: MarkProps) {
 
 export function MarkAbout({ className }: MarkProps) {
   return <MarkImage kind="about" className={className} />;
+}
+
+export function MarkServices({ className }: MarkProps) {
+  return <MarkImage kind="services" className={className} />;
 }

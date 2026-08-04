@@ -129,6 +129,7 @@ export default function ContactPage() {
           eyebrow="Keep exploring"
           links={[
             { href: "/work", label: "See the work" },
+            { href: "/services", label: "Services" },
             { href: "/experience", label: "Open experience" },
             { href: "/toolkit", label: "Toolkit" },
             { href: "/about", label: "About" },

@@ -65,6 +65,134 @@ export const profile = {
       "Teams that care about shipping, documentation, and the bill when the LLM vendor changes pricing.",
     ],
   },
+  /** Commercial lanes. Index + /services/[slug] detail. */
+  services: {
+    hook: "What I take on when the brief is real.",
+    support: "Five lanes. One owner. From the first cut to what still runs at midnight.",
+    items: [
+      {
+        id: "consultancy",
+        title: "Consultancy",
+        hook: "Cut the fog before the first commit.",
+        body: "Architecture, stack choice, and delivery shape when the room is still arguing. You leave with a clear build path, not another slide deck.",
+        icon: "/illustrations/service-consultancy.webp",
+        overview:
+          "Sometimes the expensive mistake is starting build before the cut is clear. Consultancy is the frame before the spend: what to ship, what to cut, which stack earns the miles, and how delivery should feel in the first ninety days.",
+        fits: [
+          "The stack is undecided and the room is arguing from habit.",
+          "Rewrite versus build needs a calm technical call.",
+          "You want diligence before hiring a team or signing a vendor.",
+          "Delivery risk is high and you need the weak points named early.",
+        ],
+        delivers: [
+          "A recommended architecture with trade-offs written plain.",
+          "A phased plan you can brief against.",
+          "A risk list worth reading twice.",
+          "A clear next brief so build does not restart the fog.",
+        ],
+        stack: ["NestJS", "Laravel", "FastAPI", "gluestack", "n8n", "PostgreSQL", "AWS"],
+        proofIds: ["HireMe GCC", "SellIt GCC", "RentIt Bahrain", "Crisis Pass"],
+      },
+      {
+        id: "websites",
+        title: "Websites",
+        hook: "A front door that earns the click.",
+        body: "Marketing and product sites that ship clean. WordPress or a modern stack when the brief asks for it. Fast, calm, and easy for the next person to own.",
+        icon: "/illustrations/service-websites.webp",
+        overview:
+          "A site should carry the brand without apologizing. I ship marketing and product front doors that load clean, read calm, and hand off without mystery. WordPress stays in the lane when it is the right tool, not as a default costume.",
+        fits: [
+          "Brand relaunch that needs a proper front door.",
+          "Gallery, framing, or commerce presence that must feel intentional.",
+          "A WordPress estate that needs discipline, not another plugin pile.",
+          "You want a path for content owners after launch.",
+        ],
+        delivers: [
+          "A shipped site on a stack that fits the brief.",
+          "A clear content path for the people who update it.",
+          "Performance basics that hold on real phones.",
+          "Handoff notes so ownership does not live in my head.",
+        ],
+        stack: ["Next.js", "WordPress", "TypeScript", "Benefit", "Stripe"],
+        proofIds: [
+          "Bahrain Artistic Framing Center",
+          "Shafiq Glass & Aluminum",
+          "Sheema Framing & Art Gallery",
+          "Vogue Boutique",
+          "Sunshine Meat Market",
+        ],
+      },
+      {
+        id: "platforms",
+        title: "Web platforms",
+        hook: "Software people live in every day.",
+        body: "SaaS, portals, and multi-tenant web platforms. Schemas, APIs, auth, and the dull reliability that keeps tenants quiet.",
+        icon: "/illustrations/service-platforms.webp",
+        overview:
+          "Platforms are not brochures. They are systems people open on a Tuesday morning and expect to work. I build SaaS, portals, and multi-tenant products where tenancy, APIs, and auth are in the first cut, not a panic pass before launch.",
+        fits: [
+          "Multi-tenant SaaS with real billing and real isolation needs.",
+          "EN/AR product surfaces that share one platform core.",
+          "Internal portals that need proper auth, not a shared password.",
+          "You need schema and API ownership with a deploy path that sticks.",
+        ],
+        delivers: [
+          "Schema and API core the team can extend.",
+          "A tenancy model that survives the second customer.",
+          "Admin surfaces for the people who operate the product.",
+          "A deploy path that is boring on purpose.",
+        ],
+        stack: ["NestJS", "FastAPI", "Laravel", "gluestack", "Turbo Repo", "PostgreSQL", "Redis"],
+        proofIds: ["HireMe GCC", "SellIt GCC", "RentIt Bahrain", "Crisis Pass"],
+      },
+      {
+        id: "mobile",
+        title: "Mobile apps",
+        hook: "The pocket screen is only half the product.",
+        body: "App-shaped products with the backends, auth, and integrations that make them real. Not a pretty shell over a missing API.",
+        icon: "/illustrations/service-mobile.webp",
+        overview:
+          "An app without a serious backend is a demo in a nicer case. I take on mobile-shaped products when the API contract, auth, and ops panel are part of the same brief as the screens people touch.",
+        fits: [
+          "Field ops or ordering flows that live in the pocket.",
+          "Consumer apps that need a release-ready backend.",
+          "You already have screens, but the API story is missing.",
+          "Admin and kitchen or ops panels must stay in sync with the app.",
+        ],
+        delivers: [
+          "An API contract the client can trust.",
+          "Auth that does not fall over at first scale.",
+          "An admin or ops panel for the people behind the counter.",
+          "A backend ready enough to ship beside the app.",
+        ],
+        stack: ["Laravel", "NestJS", "FastAPI", "REST APIs", "PostgreSQL", "MySQL"],
+        proofIds: ["Awal Gas", "Sunshine Meat Market"],
+      },
+      {
+        id: "custom",
+        title: "Custom systems",
+        hook: "When the template is the problem.",
+        body: "Bespoke tools, CRMs, workflows, and the awkward glue between them. Built for your constraints, not a theme marketplace.",
+        icon: "/illustrations/service-custom.webp",
+        overview:
+          "Templates end where your edge cases begin. Custom systems are for CRMs, automation glue, SSO, and workflows that refuse to fit a marketplace theme. Built for your constraints, documented so the next owner is not guessing.",
+        fits: [
+          "CRM or ops tools that have outgrown the plug-in aisle.",
+          "Automation glue between tools that do not speak politely.",
+          "SSO or auth that has to unify messy estates.",
+          "Workflows and reporting that need local AI or careful spend control.",
+        ],
+        delivers: [
+          "A working system under your constraints.",
+          "Integrations that earn their keep.",
+          "Ops notes for the people who run it at midnight.",
+          "An ownership path that survives handoff.",
+        ],
+        stack: ["n8n", "Ollama", "Laravel", "NestJS", "Keycloak", "Docker", "AWS"],
+        proofIds: ["AI-Agent Reporter", "ForwardChess"],
+      },
+    ],
+  },
   /** Skill groups mirror CV.md; Vue/Nuxt kept from Fathom delivery. */
   skills: {
     "AI-enabled automation": [
@@ -349,3 +477,22 @@ export const profile = {
     "Punjabi (Native)",
   ],
 } as const;
+
+export type ServiceId = (typeof profile.services.items)[number]["id"];
+
+export type ServiceItem = (typeof profile.services.items)[number];
+
+export function getServiceById(id: string): ServiceItem | undefined {
+  return profile.services.items.find((item) => item.id === id);
+}
+
+export function getAdjacentServices(id: ServiceId): {
+  prev: ServiceItem;
+  next: ServiceItem;
+} {
+  const items = profile.services.items;
+  const index = items.findIndex((item) => item.id === id);
+  const prev = items[(index - 1 + items.length) % items.length];
+  const next = items[(index + 1) % items.length];
+  return { prev, next };
+}

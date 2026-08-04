@@ -152,7 +152,7 @@ export default function Home() {
               transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.28, ease: CINEMA }}
             >
               <SceneLinkButton href="/work" label="See the work" />
-              <SceneLinkButton href="/experience" label="Open experience" />
+              <SceneLinkButton href="/services" label="Services" />
               <SceneLinkButton href="/about" label="About" />
             </motion.div>
 
