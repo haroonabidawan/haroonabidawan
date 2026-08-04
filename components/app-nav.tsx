@@ -30,7 +30,7 @@ const moreLinks = [
   { href: "/credits", label: "Credits" },
 ] as const;
 
-const moreActiveHrefs = new Set(moreLinks.map((l) => l.href));
+const moreActiveHrefs = new Set<string>(moreLinks.map((l) => l.href));
 
 const desktopItems = [
   { href: "/about", label: "About", event: null as NavEvent },
