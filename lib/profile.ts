@@ -32,6 +32,11 @@ export const profile = {
     instagram: "https://www.instagram.com/haroonabidawan/",
     facebook: "https://www.facebook.com/haroonabidawan/",
   },
+  repo: {
+    url: "https://github.com/haroonabidawan/haroonabidawan",
+    contributing:
+      "https://github.com/haroonabidawan/haroonabidawan/blob/production/CONTRIBUTING.md",
+  },
   /** About page: one hook, then facts. CV.md is the source of truth. */
   about: {
     hook: "Architecture first, features follow.",
