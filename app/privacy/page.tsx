@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { PageMark } from "@/components/illustrations/page-mark";
 import { PageOutro } from "@/components/page-outro";
+import { RepoDocLinks } from "@/components/repo-doc-links";
 import { EASE_REVEAL } from "@/lib/motion";
 
 const sections = [
@@ -25,6 +26,10 @@ const sections = [
   {
     title: "Third-party sites",
     body: "Live project links leave this domain. Those sites have their own policies. Resume downloads are served as a static file from this host.",
+  },
+  {
+    title: "Open source",
+    body: "This portfolio is published on GitHub under the MIT license. Documentation, contributing guidelines, and security reporting are linked below.",
   },
   {
     title: "Questions",
@@ -68,6 +73,8 @@ export default function PrivacyPage() {
             </motion.section>
           ))}
         </div>
+
+        <RepoDocLinks className="mt-8" />
 
         <PageOutro
           links={[
