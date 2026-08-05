@@ -12,21 +12,29 @@ import { trackFileDownload } from "@/lib/analytics";
 import { profile } from "@/lib/profile";
 import { EASE_REVEAL, EASE_OUT } from "@/lib/motion";
 
-/** Tagline lands after the brand line. No fullscreen gate in front of LCP. */
-const TAGLINE_DELAY_MS = 420;
+/** Tagline lands after the name block finishes revealing. */
+const TAGLINE_DELAY_MS = 880;
 
 export default function Home() {
   const reduceMotion = useReducedMotion();
+  const [showHero, setShowHero] = useState(Boolean(reduceMotion));
   const [showTagline, setShowTagline] = useState(Boolean(reduceMotion));
 
   useEffect(() => {
     if (reduceMotion) return;
 
-    const toTagline = setTimeout(() => setShowTagline(true), TAGLINE_DELAY_MS);
-    return () => clearTimeout(toTagline);
+    const heroFrame = requestAnimationFrame(() => setShowHero(true));
+    return () => cancelAnimationFrame(heroFrame);
   }, [reduceMotion]);
 
-  const stagger = (i: number) =>
+  useEffect(() => {
+    if (reduceMotion || !showHero) return;
+
+    const taglineTimer = window.setTimeout(() => setShowTagline(true), TAGLINE_DELAY_MS);
+    return () => window.clearTimeout(taglineTimer);
+  }, [reduceMotion, showHero]);
+
+  const reveal = (i: number) =>
     reduceMotion
       ? {
           initial: { opacity: 1, y: 0 },
@@ -34,9 +42,9 @@ export default function Home() {
           transition: { duration: 0 },
         }
       : {
-          initial: { opacity: 0, y: 10, filter: "blur(8px)" as const },
-          animate: { opacity: 1, y: 0, filter: "blur(0px)" as const },
-          transition: { duration: 0.9, delay: 0.08 * i, ease: EASE_REVEAL },
+          initial: { opacity: 0, y: 12 },
+          animate: showHero ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 },
+          transition: { duration: 0.75, delay: 0.07 * i, ease: EASE_REVEAL },
         };
 
   return (
@@ -61,7 +69,7 @@ export default function Home() {
       <div className="page-shell relative z-10 flex min-h-dvh flex-col items-center justify-center px-4 pt-10 md:px-6">
         <main className="flex w-full max-w-3xl flex-col items-center text-center md:max-w-4xl">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center md:max-w-4xl">
-            <motion.div {...stagger(0)} className="mb-4 md:mb-5">
+            <motion.div {...reveal(0)} className="mb-4 md:mb-5">
               <Image
                 src={brandAssets.logo}
                 alt="Carbon Trail"
@@ -73,30 +81,30 @@ export default function Home() {
               />
             </motion.div>
 
-            <motion.p {...stagger(1)} className="type-eyebrow text-secondary-foreground">
+            <motion.p {...reveal(1)} className="type-eyebrow text-secondary-foreground">
               I&apos;m
             </motion.p>
 
             <motion.h1
-              {...stagger(2)}
+              {...reveal(2)}
               className="mt-2 font-sans text-[clamp(1.75rem,8vw,4rem)] font-bold leading-none tracking-[-0.025em] text-foreground md:mt-3"
             >
               {profile.name}
             </motion.h1>
 
-            <motion.p {...stagger(3)} className="mt-3 font-wordmark text-sm tracking-[0.04em] text-secondary-foreground md:mt-4 md:text-base">
+            <motion.p {...reveal(3)} className="mt-3 font-wordmark text-sm tracking-[0.04em] text-secondary-foreground md:mt-4 md:text-base">
               {profile.role}
             </motion.p>
 
             {/* First-viewport budget: tenure below the fold on short phones */}
             <motion.p
-              {...stagger(4)}
+              {...reveal(4)}
               className="mt-4 hidden max-w-2xl text-balance text-base font-normal leading-relaxed text-secondary-foreground sm:block"
             >
               {profile.tenure}
             </motion.p>
 
-            <motion.p {...stagger(5)} className="mt-2 font-mono text-sm text-secondary-foreground md:mt-3">
+            <motion.p {...reveal(5)} className="mt-2 font-mono text-sm text-secondary-foreground md:mt-3">
               {profile.availability}
             </motion.p>
 
@@ -110,17 +118,11 @@ export default function Home() {
 
             <motion.p
               className="mt-6 max-w-xl text-balance text-[clamp(1rem,2.4vw,1.15rem)] font-semibold leading-snug tracking-[-0.01em] text-foreground md:mt-8"
-              initial={
-                reduceMotion
-                  ? { opacity: 1, y: 0 }
-                  : { opacity: 0, y: 12, filter: "blur(8px)" }
-              }
+              initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
               animate={
-                showTagline
-                  ? { opacity: 1, y: 0, filter: "blur(0px)" }
-                  : { opacity: 0, y: 12, filter: "blur(8px)" }
+                showTagline ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }
               }
-              transition={{ duration: reduceMotion ? 0 : 1, ease: EASE_REVEAL }}
+              transition={{ duration: reduceMotion ? 0 : 0.85, ease: EASE_REVEAL }}
             >
               <span className="text-accent">Software you can run at midnight</span>
               {" "}without holding your breath. Calm systems. Clear ownership.
@@ -155,7 +157,7 @@ export default function Home() {
             </motion.div>
 
             <motion.p
-              {...stagger(6)}
+              {...reveal(6)}
               className="mt-8 max-w-2xl text-balance text-base font-normal leading-relaxed text-secondary-foreground sm:hidden"
             >
               {profile.tenure}
