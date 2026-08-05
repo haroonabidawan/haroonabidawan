@@ -40,5 +40,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local cv source (pdf lives in public/resume/)
-/docs/*
