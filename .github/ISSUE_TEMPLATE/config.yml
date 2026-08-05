@@ -9,3 +9,6 @@ contact_links:
   - name: Contributing guide
     url: https://github.com/haroonabidawan/haroonabidawan/blob/production/CONTRIBUTING.md
     about: Branch workflow, PR checklist, and code standards.
+  - name: Repository docs
+    url: https://github.com/haroonabidawan/haroonabidawan/blob/production/DOCS.md
+    about: Branches, routes, local dev, and brand palette.

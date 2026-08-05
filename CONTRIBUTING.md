@@ -6,7 +6,7 @@ Maintainer-led does not mean closed. Issues, fixes, and thoughtful improvements 
 
 ## Before you start
 
-1. Read the [README](./README.md) for stack, branches, and local setup.
+1. Read [DOCS.md](./DOCS.md) for branches, routes, and local setup. The [README](./README.md) covers the portfolio story.
 2. Check [open issues](https://github.com/haroonabidawan/haroonabidawan/issues) and [open pull requests](https://github.com/haroonabidawan/haroonabidawan/pulls) to avoid duplicate work.
 3. For security concerns, do **not** open a public issue. See [SECURITY.md](./SECURITY.md).
 
