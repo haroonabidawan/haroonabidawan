@@ -202,30 +202,30 @@ samp {
   line-height: 1.4;
 }
 
-/* Film page clearance: floating mobile dock + iOS home indicator */
-.film-page {
+/* Page clearance: floating mobile dock + iOS home indicator */
+.page-shell {
   padding-bottom: calc(6.75rem + env(safe-area-inset-bottom, 0px));
 }
 
 @media (min-width: 768px) {
-  .film-page {
+  .page-shell {
     padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
-/* Mobile: full width stack cards. md+: filmstrip widths */
-.film-card {
+/* Mobile: full width stack cards. md+: constrained widths */
+.content-card {
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  .film-card {
+  .content-card {
     width: min(92vw, 560px);
   }
 }
 
 @media (min-width: 1024px) {
-  .film-card {
+  .content-card {
     width: 640px;
   }
 }

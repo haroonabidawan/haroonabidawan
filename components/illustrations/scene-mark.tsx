@@ -26,11 +26,11 @@ const marks = {
 
 const labels = {
   midnight: "Midnight systems",
-  frames: "Product frames",
+  frames: "Featured products",
   path: "Career path",
-  toolkit: "Toolkit",
+  toolkit: "Engineering toolkit",
   brief: "Send a brief",
-  crew: "Credits crew",
+  crew: "Contributors",
   about: "About",
   services: "Services",
 } as const;
@@ -43,8 +43,8 @@ type SceneMarkProps = {
 };
 
 /**
- * Soft entrance mark above a scene header.
- * Decorative: adjacent eyebrow/heading already names the scene.
+ * Soft entrance mark above a page header.
+ * Decorative: adjacent eyebrow/heading already names the page.
  */
 export function SceneMark({ kind, className }: SceneMarkProps) {
   const reduceMotion = useReducedMotion();

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-/** Carbon Trail scene marks. AI elevated line art in public/illustrations. */
+/** Carbon Trail page marks. AI elevated line art in public/illustrations. */
 
 type MarkProps = {
   className?: string;

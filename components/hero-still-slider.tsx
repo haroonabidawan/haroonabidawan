@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { EASE_OUT } from "@/lib/motion";
 
-/** Featured frames only. Atmosphere first; product second. */
+/** Featured product stills only. Atmosphere first; product second. */
 const SLIDES = [
   "/stills/hireme.webp",
   "/stills/rentit.webp",

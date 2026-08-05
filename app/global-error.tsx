@@ -37,7 +37,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
             The lights went out.
           </h1>
           <p className="mt-3 max-w-sm text-base text-secondary-foreground">
-            A hard failure at the root. Reset the scene and keep going.
+            A hard failure at the root. Reset and try again.
           </p>
           <button
             type="button"

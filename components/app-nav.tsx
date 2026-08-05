@@ -39,6 +39,7 @@ const desktopItems = [
   { href: "/work", label: "Work", event: "nav_work" as NavEvent },
   { href: "/services", label: "Services", event: "nav_services" as NavEvent },
   { href: "/toolkit", label: "Toolkit", event: null as NavEvent },
+  { href: "/credits", label: "Credits", event: null as NavEvent },
   { href: "/contact", label: "Contact", event: "nav_contact" as NavEvent },
 ];
 

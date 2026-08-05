@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageShell } from "@/components/page-shell";
 
 export const metadata: Metadata = {
   title: "About",
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 export default function AboutLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return <PageShell>{children}</PageShell>;
 }

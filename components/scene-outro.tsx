@@ -12,7 +12,7 @@ const secondaryClass =
   "inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-card/60 px-5 py-2.5 font-wordmark text-sm text-secondary-foreground transition-colors hover:border-accent hover:text-accent";
 
 type SceneOutroProps = {
-  /** Secondary routes from this scene. Primary CTA stays Send a brief. */
+  /** Secondary routes from this page. Primary CTA stays Send a brief. */
   links: readonly SceneLink[];
   eyebrow?: string;
   /** mailto (default) or /contact */
@@ -23,7 +23,7 @@ type SceneOutroProps = {
 
 export function SceneOutro({
   links,
-  eyebrow = "Next frame",
+  eyebrow = "Next",
   ctaTo = "contact",
   showPrimary = true,
 }: SceneOutroProps) {

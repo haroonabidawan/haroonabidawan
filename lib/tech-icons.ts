@@ -1,0 +1,122 @@
+/** Carbon Trail accent for Simple Icons CDN (`--text-accent`). */
+export const TECH_ICON_COLOR = "90C0A0";
+
+const TECH_ICON_SLUGS: Record<string, string> = {
+  n8n: "n8n",
+  Ollama: "ollama",
+  "AI-driven feature development": "openai",
+  "prompt engineering": "openai",
+  "agentic workflows": "n8n",
+  "PHP (Laravel, Symfony, Yii2)": "php",
+  "Node.js (NestJS)": "nodedotjs",
+  "Python (FastAPI)": "python",
+  JavaScript: "javascript",
+  TypeScript: "typescript",
+  "C#": "csharp",
+  React: "react",
+  "Next.js": "nextdotjs",
+  "Vue.js": "vuedotjs",
+  "Nuxt.js": "nuxtdotjs",
+  gluestack: "react",
+  "Tailwind CSS": "tailwindcss",
+  PostgreSQL: "postgresql",
+  MySQL: "mysql",
+  "MS SQL": "microsoftsqlserver",
+  Prisma: "prisma",
+  Drizzle: "prisma",
+  Supabase: "supabase",
+  Redis: "redis",
+  "AWS (EC2, S3, RDS, Lambda, SQS, SES)": "amazonaws",
+  Docker: "docker",
+  "CI/CD": "githubactions",
+  "GitHub Actions": "githubactions",
+  "GitLab CI": "gitlab",
+  Coolify: "docker",
+  Traefik: "traefik",
+  Nginx: "nginx",
+  Linux: "linux",
+  "WHM / cPanel": "cpanel",
+  Microservices: "docker",
+  "Multi-tenancy": "amazonaws",
+  "REST APIs": "swagger",
+  WebSockets: "socketdotio",
+  "Socket.io": "socketdotio",
+  RabbitMQ: "rabbitmq",
+  "Turbo Repos": "turborepo",
+  "Swagger / OpenAPI": "swagger",
+  Git: "git",
+  Postman: "postman",
+  "Keycloak (SSO)": "keycloak",
+  "OAuth 2.0": "auth0",
+  JWT: "auth0",
+  "SSL/TLS": "letsencrypt",
+  "Zero-trust patterns": "cloudflare",
+  Benefit: "stripe",
+  Stripe: "stripe",
+  PayPal: "paypal",
+  CardKnox: "stripe",
+  EasyPay: "stripe",
+  Credimax: "stripe",
+  "Tap Payments": "stripe",
+  AFS: "stripe",
+  Jest: "jest",
+  PHPUnit: "php",
+  "Laravel Pint": "laravel",
+  "CI/CD pipelines": "githubactions",
+  Kubernetes: "kubernetes",
+  "Apache Kafka": "apachekafka",
+  Terraform: "terraform",
+  "RAG systems": "openai",
+  "vector databases": "pinecone",
+  LlamaIndex: "meta",
+  LangChain: "langchain",
+  "scikit-learn": "scikitlearn",
+};
+
+/** Category header icons on Toolkit + README summaries. */
+export const CATEGORY_ICON_SLUGS: Record<string, string> = {
+  "AI-enabled automation": "openai",
+  "Full stack": "react",
+  "Databases & ORMs": "postgresql",
+  "Cloud & DevOps": "docker",
+  "Architecture & messaging": "rabbitmq",
+  "Security & auth": "keycloak",
+  "Payment gateways": "stripe",
+  "Testing & quality": "jest",
+  "Planning to learn next": "kubernetes",
+};
+
+export function getTechIconSlug(label: string): string | undefined {
+  return TECH_ICON_SLUGS[label];
+}
+
+export function getTechIconUrl(label: string): string | undefined {
+  const slug = getTechIconSlug(label);
+  if (!slug) return undefined;
+  return `https://cdn.simpleicons.org/${slug}/${TECH_ICON_COLOR}`;
+}
+
+export function getCategoryIconUrl(category: string): string | undefined {
+  const slug = CATEGORY_ICON_SLUGS[category];
+  if (!slug) return undefined;
+  return `https://cdn.simpleicons.org/${slug}/${TECH_ICON_COLOR}`;
+}
+
+/** Markdown/HTML chip for README stack lines. */
+export function readmeTechChip(label: string): string {
+  const url = getTechIconUrl(label);
+  if (!url) return label;
+  return `<img src="${url}" width="18" height="18" alt="" valign="middle" /> ${label}`;
+}
+
+export function readmeTechRow(labels: readonly string[]): string {
+  return labels.map((label) => readmeTechChip(label)).join(" &nbsp; ");
+}
+
+export function readmeCategorySummary(category: string): string {
+  const url = getCategoryIconUrl(category);
+  const icon = url
+    ? `<img src="${url}" width="18" height="18" alt="" valign="middle" /> `
+    : "";
+  return `${icon}<strong>${category}</strong>`;
+}

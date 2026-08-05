@@ -20,7 +20,7 @@ export default function AboutPage() {
         initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.9, ease: CINEMA }}
-        className="flex w-full max-w-2xl flex-col items-center"
+        className="flex w-full max-w-3xl flex-col items-center"
       >
         <SceneMark kind="about" />
         <p className="type-eyebrow text-accent">About</p>
@@ -30,8 +30,34 @@ export default function AboutPage() {
         </h1>
 
         <p className="mt-3 max-w-lg text-base font-normal leading-relaxed text-secondary-foreground">
-          The quiet systems. The proof lives in what still runs.
+          {profile.about.tagline}
         </p>
+
+        <motion.section
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.04, ease: CINEMA }}
+          className="mt-10 w-full border-t border-border pt-6 text-left"
+        >
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
+            What I optimize for
+          </p>
+          <ul className="mt-4 grid gap-4 sm:grid-cols-2">
+            {profile.about.focusAreas.map((area) => (
+              <li
+                key={area.title}
+                className="border border-border/80 bg-card/25 px-4 py-3"
+              >
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-foreground">
+                  {area.title}
+                </p>
+                <p className="mt-2 text-sm font-normal leading-relaxed text-secondary-foreground">
+                  {area.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
 
         <div className="mt-10 w-full space-y-8 text-left">
           {sections.map((section, i) => (
@@ -39,7 +65,7 @@ export default function AboutPage() {
               key={section.title}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.08 * i, ease: CINEMA }}
+              transition={{ duration: 0.7, delay: 0.08 * (i + 1), ease: CINEMA }}
               className="border-t border-border pt-6"
             >
               <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">

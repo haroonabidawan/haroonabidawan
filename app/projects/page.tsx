@@ -20,9 +20,9 @@ export default function ProjectsPage() {
         className="w-full max-w-3xl pb-8 md:pb-10"
       >
         <SceneMark kind="frames" />
-        <p className="type-eyebrow text-accent">All frames</p>
+        <p className="type-eyebrow text-accent">All work</p>
         <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
-          Every frame that made the cut.
+          Every shipped product and engagement.
         </h1>
         <p className="mt-2 text-base text-secondary-foreground">
           {projects.length} projects. Scroll the list.
@@ -31,7 +31,7 @@ export default function ProjectsPage() {
           href="/work"
           className="mt-5 inline-flex font-mono text-xs text-secondary-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
         >
-          Back to featured frames
+          Back to featured work
         </Link>
       </motion.div>
 
@@ -52,8 +52,8 @@ export default function ProjectsPage() {
       <SceneOutro
         links={[
           { href: "/work", label: "Featured work" },
+          { href: "/services", label: "Services" },
           { href: "/experience", label: "Open experience" },
-          { href: "/about", label: "About" },
         ]}
       />
     </div>

@@ -11,7 +11,7 @@ export const profile = {
   /** Same number. Opens WhatsApp chat. */
   whatsapp: "https://wa.me/97337327569",
   email: "haroon.abid.1999@gmail.com",
-  /** Unified primary CTA across Title, About, Timeline, Frames, Contact. */
+  /** Unified primary CTA across home, About, Experience, Work, Contact. */
   cta: {
     label: "Send a brief",
     subject: "Project brief",
@@ -34,10 +34,33 @@ export const profile = {
   },
   /** About page: one hook, then facts. CV.md is the source of truth. */
   about: {
-    hook: "Most of what I build never makes the marquee.",
+    hook: "Architecture first, features follow.",
+    tagline: "Most of what I ship runs quietly in production.",
+    focusAreas: [
+      {
+        title: "System design",
+        body: "Enterprise shapes scoped before the first sprint. Trade-offs written plain.",
+      },
+      {
+        title: "Infrastructure",
+        body: "Fault-tolerant backends, deploy paths, and data layers that hold under load.",
+      },
+      {
+        title: "Microservices",
+        body: "Distributed systems with tenancy, APIs, and boundaries a team can extend.",
+      },
+      {
+        title: "Technical planning",
+        body: "Roadmaps and foundations you can brief against, not slide decks that age out.",
+      },
+      {
+        title: "AI integration",
+        body: "LLMs, automation, and local inference wired into products where they cut real work.",
+      },
+    ],
     who: {
       title: "Who",
-      body: "Senior Full Stack and AI Enabled Automation Engineer based in Manama, Bahrain. Open to relocate. Five-plus years shipping enterprise backends, SaaS, and automation that still runs when the room is empty.",
+      body: "Senior Full Stack and AI Enabled Automation Engineer based in Manama, Bahrain. From Pakistan. Open to relocate. Five-plus years shipping enterprise backends, SaaS, and automation that still runs when the room is empty.",
     },
     shipping: {
       title: "What I ship now",
@@ -47,8 +70,11 @@ export const profile = {
       title: "How I work",
       lines: [
         "I own the slice I promise: schema, APIs, deploy, and the awkward edge cases in between.",
-        "AI lands in the product when it cuts real work. Privacy and API cost stay in the first cut, not a panic pass before launch.",
-        "I write and ship so the next person in the chair is not guessing my intent.",
+        "Security by design: OAuth, Keycloak, JWT, and tenancy isolation when the product needs it.",
+        "AI lands in the product when it removes real work. Privacy and API cost belong in the first release, not a late rework before launch.",
+        "Documentation and handoff for the next engineer. No tribal knowledge traps.",
+        "CI/CD and deploy paths that stay boring on purpose.",
+        "I write and ship so the next engineer on the team is not guessing my intent.",
       ],
     },
     bases: {
@@ -56,28 +82,28 @@ export const profile = {
       body: "Laravel, NestJS, and Python FastAPI carry the backend miles. gluestack and Turbo Repos shape the product frontends I ship at Bespoke. n8n and Ollama are where automation and local AI earn their keep. React, Next.js, Vue, Nuxt, PostgreSQL, Redis, Docker, and AWS show up when the product asks for them.",
     },
   },
-  /** Contact scene: concrete offers, no vague “let’s chat”. */
+  /** Contact page: concrete offers, no vague “let’s chat”. */
   openTo: {
     title: "What I am open to.",
     items: [
       "Senior or lead full-stack roles with real ownership over backend and product shape.",
-      "Contract or project spikes: NestJS, Laravel, or FastAPI cores, gluestack / Turbo Repo products, multi-tenant SaaS, or n8n and Ollama automation.",
       "Teams that care about shipping, documentation, and the bill when the LLM vendor changes pricing.",
+      "Manama today. Open to relocate for the right role.",
     ],
   },
   /** Commercial lanes. Index + /services/[slug] detail. */
   services: {
     hook: "What I take on when the brief is real.",
-    support: "Five lanes. One owner. From the first cut to what still runs at midnight.",
+    support: "Five lanes. One owner. From discovery to what still runs at midnight.",
     items: [
       {
         id: "consultancy",
         title: "Consultancy",
-        hook: "Cut the fog before the first commit.",
+        hook: "Clear the scope before the first commit.",
         body: "Architecture, stack choice, and delivery shape when the room is still arguing. You leave with a clear build path, not another slide deck.",
         icon: "/illustrations/service-consultancy.webp",
         overview:
-          "Sometimes the expensive mistake is starting build before the cut is clear. Consultancy is the frame before the spend: what to ship, what to cut, which stack earns the miles, and how delivery should feel in the first ninety days.",
+          "Sometimes the expensive mistake is starting build before scope is clear. Consultancy covers system design, infrastructure choices, microservice boundaries, delivery planning, and where AI earns a seat. You leave with a build path, not another deck.",
         fits: [
           "The stack is undecided and the room is arguing from habit.",
           "Rewrite versus build needs a calm technical call.",
@@ -100,7 +126,7 @@ export const profile = {
         body: "Marketing and product sites that ship clean. WordPress or a modern stack when the brief asks for it. Fast, calm, and easy for the next person to own.",
         icon: "/illustrations/service-websites.webp",
         overview:
-          "A site should carry the brand without apologizing. I ship marketing and product front doors that load clean, read calm, and hand off without mystery. WordPress stays in the lane when it is the right tool, not as a default costume.",
+          "A site should carry the brand without apologizing. I ship marketing and product front doors that load clean, read calm, and hand off without mystery. Vogue Boutique is proof: Benefit and Easy Pay wired for local checkout, not a generic Stripe paste-in. WordPress stays in the lane when it is the right tool.",
         fits: [
           "Brand relaunch that needs a proper front door.",
           "Gallery, framing, or commerce presence that must feel intentional.",
@@ -129,7 +155,7 @@ export const profile = {
         body: "SaaS, portals, and multi-tenant web platforms. Schemas, APIs, auth, and the dull reliability that keeps tenants quiet.",
         icon: "/illustrations/service-platforms.webp",
         overview:
-          "Platforms are not brochures. They are systems people open on a Tuesday morning and expect to work. I build SaaS, portals, and multi-tenant products where tenancy, APIs, and auth are in the first cut, not a panic pass before launch.",
+          "Platforms are not brochures. They are systems people open on a Tuesday morning and expect to work. I build SaaS, portals, and multi-tenant products where tenancy, APIs, and auth are in the first release, not a late rework before launch.",
         fits: [
           "Multi-tenant SaaS with real billing and real isolation needs.",
           "EN/AR product surfaces that share one platform core.",
@@ -152,7 +178,7 @@ export const profile = {
         body: "App-shaped products with the backends, auth, and integrations that make them real. Not a pretty shell over a missing API.",
         icon: "/illustrations/service-mobile.webp",
         overview:
-          "An app without a serious backend is a demo in a nicer case. I take on mobile-shaped products when the API contract, auth, and ops panel are part of the same brief as the screens people touch.",
+          "An app without a serious backend is a demo in a nicer case. Awal Gas is the pattern: cylinder ordering, maintenance flows, and an admin panel the ops team runs daily. I take on mobile-shaped products when the API contract, auth, and ops panel ship in the same brief as the screens.",
         fits: [
           "Field ops or ordering flows that live in the pocket.",
           "Consumer apps that need a release-ready backend.",
@@ -175,7 +201,7 @@ export const profile = {
         body: "Bespoke tools, CRMs, workflows, and the awkward glue between them. Built for your constraints, not a theme marketplace.",
         icon: "/illustrations/service-custom.webp",
         overview:
-          "Templates end where your edge cases begin. Custom systems are for CRMs, automation glue, SSO, and workflows that refuse to fit a marketplace theme. Built for your constraints, documented so the next owner is not guessing.",
+          "Templates end where your edge cases begin. ForwardChess unified Laravel and WordPress with SSO when one login had to span two surfaces. Custom systems are for CRMs, automation glue, Keycloak estates, and workflows that refuse a marketplace theme.",
         fits: [
           "CRM or ops tools that have outgrown the plug-in aisle.",
           "Automation glue between tools that do not speak politely.",
@@ -193,7 +219,7 @@ export const profile = {
       },
     ],
   },
-  /** Skill groups mirror CV.md; Vue/Nuxt kept from Fathom delivery. */
+  /** Skill groups mirror CV.md and production stack. */
   skills: {
     "AI-enabled automation": [
       "n8n",
@@ -206,12 +232,15 @@ export const profile = {
       "PHP (Laravel, Symfony, Yii2)",
       "Node.js (NestJS)",
       "Python (FastAPI)",
+      "JavaScript",
+      "TypeScript",
+      "C#",
       "React",
       "Next.js",
-      "TypeScript",
-      "gluestack",
       "Vue.js",
       "Nuxt.js",
+      "gluestack",
+      "Tailwind CSS",
     ],
     "Databases & ORMs": [
       "PostgreSQL",
@@ -226,19 +255,32 @@ export const profile = {
       "AWS (EC2, S3, RDS, Lambda, SQS, SES)",
       "Docker",
       "CI/CD",
+      "GitHub Actions",
+      "GitLab CI",
       "Coolify",
+      "Traefik",
+      "Nginx",
+      "Linux",
       "WHM / cPanel",
     ],
-    "Architecture & tools": [
+    "Architecture & messaging": [
       "Microservices",
       "Multi-tenancy",
-      "REST & GraphQL",
+      "REST APIs",
       "WebSockets",
+      "Socket.io",
       "RabbitMQ",
-      "Keycloak (SSO)",
       "Turbo Repos",
+      "Swagger / OpenAPI",
       "Git",
       "Postman",
+    ],
+    "Security & auth": [
+      "Keycloak (SSO)",
+      "OAuth 2.0",
+      "JWT",
+      "SSL/TLS",
+      "Zero-trust patterns",
     ],
     "Payment gateways": [
       "Benefit",
@@ -248,8 +290,26 @@ export const profile = {
       "EasyPay",
       "Credimax",
       "Tap Payments",
+      "AFS",
+    ],
+    "Testing & quality": [
+      "Jest",
+      "PHPUnit",
+      "Laravel Pint",
+      "CI/CD pipelines",
     ],
   },
+  /** Not in production yet. Toolkit trail stop. */
+  learningNext: [
+    "Kubernetes",
+    "Apache Kafka",
+    "Terraform",
+    "RAG systems",
+    "vector databases",
+    "LlamaIndex",
+    "LangChain",
+    "scikit-learn",
+  ],
   /** Experience bullets: CV.md is the source of truth. */
   experience: [
     {
@@ -395,14 +455,14 @@ export const profile = {
     {
       name: "Sheema Framing & Art Gallery",
       tag: "Freelance",
-      status: "In the oven",
+      status: "In progress",
       href: "https://sheemaframing.com/",
       still: "/stills/sheema.webp",
       hook: "Original art and custom framing since 1989. The site had to feel like walking the gallery floor.",
       detail:
         "Ongoing freelance build: paintings, events, products, and contact flows for Sheema Framing & Art Gallery in Bahrain.",
       stack: ["Next.js", "TypeScript", "CMS-ready"],
-      outcome: "Live and still cooking. Categories and featured work fill as the gallery publishes.",
+      outcome: "Live and still expanding. Categories and featured work fill as the gallery publishes.",
     },
     {
       name: "AI-Agent Reporter",
@@ -475,6 +535,7 @@ export const profile = {
     "English (Fluent, near-native)",
     "Urdu (Native)",
     "Punjabi (Native)",
+    "Arabic (learning)",
   ],
 } as const;
 

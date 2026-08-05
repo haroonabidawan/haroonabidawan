@@ -24,7 +24,7 @@ export default function WorkPage() {
           Four products that carry the proof.
         </h1>
         <p className="mt-2 text-base text-secondary-foreground">
-          Live GCC products. The full reel is one click away.
+          Live GCC products. The full project list is one click away.
         </p>
       </motion.div>
 
@@ -44,6 +44,7 @@ export default function WorkPage() {
 
       <SceneOutro
         links={[
+          { href: "/projects", label: "Browse all work" },
           { href: "/services", label: "Services" },
           { href: "/experience", label: "Open experience" },
           { href: "/toolkit", label: "Toolkit" },

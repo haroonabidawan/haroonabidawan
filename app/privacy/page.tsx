@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import { SceneMark } from "@/components/illustrations/scene-mark";
 import { SceneOutro } from "@/components/scene-outro";
-import { profile } from "@/lib/profile";
 import { CINEMA } from "@/lib/motion";
 
 const sections = [
@@ -13,11 +12,11 @@ const sections = [
   },
   {
     title: "Contact",
-    body: `Email goes to ${profile.email}. Phone goes to ${profile.phoneDisplay}. I use those details only to reply about work. I do not sell them.`,
+    body: "Email reaches me through Send a brief. Phone and WhatsApp use the numbers on Contact. I use those details only to reply about work. I do not sell them.",
   },
   {
     title: "Analytics",
-    body: "This site uses Google Analytics 4 (GA4). It records page views, device and browser basics, approximate location, and a few interaction events such as navigation and Send a brief. Google may set cookies or similar identifiers for that measurement. I use the numbers to see which scenes and CTAs earn attention. No ads on this site. I do not sell remarketing lists or traffic data to third parties.",
+    body: "This site uses Google Analytics 4 (GA4). It records page views, device and browser basics, approximate location, and a few interaction events such as navigation and Send a brief. Google may set cookies or similar identifiers for that measurement. I use the numbers to see which pages and CTAs earn attention. No ads on this site. I do not sell remarketing lists or traffic data to third parties.",
   },
   {
     title: "Google's role",
@@ -73,6 +72,7 @@ export default function PrivacyPage() {
         <SceneOutro
           links={[
             { href: "/credits", label: "Credits" },
+            { href: "/services", label: "Services" },
             { href: "/about", label: "About" },
             { href: "/", label: "Back home" },
           ]}

@@ -11,7 +11,7 @@ import { trackEvent } from "@/lib/analytics";
 import { profile } from "@/lib/profile";
 import { CINEMA, EASE_OUT } from "@/lib/motion";
 
-/** Tagline lands after the brand beat. No fullscreen gate in front of LCP. */
+/** Tagline lands after the brand line. No fullscreen gate in front of LCP. */
 const TAGLINE_DELAY_MS = 420;
 
 export default function Home() {
@@ -60,7 +60,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="film-page relative z-10 flex min-h-dvh flex-col items-center justify-center px-4 pt-10 md:px-6">
+      <div className="page-shell relative z-10 flex min-h-dvh flex-col items-center justify-center px-4 pt-10 md:px-6">
         <main className="flex w-full max-w-3xl flex-col items-center text-center md:max-w-4xl">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center md:max-w-4xl">
             <motion.div {...stagger(0)} className="mb-4 md:mb-5">

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { PageShell } from "@/components/page-shell";
 
 export const metadata: Metadata = {
   title: "Credits",
   description:
-    "The crew behind the texture, tone, and final cut. Credits and thanks for Carbon Trail.",
+    "The people behind the brand, tone, and finish. Credits and thanks for Carbon Trail.",
 };
 
 export default function CreditsLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return <PageShell>{children}</PageShell>;
 }

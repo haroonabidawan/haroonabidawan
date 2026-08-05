@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { SceneMark } from "@/components/illustrations/scene-mark";
 import { PrimaryCta } from "@/components/primary-cta";
@@ -39,7 +40,7 @@ export default function ContactPage() {
 
         <p className="mt-4 max-w-md text-base font-normal leading-relaxed text-secondary-foreground">
           {profile.location}. {profile.availability}.
-          <span className="mt-1 block text-foreground/90">If the fit is right, we roll cameras.</span>
+          <span className="mt-1 block text-foreground/90">If the fit is right, we kick off delivery.</span>
         </p>
 
         {/* One reach cluster. No icon-only doubles. */}
@@ -57,10 +58,6 @@ export default function ContactPage() {
             Call
           </a>
         </div>
-
-        <p className="mt-4 font-mono text-sm tracking-[0.04em] text-secondary-foreground">
-          {profile.email}
-        </p>
 
         {/* Two jobs, side by side on desktop. Hairlines, not cards. */}
         <div className="mt-14 grid w-full gap-10 text-left md:grid-cols-2 md:gap-12">
@@ -100,7 +97,11 @@ export default function ContactPage() {
               Open to
             </p>
             <p className="mt-2 text-sm text-secondary-foreground">
-              Roles and spikes that earn the chair.
+              Roles and contract spikes that match the brief. Project lanes live on{" "}
+              <Link href="/services" className="text-accent underline-offset-4 hover:underline">
+                Services
+              </Link>
+              .
             </p>
             <ul className="mt-5 space-y-3">
               {profile.openTo.items.map((item) => (

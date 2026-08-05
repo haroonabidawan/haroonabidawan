@@ -231,6 +231,7 @@ export default function ExperiencePage() {
       <SceneOutro
         links={[
           { href: "/work", label: "See the work" },
+          { href: "/services", label: "Services" },
           { href: "/toolkit", label: "Toolkit" },
           { href: "/about", label: "About" },
         ]}
