@@ -1,0 +1,36 @@
+---
+description: Carbon Trail branding palette and typography standards
+alwaysApply: true
+---
+
+# Carbon Trail Branding Rules
+
+- Use CSS variables from `app/globals.css` as the source of truth.
+- Do not introduce ad-hoc hex colors in components.
+- Prefer semantic tokens like `bg-background`, `text-foreground`, `bg-primary`, `text-muted-foreground`, and `border-border`.
+
+## Palette
+
+- `--bg-base`: `#0C0C0C`
+- `--surface`: `#1A1A1A`
+- `--surface-alt`: `#252525`
+- `--border-strong`: `#2E2E2E`
+- `--accent`: `#3A5A40`
+- `--accent-hover`: `#4E7A56`
+- `--text-primary`: `#E8E0D0`
+- `--text-secondary`: `#A8A090`
+- `--text-muted`: `#5A5248`
+- `--text-accent`: `#90C0A0`
+- `--text-inverse`: `#0C0C0C`
+
+## Typography
+
+- UI + headings use Space Grotesk (`font-sans`).
+- Wordmark, code blocks, and small labels use JetBrains Mono (`font-mono` or `.font-wordmark`).
+- Type scale:
+  - Display `72px / 900`
+  - H1 `48px / 800`
+  - H2 `32px / 700`
+  - H3 `20px / 500`
+  - Body `16px / 300`
+  - Eyebrow `11px / 200` with `5px` letter spacing

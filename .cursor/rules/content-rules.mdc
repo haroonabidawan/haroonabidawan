@@ -1,0 +1,36 @@
+---
+description: Professional copy and content standards for this portfolio
+alwaysApply: true
+---
+
+# Content Rules
+
+This portfolio is a product surface, not a CV dump. Every word should earn its place.
+
+## Voice
+- Write like a senior engineer: clear, direct, credible.
+- Bold/foreground text = the hook. Secondary text = proof or context.
+- Use contrast: a strong claim followed by a short payoff lands harder than two loud lines.
+- Metaphors are optional. Prefer plain language for enterprise readers.
+
+## Copy Rules
+- Lead with outcomes and ownership, not biography.
+- Every word earns its place. If it does not pull weight, cut it.
+- Short sentences hit harder than long ones.
+- WIP status can use a light kitchen metaphor when it fits ("still in the oven").
+
+## Examples
+
+| ❌ Flat | ✅ Professional |
+|--------|-----------------|
+| "Check back soon." | "Still in progress." |
+| "Under construction." | "Building the next release." |
+| "The people behind this site." | "Contributors and collaborators." |
+| "Want to contribute?" | "Open to collaborate." |
+| "Coming soon." | "Shipping next." |
+
+## Don'ts
+- No em dashes (separate rule enforces this).
+- No filler phrases: "Check back soon", "Coming soon", "Under construction", "I am a..."
+- No film, scene, frame, or crew metaphors in code or copy.
+- No humble-brag bios. Specificity > superlatives.
