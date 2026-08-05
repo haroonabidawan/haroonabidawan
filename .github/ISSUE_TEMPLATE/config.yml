@@ -1,14 +1,14 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security report
-    url: https://github.com/haroonabidawan/haroonabidawan/blob/production/SECURITY.md
+    url: https://github.com/haroonabidawan/haroonabidawan/blob/production/docs/security.md
     about: Report vulnerabilities privately. Do not use public issues.
   - name: Contact
     url: https://haroonabidawan.com/contact
     about: Project inquiries and collaboration outside GitHub.
   - name: Contributing guide
-    url: https://github.com/haroonabidawan/haroonabidawan/blob/production/CONTRIBUTING.md
+    url: https://github.com/haroonabidawan/haroonabidawan/blob/production/docs/contributing.md
     about: Branch workflow, PR checklist, and code standards.
-  - name: Repository docs
-    url: https://github.com/haroonabidawan/haroonabidawan/blob/production/DOCS.md
+  - name: Development guide
+    url: https://github.com/haroonabidawan/haroonabidawan/blob/production/docs/development.md
     about: Branches, routes, local dev, and brand palette.

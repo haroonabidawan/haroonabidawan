@@ -121,16 +121,17 @@ Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Motion
 This portfolio is a public repo. Bug fixes, accessibility improvements, and docs welcome.
 
 <p align="center">
-  <a href="https://github.com/haroonabidawan/haroonabidawan/blob/production/CONTRIBUTING.md"><img src="https://img.shields.io/badge/Read_contributing_guide-CONTRIBUTING.md-90C0A0?style=for-the-badge&labelColor=3A5A40&color=0C0C0C" alt="Contributing guide" /></a>
+  <a href="https://github.com/haroonabidawan/haroonabidawan/blob/production/docs/contributing.md"><img src="https://img.shields.io/badge/Read_contributing_guide-contributing.md-90C0A0?style=for-the-badge&labelColor=3A5A40&color=0C0C0C" alt="Contributing guide" /></a>
   <a href="https://github.com/haroonabidawan/haroonabidawan/issues"><img src="https://img.shields.io/badge/Open_an_issue-GitHub_Issues-252525?style=for-the-badge&labelColor=1A1A1A&color=E8E0D0&logo=github&logoColor=90C0A0" alt="Open an issue" /></a>
 </p>
 
 | Doc | Purpose |
 | --- | --- |
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | Branch workflow, PR checklist, code standards |
-| [DOCS.md](./DOCS.md) | Routes, branches, local dev, brand palette |
-| [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | Community standards |
-| [SECURITY.md](./SECURITY.md) | Vulnerability reporting |
+| [docs/README.md](./docs/README.md) | Documentation index |
+| [docs/development.md](./docs/development.md) | Branches, Vercel, local dev, routes, brand palette |
+| [docs/contributing.md](./docs/contributing.md) | Branch workflow, PR checklist, code standards |
+| [docs/code-of-conduct.md](./docs/code-of-conduct.md) | Community standards |
+| [docs/security.md](./docs/security.md) | Vulnerability reporting |
 
 Also on the site: [haroonabidawan.com/credits](https://haroonabidawan.com/credits)
 

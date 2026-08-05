@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for the report. For security issues, use [SECURITY.md](../../SECURITY.md) instead of this form.
+        Thanks for the report. For security issues, use [security.md](../../docs/security.md) instead of this form.
 
   - type: textarea
     id: description
