@@ -1,4 +1,4 @@
-# Repository docs
+# Development guide
 
 Technical reference for [haroonabidawan.com](https://haroonabidawan.com). Portfolio copy lives in the README and on the live site.
 
@@ -18,7 +18,26 @@ Public repo. Three deploy lanes only.
 | **`stage`** | Pre-production QA and client review. | Preview deploy only |
 | **`dev`** | Active development and experiments. | Not deployed |
 
-Vercel branch rules live in `vercel.json`. In the Vercel dashboard: **Settings → Git → Production Branch** → set to **`production`**.
+Branch deploy rules live in `vercel.json` (`dev` and `main` off; `production` and `stage` on).
+
+### Vercel account (not workspacehyphenstudio)
+
+This repo deploys from the **`haroonabidawan`** Vercel team, not `workspacehyphenstudio`.
+
+| | |
+| --- | --- |
+| Team | [haroonabidawan](https://vercel.com/haroonabidawan) |
+| Project | `portfolio` |
+| Live domain | [haroonabidawan.com](https://haroonabidawan.com) |
+| Stage preview | `portfolio-git-stage-haroonabidawan.vercel.app` |
+
+Use the [Vercel MCP](https://vercel.com/docs/ai/mcp) or the dashboard under **haroonabidawan → portfolio**. Local `vercel whoami` may show a different account; run `vercel login` as **haroonabidawan** before using the CLI here.
+
+Dashboard checks (one-time):
+
+1. **Settings → Git → Production Branch** → **`production`**
+2. **Settings → Domains** → `haroonabidawan.com` assigned to **Production** only
+3. **Settings → Environments** → `stage` stays **Preview** (no production domain)
 
 ```bash
 git checkout dev        # daily work
@@ -90,9 +109,10 @@ Defined in `app/globals.css`.
 
 | Doc | Purpose |
 | --- | --- |
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | Branch workflow, PR checklist, code standards |
-| [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | Community standards |
-| [SECURITY.md](./SECURITY.md) | Vulnerability reporting |
-| [LICENSE](./LICENSE) | MIT license |
+| [contributing.md](./contributing.md) | Branch workflow, PR checklist, code standards |
+| [code-of-conduct.md](./code-of-conduct.md) | Community standards |
+| [security.md](./security.md) | Vulnerability reporting |
+| [README.md](./README.md) | Documentation index |
+| [LICENSE](../LICENSE) | MIT license |
 
-Pull requests run [CI](./.github/workflows/ci.yml) on `lint` and `build`.
+Pull requests run [CI](../.github/workflows/ci.yml) on `lint` and `build`.
