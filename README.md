@@ -189,6 +189,19 @@ Production tools from the live portfolio. Badges via [Shields.io](https://shield
 
 Personal portfolio site for [haroonabidawan.com](https://haroonabidawan.com). **Carbon Trail** brand: dark surface, sage accent, Space Grotesk + JetBrains Mono, mobile-first navigation.
 
+### Governance
+
+Public repo with maintainer-led contributions. Protected branches, required PR checks, and standard open source docs.
+
+| Doc | Purpose |
+| --- | --- |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | Branch workflow, PR checklist, code standards |
+| [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | Community standards |
+| [SECURITY.md](./SECURITY.md) | Vulnerability reporting |
+| [LICENSE](./LICENSE) | MIT license |
+
+Pull requests run [CI](./.github/workflows/ci.yml) on `lint` and `build`. See [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a PR.
+
 ### Tech
 
 Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Motion

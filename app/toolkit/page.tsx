@@ -67,10 +67,8 @@ function TagList({ items, muted = false }: { items: readonly string[]; muted?: b
 export default function ToolkitPage() {
   const reduceMotion = useReducedMotion();
 
-  let stopIndex = 0;
-
   const skillStops = skillGroups.map(([group, items], i) => {
-    stopIndex += 1;
+    const stopIndex = i + 1;
     const face = i % 2 === 0 ? ("left" as const) : ("right" as const);
     return {
       id: group,
@@ -86,7 +84,7 @@ export default function ToolkitPage() {
   const exploringStops =
     profile.learningNext.length > 0
       ? (() => {
-          stopIndex += 1;
+          const stopIndex = skillGroups.length + 1;
           const face =
             skillGroups.length % 2 === 0 ? ("left" as const) : ("right" as const);
           return [
@@ -109,13 +107,13 @@ export default function ToolkitPage() {
         })()
       : [];
 
-  stopIndex += 1;
+  const educationIndex = skillGroups.length + (profile.learningNext.length > 0 ? 1 : 0) + 1;
   const educationStop = {
     id: "education",
     lead: false,
     children: (
       <TrailCard
-        index={stopIndex}
+        index={educationIndex}
         title="Education & languages"
         face={(skillGroups.length + (profile.learningNext.length > 0 ? 1 : 0)) % 2 === 0 ? "left" : "right"}
       >

@@ -20,10 +20,7 @@ export default function Home() {
   const [showTagline, setShowTagline] = useState(Boolean(reduceMotion));
 
   useEffect(() => {
-    if (reduceMotion) {
-      setShowTagline(true);
-      return;
-    }
+    if (reduceMotion) return;
 
     const toTagline = setTimeout(() => setShowTagline(true), TAGLINE_DELAY_MS);
     return () => clearTimeout(toTagline);
