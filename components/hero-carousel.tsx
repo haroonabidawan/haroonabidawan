@@ -3,24 +3,19 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { heroProjectImages } from "@/lib/assets";
 import { EASE_OUT } from "@/lib/motion";
 
-/** Featured product stills only. Atmosphere first; product second. */
-const SLIDES = [
-  "/stills/hireme.webp",
-  "/stills/rentit.webp",
-  "/stills/sellit.webp",
-  "/stills/crisispass.webp",
-] as const;
+const SLIDES = heroProjectImages;
 
 const INTERVAL_MS = 2400;
 const FADE_MS = 0.55;
 
-type HeroStillSliderProps = {
+type HeroCarouselProps = {
   reduceMotion: boolean;
 };
 
-export function HeroStillSlider({ reduceMotion }: HeroStillSliderProps) {
+export function HeroCarousel({ reduceMotion }: HeroCarouselProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

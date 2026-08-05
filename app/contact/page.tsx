@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { SceneMark } from "@/components/illustrations/scene-mark";
+import { PageMark } from "@/components/illustrations/page-mark";
 import { PrimaryCta } from "@/components/primary-cta";
-import { SceneOutro } from "@/components/scene-outro";
+import { PageOutro } from "@/components/page-outro";
 import { SocialLinks } from "@/components/social-links";
 import { profile } from "@/lib/profile";
-import { CINEMA } from "@/lib/motion";
+import { EASE_REVEAL } from "@/lib/motion";
 
 const secondaryBtn =
   "inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-transparent px-5 py-2.5 font-wordmark text-sm text-secondary-foreground transition-colors hover:border-accent hover:text-accent";
@@ -28,10 +28,10 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        transition={{ duration: 1, ease: CINEMA }}
+        transition={{ duration: 1, ease: EASE_REVEAL }}
         className="relative flex w-full max-w-3xl flex-col items-center"
       >
-        <SceneMark kind="brief" />
+        <PageMark kind="contact" />
         <p className="type-eyebrow text-accent">Contact</p>
 
         <h1 className="mt-3 max-w-xl text-[clamp(1.5rem,3.6vw,2.15rem)] font-bold leading-tight tracking-tight text-foreground">
@@ -64,7 +64,7 @@ export default function ContactPage() {
           <motion.section
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: CINEMA }}
+            transition={{ duration: 0.7, delay: 0.1, ease: EASE_REVEAL }}
             className="border-t border-border pt-6"
           >
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
@@ -90,7 +90,7 @@ export default function ContactPage() {
           <motion.section
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.18, ease: CINEMA }}
+            transition={{ duration: 0.7, delay: 0.18, ease: EASE_REVEAL }}
             className="border-t border-border pt-6"
           >
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
@@ -125,7 +125,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <SceneOutro
+        <PageOutro
           showPrimary={false}
           eyebrow="Keep exploring"
           links={[

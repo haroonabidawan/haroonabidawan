@@ -4,12 +4,13 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { AppNav } from "@/components/app-nav";
-import { HeroStillSlider } from "@/components/hero-still-slider";
+import { HeroCarousel } from "@/components/hero-carousel";
 import { PrimaryCta } from "@/components/primary-cta";
-import { SceneLinkButton } from "@/components/scene-outro";
-import { trackEvent } from "@/lib/analytics";
+import { OutroLinkButton } from "@/components/page-outro";
+import { brandAssets } from "@/lib/assets";
+import { trackFileDownload } from "@/lib/analytics";
 import { profile } from "@/lib/profile";
-import { CINEMA, EASE_OUT } from "@/lib/motion";
+import { EASE_REVEAL, EASE_OUT } from "@/lib/motion";
 
 /** Tagline lands after the brand line. No fullscreen gate in front of LCP. */
 const TAGLINE_DELAY_MS = 420;
@@ -38,7 +39,7 @@ export default function Home() {
       : {
           initial: { opacity: 0, y: 10, filter: "blur(8px)" as const },
           animate: { opacity: 1, y: 0, filter: "blur(0px)" as const },
-          transition: { duration: 0.9, delay: 0.08 * i, ease: CINEMA },
+          transition: { duration: 0.9, delay: 0.08 * i, ease: EASE_REVEAL },
         };
 
   return (
@@ -50,7 +51,7 @@ export default function Home() {
           animate={{ scale: 1.04 }}
           transition={{ duration: reduceMotion ? 0 : 8, ease: EASE_OUT }}
         >
-          <HeroStillSlider reduceMotion={Boolean(reduceMotion)} />
+          <HeroCarousel reduceMotion={Boolean(reduceMotion)} />
         </motion.div>
         <div className="absolute inset-0 bg-background/82" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
@@ -65,7 +66,7 @@ export default function Home() {
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center md:max-w-4xl">
             <motion.div {...stagger(0)} className="mb-4 md:mb-5">
               <Image
-                src="/logo.png"
+                src={brandAssets.logo}
                 alt="Carbon Trail"
                 width={112}
                 height={112}
@@ -107,7 +108,7 @@ export default function Home() {
               initial={reduceMotion ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
               animate={showTagline ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
               style={{ transformOrigin: "center" }}
-              transition={{ duration: reduceMotion ? 0 : 0.6, ease: CINEMA }}
+              transition={{ duration: reduceMotion ? 0 : 0.6, ease: EASE_REVEAL }}
             />
 
             <motion.p
@@ -122,7 +123,7 @@ export default function Home() {
                   ? { opacity: 1, y: 0, filter: "blur(0px)" }
                   : { opacity: 0, y: 12, filter: "blur(8px)" }
               }
-              transition={{ duration: reduceMotion ? 0 : 1, ease: CINEMA }}
+              transition={{ duration: reduceMotion ? 0 : 1, ease: EASE_REVEAL }}
             >
               <span className="text-accent">Software you can run at midnight</span>
               {" "}without holding your breath. Calm systems. Clear ownership.
@@ -132,13 +133,13 @@ export default function Home() {
               className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-8"
               initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               animate={showTagline ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 0.15, ease: CINEMA }}
+              transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 0.15, ease: EASE_REVEAL }}
             >
               <PrimaryCta />
               <a
                 href={profile.resume.href}
                 download={profile.resume.downloadName}
-                onClick={() => trackEvent("download_cv")}
+                onClick={() => trackFileDownload("cv.pdf")}
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-card/60 px-5 py-2.5 font-wordmark text-sm text-secondary-foreground transition-colors hover:border-accent hover:text-accent"
               >
                 Download CV
@@ -149,11 +150,11 @@ export default function Home() {
               className="mt-4 flex flex-wrap items-center justify-center gap-3"
               initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
               animate={showTagline ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-              transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.28, ease: CINEMA }}
+              transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.28, ease: EASE_REVEAL }}
             >
-              <SceneLinkButton href="/work" label="See the work" />
-              <SceneLinkButton href="/services" label="Services" />
-              <SceneLinkButton href="/about" label="About" />
+              <OutroLinkButton href="/work" label="See the work" />
+              <OutroLinkButton href="/services" label="Services" />
+              <OutroLinkButton href="/about" label="About" />
             </motion.div>
 
             <motion.p

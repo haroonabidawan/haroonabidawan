@@ -2,9 +2,9 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
-import { SceneMark } from "@/components/illustrations/scene-mark";
-import { SceneOutro } from "@/components/scene-outro";
-import { CINEMA } from "@/lib/motion";
+import { PageMark } from "@/components/illustrations/page-mark";
+import { PageOutro } from "@/components/page-outro";
+import { EASE_REVEAL } from "@/lib/motion";
 
 const contributors = [
   {
@@ -52,28 +52,28 @@ function OpenSeatChair() {
   );
 }
 
-function CrewChair() {
-  const crew = contributors[0];
+function FeaturedContributor() {
+  const contributor = contributors[0];
   return (
     <ChairCard className="max-w-sm md:max-w-none">
       <div className="flex items-start justify-between gap-3 text-left">
         <div className="min-w-0">
           <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
-            01 · {crew.location}
+            01 · {contributor.location}
           </p>
           <h2 className="mt-2 text-lg font-semibold leading-tight tracking-tight text-foreground md:text-xl">
-            {crew.name}
+            {contributor.name}
           </h2>
         </div>
-        <p className="shrink-0 font-mono text-xs text-secondary-foreground">{crew.handle}</p>
+        <p className="shrink-0 font-mono text-xs text-secondary-foreground">{contributor.handle}</p>
       </div>
-      <p className="mt-3 text-left font-mono text-sm leading-snug text-accent">{crew.role}</p>
+      <p className="mt-3 text-left font-mono text-sm leading-snug text-accent">{contributor.role}</p>
       <p className="mt-3 text-left text-base font-normal leading-relaxed text-secondary-foreground">
-        {crew.note}
+        {contributor.note}
       </p>
       <div className="mt-5 border-t border-border/70 pt-4 text-left">
         <a
-          href={crew.url}
+          href={contributor.url}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex min-h-12 items-center gap-1.5 border border-border bg-background/80 px-4 py-2 font-mono text-xs text-accent transition-colors hover:border-accent"
@@ -88,14 +88,14 @@ function CrewChair() {
           >
             <path d="M3 13L13 3M13 3H7M13 3v6" />
           </svg>
-          {crew.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+          {contributor.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
         </a>
       </div>
     </ChairCard>
   );
 }
 
-function CrewTable() {
+function ContributorsTable() {
   return (
     <div className="relative w-full max-w-xl md:max-w-none">
       <div
@@ -166,10 +166,10 @@ export default function CreditsPage() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 0.9, ease: CINEMA }}
+        transition={{ duration: reduceMotion ? 0 : 0.9, ease: EASE_REVEAL }}
         className="w-full max-w-3xl shrink-0 pb-8 md:pb-10"
       >
-        <SceneMark kind="crew" />
+        <PageMark kind="credits" />
         <p className="type-eyebrow text-accent">Credits & Thanks</p>
         <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
           Strong products are built by teams.
@@ -182,7 +182,7 @@ export default function CreditsPage() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 0.85, delay: reduceMotion ? 0 : 0.08, ease: CINEMA }}
+        transition={{ duration: reduceMotion ? 0 : 0.85, delay: reduceMotion ? 0 : 0.08, ease: EASE_REVEAL }}
         className="relative mx-auto w-full max-w-6xl px-2 md:px-4"
       >
         {/* Mobile: stacked table + chairs */}
@@ -194,13 +194,13 @@ export default function CreditsPage() {
             <span className="absolute top-0 h-full w-px bg-gradient-to-b from-border to-accent/50" />
           </div>
           <div className="relative z-10 w-full px-2">
-            <CrewTable />
+            <ContributorsTable />
           </div>
           <div className="relative z-0 flex h-8 w-full justify-center" aria-hidden="true">
             <span className="absolute top-0 h-full w-px bg-gradient-to-b from-accent/50 to-border" />
           </div>
           <div className="relative z-10 w-full px-2">
-            <CrewChair />
+            <FeaturedContributor />
           </div>
         </div>
 
@@ -215,11 +215,11 @@ export default function CreditsPage() {
           </div>
 
           <div className="flex flex-col items-center pb-2">
-            <CrewTable />
+            <ContributorsTable />
           </div>
 
           <div className="flex flex-col items-start pb-6">
-            <CrewChair />
+            <FeaturedContributor />
             <span
               aria-hidden="true"
               className="mt-3 h-px w-16 bg-gradient-to-l from-transparent to-accent/50"
@@ -228,7 +228,7 @@ export default function CreditsPage() {
         </div>
       </motion.div>
 
-      <SceneOutro
+      <PageOutro
         links={[
           { href: "/about", label: "About" },
           { href: "/services", label: "Services" },

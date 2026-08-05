@@ -2,11 +2,11 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
-import { SceneMark } from "@/components/illustrations/scene-mark";
-import { SceneOutro } from "@/components/scene-outro";
+import { PageMark } from "@/components/illustrations/page-mark";
+import { PageOutro } from "@/components/page-outro";
 import { ZigZagTrail } from "@/components/zigzag-trail";
 import { profile } from "@/lib/profile";
-import { CINEMA } from "@/lib/motion";
+import { EASE_REVEAL } from "@/lib/motion";
 
 const jobs = profile.experience;
 const proofByCompany: Record<
@@ -210,10 +210,10 @@ export default function ExperiencePage() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 0.9, ease: CINEMA }}
+        transition={{ duration: reduceMotion ? 0 : 0.9, ease: EASE_REVEAL }}
         className="w-full max-w-3xl shrink-0 pb-8 md:pb-10"
       >
-        <SceneMark kind="path" />
+        <PageMark kind="experience" />
         <p className="type-eyebrow text-accent">Experience</p>
         <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
           Where trust was earned.
@@ -228,7 +228,7 @@ export default function ExperiencePage() {
 
       <ZigZagTrail stops={stops} stopClassName="w-full md:max-w-lg" />
 
-      <SceneOutro
+      <PageOutro
         links={[
           { href: "/work", label: "See the work" },
           { href: "/services", label: "Services" },

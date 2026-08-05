@@ -2,12 +2,12 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
-import { SceneMark } from "@/components/illustrations/scene-mark";
-import { SceneOutro } from "@/components/scene-outro";
+import { PageMark } from "@/components/illustrations/page-mark";
+import { PageOutro } from "@/components/page-outro";
 import { CategoryIcon, TechBadge } from "@/components/tech-badge";
 import { ZigZagTrail } from "@/components/zigzag-trail";
 import { profile } from "@/lib/profile";
-import { CINEMA } from "@/lib/motion";
+import { EASE_REVEAL } from "@/lib/motion";
 
 const skillGroups = Object.entries(profile.skills);
 const totalStops = skillGroups.length + (profile.learningNext.length > 0 ? 1 : 0) + 1;
@@ -151,10 +151,10 @@ export default function ToolkitPage() {
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 0.9, ease: CINEMA }}
+        transition={{ duration: reduceMotion ? 0 : 0.9, ease: EASE_REVEAL }}
         className="w-full max-w-3xl shrink-0 pb-8 md:pb-10"
       >
-        <SceneMark kind="toolkit" />
+        <PageMark kind="toolkit" />
         <p className="type-eyebrow text-accent">Skills</p>
         <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
           The stack behind the products.
@@ -169,7 +169,7 @@ export default function ToolkitPage() {
 
       <ZigZagTrail stops={stops} />
 
-      <SceneOutro
+      <PageOutro
         links={[
           { href: "/work", label: "See the work" },
           { href: "/services", label: "Services" },

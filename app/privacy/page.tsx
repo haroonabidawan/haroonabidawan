@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { SceneMark } from "@/components/illustrations/scene-mark";
-import { SceneOutro } from "@/components/scene-outro";
-import { CINEMA } from "@/lib/motion";
+import { PageMark } from "@/components/illustrations/page-mark";
+import { PageOutro } from "@/components/page-outro";
+import { EASE_REVEAL } from "@/lib/motion";
 
 const sections = [
   {
@@ -38,10 +38,10 @@ export default function PrivacyPage() {
       <motion.div
         initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        transition={{ duration: 0.9, ease: CINEMA }}
+        transition={{ duration: 0.9, ease: EASE_REVEAL }}
         className="flex w-full max-w-2xl flex-col items-center"
       >
-        <SceneMark kind="midnight" />
+        <PageMark kind="privacy" />
         <p className="type-eyebrow text-accent">Privacy</p>
         <h1 className="mt-3 text-[clamp(1.35rem,3.2vw,1.9rem)] font-bold leading-tight tracking-tight text-foreground">
           Clear ownership. Including your data.
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
               key={section.title}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.06 * i, ease: CINEMA }}
+              transition={{ duration: 0.7, delay: 0.06 * i, ease: EASE_REVEAL }}
               className="border-t border-border pt-6"
             >
               <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
@@ -69,7 +69,7 @@ export default function PrivacyPage() {
           ))}
         </div>
 
-        <SceneOutro
+        <PageOutro
           links={[
             { href: "/credits", label: "Credits" },
             { href: "/services", label: "Services" },

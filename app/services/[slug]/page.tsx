@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PrimaryCta } from "@/components/primary-cta";
-import { SceneOutro } from "@/components/scene-outro";
+import { PageOutro } from "@/components/page-outro";
 import {
   getAdjacentServices,
   getServiceById,
@@ -180,7 +180,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <PrimaryCta to="contact" />
         </div>
 
-        <SceneOutro
+        <PageOutro
           showPrimary={false}
           links={[
             { href: "/services", label: "All services" },

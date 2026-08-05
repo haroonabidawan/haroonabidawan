@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { CINEMA } from "@/lib/motion";
+import { EASE_REVEAL } from "@/lib/motion";
 
 export type ZigZagStop = {
   id: string;
@@ -162,7 +162,7 @@ export function ZigZagTrail({
               strokeLinejoin="round"
               initial={reduceMotion ? false : { pathLength: 0, opacity: 0.2 }}
               animate={{ pathLength: 1, opacity: 0.55 }}
-              transition={{ duration: reduceMotion ? 0 : 1.15, ease: CINEMA }}
+              transition={{ duration: reduceMotion ? 0 : 1.15, ease: EASE_REVEAL }}
             />
           ) : null}
 
@@ -179,7 +179,7 @@ export function ZigZagTrail({
               transition={{
                 duration: reduceMotion ? 0 : 1.35,
                 delay: reduceMotion ? 0 : 0.08,
-                ease: CINEMA,
+                ease: EASE_REVEAL,
               }}
             />
           ) : null}
@@ -198,7 +198,7 @@ export function ZigZagTrail({
               transition={{
                 duration: reduceMotion ? 0 : 0.7,
                 delay: reduceMotion ? 0 : 0.15 + i * 0.05,
-                ease: CINEMA,
+                ease: EASE_REVEAL,
               }}
             />
           ))}
@@ -217,7 +217,7 @@ export function ZigZagTrail({
             transition={{
               duration: reduceMotion ? 0 : 0.65,
               delay: reduceMotion ? 0 : Math.min(i * 0.04, 0.2),
-              ease: CINEMA,
+              ease: EASE_REVEAL,
             }}
             className={[
               "relative z-10 grid grid-cols-1 pb-12 last:pb-2 md:grid-cols-2 md:gap-x-20 md:pb-16",

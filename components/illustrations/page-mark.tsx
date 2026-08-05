@@ -1,52 +1,50 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { CINEMA } from "@/lib/motion";
 import {
   MarkAbout,
-  MarkBrief,
-  MarkCrew,
-  MarkFrames,
-  MarkMidnight,
-  MarkPath,
+  MarkContact,
+  MarkCredits,
+  MarkExperience,
+  MarkPrivacy,
   MarkServices,
   MarkToolkit,
+  MarkWork,
+  type PageMarkKind,
 } from "@/components/illustrations/marks";
+import { EASE_REVEAL } from "@/lib/motion";
 
 const marks = {
-  midnight: MarkMidnight,
-  frames: MarkFrames,
-  path: MarkPath,
+  privacy: MarkPrivacy,
+  work: MarkWork,
+  experience: MarkExperience,
   toolkit: MarkToolkit,
-  brief: MarkBrief,
-  crew: MarkCrew,
+  contact: MarkContact,
+  credits: MarkCredits,
   about: MarkAbout,
   services: MarkServices,
 } as const;
 
 const labels = {
-  midnight: "Midnight systems",
-  frames: "Featured products",
-  path: "Career path",
+  privacy: "Privacy",
+  work: "Featured work",
+  experience: "Experience",
   toolkit: "Engineering toolkit",
-  brief: "Send a brief",
-  crew: "Contributors",
+  contact: "Contact",
+  credits: "Contributors",
   about: "About",
   services: "Services",
 } as const;
 
-export type SceneMarkKind = keyof typeof marks;
+export type { PageMarkKind };
 
-type SceneMarkProps = {
-  kind: SceneMarkKind;
+type PageMarkProps = {
+  kind: PageMarkKind;
   className?: string;
 };
 
-/**
- * Soft entrance mark above a page header.
- * Decorative: adjacent eyebrow/heading already names the page.
- */
-export function SceneMark({ kind, className }: SceneMarkProps) {
+/** Soft entrance mark above a page header. Decorative. */
+export function PageMark({ kind, className }: PageMarkProps) {
   const reduceMotion = useReducedMotion();
   const Mark = marks[kind];
 
@@ -54,7 +52,7 @@ export function SceneMark({ kind, className }: SceneMarkProps) {
     <motion.div
       initial={reduceMotion ? false : { opacity: 0, y: 8, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: reduceMotion ? 0 : 0.75, ease: CINEMA }}
+      transition={{ duration: reduceMotion ? 0 : 0.75, ease: EASE_REVEAL }}
       className={["mb-5 flex justify-center", className].filter(Boolean).join(" ")}
       aria-hidden="true"
       title={labels[kind]}

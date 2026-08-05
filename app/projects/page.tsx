@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { SceneMark } from "@/components/illustrations/scene-mark";
+import { PageMark } from "@/components/illustrations/page-mark";
 import { ProjectCard } from "@/components/project-card";
-import { SceneOutro } from "@/components/scene-outro";
+import { PageOutro } from "@/components/page-outro";
 import { profile } from "@/lib/profile";
-import { CINEMA } from "@/lib/motion";
+import { EASE_REVEAL } from "@/lib/motion";
 
 const projects = profile.projects;
 
@@ -16,10 +16,10 @@ export default function ProjectsPage() {
       <motion.div
         initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        transition={{ duration: 0.9, ease: CINEMA }}
+        transition={{ duration: 0.9, ease: EASE_REVEAL }}
         className="w-full max-w-3xl pb-8 md:pb-10"
       >
-        <SceneMark kind="frames" />
+        <PageMark kind="work" />
         <p className="type-eyebrow text-accent">All work</p>
         <h1 className="mt-2 text-[clamp(1.3rem,2.8vw,1.7rem)] font-bold leading-tight tracking-tight text-foreground">
           Every shipped product and engagement.
@@ -41,7 +41,7 @@ export default function ProjectsPage() {
             key={p.name}
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.35), ease: CINEMA }}
+            transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.35), ease: EASE_REVEAL }}
             className="flex h-full min-w-0"
           >
             <ProjectCard project={p} index={i} total={projects.length} variant="compact" />
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <SceneOutro
+      <PageOutro
         links={[
           { href: "/work", label: "Featured work" },
           { href: "/services", label: "Services" },

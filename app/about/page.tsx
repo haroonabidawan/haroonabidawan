@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import { SceneMark } from "@/components/illustrations/scene-mark";
-import { SceneOutro } from "@/components/scene-outro";
+import { PageMark } from "@/components/illustrations/page-mark";
+import { PageOutro } from "@/components/page-outro";
 import { profile } from "@/lib/profile";
-import { CINEMA } from "@/lib/motion";
+import { EASE_REVEAL } from "@/lib/motion";
 
 const sections = [
   profile.about.who,
@@ -19,10 +19,10 @@ export default function AboutPage() {
       <motion.div
         initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        transition={{ duration: 0.9, ease: CINEMA }}
+        transition={{ duration: 0.9, ease: EASE_REVEAL }}
         className="flex w-full max-w-3xl flex-col items-center"
       >
-        <SceneMark kind="about" />
+        <PageMark kind="about" />
         <p className="type-eyebrow text-accent">About</p>
 
         <h1 className="mt-3 text-[clamp(1.35rem,3.2vw,1.9rem)] font-bold leading-tight tracking-tight text-foreground">
@@ -36,7 +36,7 @@ export default function AboutPage() {
         <motion.section
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.04, ease: CINEMA }}
+          transition={{ duration: 0.7, delay: 0.04, ease: EASE_REVEAL }}
           className="mt-10 w-full border-t border-border pt-6 text-left"
         >
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
@@ -65,7 +65,7 @@ export default function AboutPage() {
               key={section.title}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.08 * (i + 1), ease: CINEMA }}
+              transition={{ duration: 0.7, delay: 0.08 * (i + 1), ease: EASE_REVEAL }}
               className="border-t border-border pt-6"
             >
               <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
@@ -92,7 +92,7 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <SceneOutro
+        <PageOutro
           ctaTo="email"
           links={[
             { href: "/work", label: "See the work" },
