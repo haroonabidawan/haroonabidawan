@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { trackEvent } from "@/lib/analytics";
+import { trackOutboundClick } from "@/lib/analytics";
 
 export type ProjectItem = {
   name: string;
@@ -13,7 +13,7 @@ export type ProjectItem = {
   featured?: boolean;
   status?: string;
   href?: string;
-  still?: string;
+  cover?: string;
 };
 
 type ProjectCardProps = {
@@ -37,14 +37,15 @@ export function ProjectCard({
   const realChips = [...p.stack.slice(0, CHIP_SLOTS_MD)];
   const paddedChips = [...realChips];
   while (paddedChips.length < CHIP_SLOTS_MD) paddedChips.push("");
+  const liveHref = p.href;
 
   return (
     <article className="flex h-full w-full flex-col overflow-hidden rounded-xl border border-border bg-card/40 text-left">
       <div className="relative aspect-[16/10] w-full shrink-0 border-b border-border bg-background">
-        {p.still ? (
+        {p.cover ? (
           <>
             <Image
-              src={p.still}
+              src={p.cover}
               alt=""
               fill
               sizes={
@@ -139,12 +140,12 @@ export function ProjectCard({
           </div>
 
           <div className="mt-3 flex h-12 items-center">
-            {p.href ? (
+            {liveHref ? (
               <a
-                href={p.href}
+                href={liveHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent("open_live_site", { project: p.name })}
+                onClick={() => trackOutboundClick("Live site", liveHref, p.name)}
                 className="inline-flex h-12 items-center font-wordmark text-sm text-accent underline-offset-4 transition-colors hover:underline"
               >
                 Open live site

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { trackEvent } from "@/lib/analytics";
+import { trackCta } from "@/lib/analytics";
 import { profile } from "@/lib/profile";
 
 type PrimaryCtaProps = {
@@ -22,7 +22,7 @@ export function PrimaryCta({ className, to = "email" }: PrimaryCtaProps) {
   const classes = [baseClass, className].filter(Boolean).join(" ");
 
   const onClick = () => {
-    trackEvent("cta_send_brief", { destination: to });
+    trackCta(to);
   };
 
   if (to === "contact") {

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { trackSocialClick } from "@/lib/analytics";
 import { profile } from "@/lib/profile";
 
 const spring = { type: "spring" as const, stiffness: 380, damping: 22 };
@@ -31,6 +32,7 @@ export function SocialLinks({
         href={profile.links.github}
         target="_blank"
         rel="noreferrer"
+        onClick={() => trackSocialClick("github")}
         whileHover={{ y: -3, scale: 1.06 }}
         whileTap={{ scale: 0.95 }}
         transition={spring}
@@ -46,6 +48,7 @@ export function SocialLinks({
         href={profile.links.linkedin}
         target="_blank"
         rel="noreferrer"
+        onClick={() => trackSocialClick("linkedin")}
         whileHover={{ y: -3, scale: 1.06 }}
         whileTap={{ scale: 0.95 }}
         transition={spring}
@@ -61,6 +64,7 @@ export function SocialLinks({
         href={profile.links.instagram}
         target="_blank"
         rel="noreferrer"
+        onClick={() => trackSocialClick("instagram")}
         whileHover={{ y: -3, scale: 1.06 }}
         whileTap={{ scale: 0.95 }}
         transition={spring}
@@ -76,6 +80,7 @@ export function SocialLinks({
         href={profile.links.facebook}
         target="_blank"
         rel="noreferrer"
+        onClick={() => trackSocialClick("facebook")}
         whileHover={{ y: -3, scale: 1.06 }}
         whileTap={{ scale: 0.95 }}
         transition={spring}
@@ -89,6 +94,7 @@ export function SocialLinks({
 
       <motion.a
         href={`mailto:${profile.email}`}
+        onClick={() => trackSocialClick("email")}
         whileHover={{ y: -3, scale: 1.06 }}
         whileTap={{ scale: 0.95 }}
         transition={spring}
@@ -105,6 +111,7 @@ export function SocialLinks({
         <>
           <motion.a
             href={`tel:${profile.phoneTel}`}
+            onClick={() => trackSocialClick("phone")}
             whileHover={{ y: -3, scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
             transition={spring}
@@ -120,6 +127,7 @@ export function SocialLinks({
             href={profile.whatsapp}
             target="_blank"
             rel="noreferrer"
+            onClick={() => trackSocialClick("whatsapp")}
             whileHover={{ y: -3, scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
             transition={spring}
