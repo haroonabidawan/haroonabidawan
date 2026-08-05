@@ -113,32 +113,37 @@ const tabLabelClass =
 export function AppNav() {
   const pathname = usePathname();
   const [moreOpen, setMoreOpen] = useState(false);
+  const [openOnPath, setOpenOnPath] = useState(pathname);
   const panelId = useId();
-  const moreActive = moreOpen || moreActiveHrefs.has(pathname);
+  const isMoreOpen = moreOpen && openOnPath === pathname;
+  const moreActive = isMoreOpen || moreActiveHrefs.has(pathname);
 
   useEffect(() => {
-    setMoreOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!moreOpen) return;
+    if (!isMoreOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setMoreOpen(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [moreOpen]);
+  }, [isMoreOpen]);
+
+  const toggleMoreOpen = () => {
+    setOpenOnPath(pathname);
+    setMoreOpen((open) => !open);
+  };
+
+  const closeMoreOpen = () => setMoreOpen(false);
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40" aria-label="Site">
       {/* Mobile more sheet */}
       <div className="md:hidden">
-        {moreOpen ? (
+        {isMoreOpen ? (
           <button
             type="button"
             aria-label="Close more menu"
             className="fixed inset-0 z-40 bg-background/55 backdrop-blur-sm"
-            onClick={() => setMoreOpen(false)}
+            onClick={closeMoreOpen}
           />
         ) : null}
 
@@ -147,16 +152,16 @@ export function AppNav() {
           role="dialog"
           aria-modal="true"
           aria-label="More pages"
-          aria-hidden={!moreOpen}
+          aria-hidden={!isMoreOpen}
           className={[
             "pointer-events-none fixed inset-x-0 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-50 px-3 transition duration-300",
-            moreOpen ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+            isMoreOpen ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
           ].join(" ")}
         >
           <div
             className={[
               "mx-auto max-w-md overflow-hidden rounded-2xl border border-border/80 bg-card/95 shadow-[0_16px_48px_color-mix(in_oklab,var(--bg-base)_88%,transparent)] backdrop-blur-xl",
-              moreOpen ? "pointer-events-auto" : "pointer-events-none",
+              isMoreOpen ? "pointer-events-auto" : "pointer-events-none",
             ].join(" ")}
           >
             <div className="border-b border-border px-4 py-3">
@@ -170,7 +175,7 @@ export function AppNav() {
                     <Link
                       href={item.href}
                       onClick={() => {
-                        setMoreOpen(false);
+                        closeMoreOpen();
                         trackNavigation(item.label, item.href, "mobile_more");
                       }}
                       aria-current={active ? "page" : undefined}
@@ -203,7 +208,7 @@ export function AppNav() {
                 key={href}
                 href={href}
                 onClick={() => {
-                  setMoreOpen(false);
+                  closeMoreOpen();
                   trackNavigation(label, href, "mobile_tab");
                 }}
                 aria-current={active ? "page" : undefined}
@@ -221,9 +226,9 @@ export function AppNav() {
           <button
             type="button"
             aria-label="More"
-            aria-expanded={moreOpen}
+            aria-expanded={isMoreOpen}
             aria-controls={panelId}
-            onClick={() => setMoreOpen((v) => !v)}
+            onClick={toggleMoreOpen}
             className={tabClass(moreActive, "flex-[0.9]")}
           >
             {moreActive ? (
