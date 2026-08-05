@@ -255,22 +255,19 @@ Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Motion
 
 ### Branches
 
-Public repo. Three deploy lanes plus `main` (legacy default until you switch it in GitHub settings).
+Public repo. Three deploy lanes only.
 
 | Branch | Use |
 | --- | --- |
-| **`production`** | Live site at [haroonabidawan.com](https://haroonabidawan.com). Set as default branch in repo settings. |
+| **`production`** | Live site at [haroonabidawan.com](https://haroonabidawan.com). Default branch. |
 | **`stage`** | Pre-production QA and client review. |
 | **`dev`** | Active development and experiments. |
-| `main` | Same codebase today. Prefer `production` for releases. |
 
 ```bash
 git checkout dev        # daily work
 git checkout stage      # merge dev when ready to preview
 git checkout production # merge stage when ready to ship
 ```
-
-In GitHub: **Settings → General → Default branch → `production`**.
 
 ### Local development
 
