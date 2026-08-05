@@ -101,7 +101,7 @@ export const profile = {
         title: "Consultancy",
         hook: "Clear the scope before the first commit.",
         body: "Architecture, stack choice, and delivery shape when the room is still arguing. You leave with a clear build path, not another slide deck.",
-        icon: "/illustrations/service-consultancy.webp",
+        icon: "/services/consultancy.webp",
         overview:
           "Sometimes the expensive mistake is starting build before scope is clear. Consultancy covers system design, infrastructure choices, microservice boundaries, delivery planning, and where AI earns a seat. You leave with a build path, not another deck.",
         fits: [
@@ -124,7 +124,7 @@ export const profile = {
         title: "Websites",
         hook: "A front door that earns the click.",
         body: "Marketing and product sites that ship clean. WordPress or a modern stack when the brief asks for it. Fast, calm, and easy for the next person to own.",
-        icon: "/illustrations/service-websites.webp",
+        icon: "/services/websites.webp",
         overview:
           "A site should carry the brand without apologizing. I ship marketing and product front doors that load clean, read calm, and hand off without mystery. Vogue Boutique is proof: Benefit and Easy Pay wired for local checkout, not a generic Stripe paste-in. WordPress stays in the lane when it is the right tool.",
         fits: [
@@ -153,7 +153,7 @@ export const profile = {
         title: "Web platforms",
         hook: "Software people live in every day.",
         body: "SaaS, portals, and multi-tenant web platforms. Schemas, APIs, auth, and the dull reliability that keeps tenants quiet.",
-        icon: "/illustrations/service-platforms.webp",
+        icon: "/services/platforms.webp",
         overview:
           "Platforms are not brochures. They are systems people open on a Tuesday morning and expect to work. I build SaaS, portals, and multi-tenant products where tenancy, APIs, and auth are in the first release, not a late rework before launch.",
         fits: [
@@ -176,7 +176,7 @@ export const profile = {
         title: "Mobile apps",
         hook: "The pocket screen is only half the product.",
         body: "App-shaped products with the backends, auth, and integrations that make them real. Not a pretty shell over a missing API.",
-        icon: "/illustrations/service-mobile.webp",
+        icon: "/services/mobile.webp",
         overview:
           "An app without a serious backend is a demo in a nicer case. Awal Gas is the pattern: cylinder ordering, maintenance flows, and an admin panel the ops team runs daily. I take on mobile-shaped products when the API contract, auth, and ops panel ship in the same brief as the screens.",
         fits: [
@@ -199,7 +199,7 @@ export const profile = {
         title: "Custom systems",
         hook: "When the template is the problem.",
         body: "Bespoke tools, CRMs, workflows, and the awkward glue between them. Built for your constraints, not a theme marketplace.",
-        icon: "/illustrations/service-custom.webp",
+        icon: "/services/custom.webp",
         overview:
           "Templates end where your edge cases begin. ForwardChess unified Laravel and WordPress with SSO when one login had to span two surfaces. Custom systems are for CRMs, automation glue, Keycloak estates, and workflows that refuse a marketplace theme.",
         fits: [
@@ -382,7 +382,7 @@ export const profile = {
       featured: true,
       status: "Shipping · Bespoke",
       href: "https://hireme-gcc.com/",
-      still: "/stills/hireme.webp",
+      cover: "/projects/hireme.webp",
       hook: "Job boards burn candidates. Privacy dies first.",
       detail:
         "Video-first recruitment for the GCC with stealth presence, employer blocklists, ghost mode, and AI-assisted product features on a gluestack Turbo Repo with FastAPI.",
@@ -395,7 +395,7 @@ export const profile = {
       featured: true,
       status: "Shipping · Bespoke",
       href: "https://sellit-gcc.com/",
-      still: "/stills/sellit.webp",
+      cover: "/projects/sellit.webp",
       hook: "Investment properties and businesses across the GCC needed one EN/AR marketplace, not a spreadsheet trail.",
       detail:
         "Building Sell-It GCC on the same gluestack Turbo Repo and Python FastAPI services that carry HireMe.",
@@ -408,7 +408,7 @@ export const profile = {
       featured: true,
       status: "Shipped · Bespoke",
       href: "https://crisispass.com/",
-      still: "/stills/crisispass.webp",
+      cover: "/projects/crisispass.webp",
       hook: "Expatriates needed an evacuation plan before the crisis, not after the airport board went red.",
       detail:
         "Secure, high-availability architecture with rigid data validation for crisis preparedness and evacuation support across Bahrain and the wider Middle East.",
@@ -421,7 +421,7 @@ export const profile = {
       featured: true,
       status: "Shipped · Expanding",
       href: "https://rentit-bh.com/",
-      still: "/stills/rentit.webp",
+      cover: "/projects/rentit.webp",
       hook: "A rental marketplace had to launch in Bahrain and stay ready for KSA and GCC scale.",
       detail:
         "Engineered and launched RentIt Bahrain. Now architecting scaling, localization, and database structures for regional expansion.",
@@ -433,7 +433,7 @@ export const profile = {
       tag: "Freelance",
       status: "Shipped",
       href: "https://bahrainartframing.com/",
-      still: "/stills/bafc.webp",
+      cover: "/projects/bafc.webp",
       hook: "A gallery and framing house needed a site that carried the craft, not a template.",
       detail:
         "End-to-end freelance delivery for Bahrain Artistic Framing Center: brand surface, gallery presence, and the full site path from first paint to launch.",
@@ -445,7 +445,7 @@ export const profile = {
       tag: "Freelance",
       status: "Shipped · 2025",
       href: "https://www.shafiqglass.com/",
-      still: "/stills/shafiq.webp",
+      cover: "/projects/shafiq.webp",
       hook: "Nearly twenty years of glass and aluminum work. The web still looked like a brochure from another decade.",
       detail:
         "Freelance rebuild for Shafiq Glass: services, facilities story, featured projects, and a clear path to request a consultation.",
@@ -457,7 +457,7 @@ export const profile = {
       tag: "Freelance",
       status: "In progress",
       href: "https://sheemaframing.com/",
-      still: "/stills/sheema.webp",
+      cover: "/projects/sheema.webp",
       hook: "Original art and custom framing since 1989. The site had to feel like walking the gallery floor.",
       detail:
         "Ongoing freelance build: paintings, events, products, and contact flows for Sheema Framing & Art Gallery in Bahrain.",
@@ -467,7 +467,7 @@ export const profile = {
     {
       name: "AI-Agent Reporter",
       tag: "Automation",
-      still: "/stills/ai-agent-reporter.webp",
+      cover: "/projects/ai-agent-reporter.webp",
       hook: "When the data moves, the report follows.",
       detail:
         "A custom n8n workflow triggers on data updates, uses an LLM to interpret instructions, generates `.md` reports, and pushes updates into project management tools.",
@@ -478,7 +478,7 @@ export const profile = {
       name: "Awal Gas",
       tag: "Operations",
       href: "https://awaligas.com/",
-      still: "/stills/awal-gas.webp",
+      cover: "/projects/awal-gas.webp",
       hook: "Cylinders, orders, and maintenance in one stack.",
       detail:
         "Comprehensive API and admin panel for a cylinder ordering and maintenance service app.",
@@ -489,7 +489,7 @@ export const profile = {
       name: "ForwardChess",
       tag: "Identity",
       href: "https://forwardchess.com/",
-      still: "/stills/forwardchess.webp",
+      cover: "/projects/forwardchess.webp",
       hook: "One login, two surfaces.",
       detail:
         "SSO between Laravel and WordPress to unify user authentication across platforms.",
@@ -500,7 +500,7 @@ export const profile = {
       name: "Vogue Boutique",
       tag: "Commerce",
       href: "https://voguebahrain.com/",
-      still: "/stills/vogue-boutique.webp",
+      cover: "/projects/vogue-boutique.webp",
       hook: "Checkout that respects local rails.",
       detail:
         "Full-featured e-commerce platform with Benefit and Easy Pay payment integrations.",
@@ -511,7 +511,7 @@ export const profile = {
       name: "Sunshine Meat Market",
       tag: "Retail",
       href: "https://sunshinemeatmarket.com/",
-      still: "/stills/sunshine-meat-market.webp",
+      cover: "/projects/sunshine-meat-market.webp",
       hook: "Web orders meet the kitchen screen.",
       detail:
         "End-to-end grocery system connecting web orders to a desktop-managed kitchen display.",

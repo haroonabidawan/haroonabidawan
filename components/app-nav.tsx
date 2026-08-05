@@ -4,23 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
-import { trackEvent } from "@/lib/analytics";
-
-type NavEvent = "nav_work" | "nav_experience" | "nav_services" | "nav_contact" | null;
+import { brandAssets } from "@/lib/assets";
+import { trackNavigation } from "@/lib/analytics";
 
 type MobileTab = {
   href: string;
   label: string;
-  event: NavEvent;
   icon: "home" | "work" | "services" | "contact";
 };
 
 /** Same labels as desktop web nav. Labels match route segments. */
 const mobileTabs: MobileTab[] = [
-  { href: "/", label: "Home", event: null, icon: "home" },
-  { href: "/work", label: "Work", event: "nav_work", icon: "work" },
-  { href: "/services", label: "Services", event: "nav_services", icon: "services" },
-  { href: "/contact", label: "Contact", event: "nav_contact", icon: "contact" },
+  { href: "/", label: "Home", icon: "home" },
+  { href: "/work", label: "Work", icon: "work" },
+  { href: "/services", label: "Services", icon: "services" },
+  { href: "/contact", label: "Contact", icon: "contact" },
 ];
 
 /** Desktop extras that sit in the mobile More sheet. */
@@ -34,13 +32,13 @@ const moreLinks = [
 const moreActiveHrefs = new Set<string>(moreLinks.map((l) => l.href));
 
 const desktopItems = [
-  { href: "/about", label: "About", event: null as NavEvent },
-  { href: "/experience", label: "Experience", event: "nav_experience" as NavEvent },
-  { href: "/work", label: "Work", event: "nav_work" as NavEvent },
-  { href: "/services", label: "Services", event: "nav_services" as NavEvent },
-  { href: "/toolkit", label: "Toolkit", event: null as NavEvent },
-  { href: "/credits", label: "Credits", event: null as NavEvent },
-  { href: "/contact", label: "Contact", event: "nav_contact" as NavEvent },
+  { href: "/about", label: "About" },
+  { href: "/experience", label: "Experience" },
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/toolkit", label: "Toolkit" },
+  { href: "/credits", label: "Credits" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function isActive(pathname: string, href: string) {
@@ -171,7 +169,10 @@ export function AppNav() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      onClick={() => setMoreOpen(false)}
+                      onClick={() => {
+                        setMoreOpen(false);
+                        trackNavigation(item.label, item.href, "mobile_more");
+                      }}
                       aria-current={active ? "page" : undefined}
                       className={[
                         "flex min-h-14 items-center justify-between gap-3 px-4 py-3 transition-colors",
@@ -194,7 +195,7 @@ export function AppNav() {
       {/* Mobile tab bar */}
       <div className="pointer-events-none px-2 pb-[calc(0.65rem+env(safe-area-inset-bottom))] pt-2 md:hidden">
         <div className="pointer-events-auto relative z-50 mx-auto flex max-w-md items-stretch gap-1 rounded-2xl border border-border/80 bg-card/95 px-1 py-1.5 shadow-[0_12px_40px_color-mix(in_oklab,var(--bg-base)_85%,transparent)] backdrop-blur-xl">
-          {mobileTabs.map(({ href, label, event, icon }) => {
+          {mobileTabs.map(({ href, label, icon }) => {
             const active = isActive(pathname, href);
             const grow = href === "/services" ? "flex-[1.45]" : "flex-1";
             return (
@@ -203,7 +204,7 @@ export function AppNav() {
                 href={href}
                 onClick={() => {
                   setMoreOpen(false);
-                  if (event) trackEvent(event);
+                  trackNavigation(label, href, "mobile_tab");
                 }}
                 aria-current={active ? "page" : undefined}
                 className={tabClass(active, grow)}
@@ -238,19 +239,19 @@ export function AppNav() {
       <div className="hidden border-t border-border bg-background/90 backdrop-blur-md md:block">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-2.5">
           <Link href="/" className="shrink-0 opacity-90 transition-opacity hover:opacity-100" aria-label="Home">
-            <Image src="/logo.png" alt="" width={64} height={64} className="h-8 w-8 object-contain" />
+            <Image src={brandAssets.logo} alt="" width={64} height={64} className="h-8 w-8 object-contain" />
           </Link>
 
           <div className="flex min-w-0 flex-1 items-center justify-center">
             <div className="flex flex-wrap items-center justify-center gap-1">
-              {desktopItems.map(({ href, label, event }) => {
+              {desktopItems.map(({ href, label }) => {
                 const active = isActive(pathname, href);
                 return (
                   <Link
                     key={href}
                     href={href}
                     onClick={() => {
-                      if (event) trackEvent(event);
+                      trackNavigation(label, href, "desktop");
                     }}
                     aria-current={active ? "page" : undefined}
                     className={[

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: "https://haroonabidawan.com",
     siteName: "Haroon Abid Awan",
     type: "website",
-    images: [{ url: "/stills/hireme.webp", width: 1280, height: 800, alt: "Haroon Abid Awan" }],
+    images: [{ url: "/projects/hireme.webp", width: 1280, height: 800, alt: "Haroon Abid Awan" }],
   },
 };
 

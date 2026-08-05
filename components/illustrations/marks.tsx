@@ -1,36 +1,23 @@
 import Image from "next/image";
+import { pageMarks, type PageMarkKind } from "@/lib/assets";
 
-/** Carbon Trail page marks. AI elevated line art in public/illustrations. */
+/** Carbon Trail page marks. Line art in public/pages. */
 
 type MarkProps = {
   className?: string;
-  title?: string;
 };
 
 const base = "mx-auto h-28 w-28 select-none object-contain md:h-32 md:w-32";
 
-const markSrc = {
-  midnight: "/illustrations/midnight.webp",
-  frames: "/illustrations/frames.webp",
-  path: "/illustrations/path.webp",
-  toolkit: "/illustrations/toolkit.webp",
-  brief: "/illustrations/brief.webp",
-  crew: "/illustrations/crew.webp",
-  about: "/illustrations/about.webp",
-  services: "/illustrations/services.webp",
-} as const;
-
-type MarkKind = keyof typeof markSrc;
-
 type MarkImageProps = {
-  kind: MarkKind;
+  kind: PageMarkKind;
   className?: string;
 };
 
 function MarkImage({ kind, className = base }: MarkImageProps) {
   return (
     <Image
-      src={markSrc[kind]}
+      src={pageMarks[kind]}
       alt=""
       width={128}
       height={128}
@@ -41,28 +28,28 @@ function MarkImage({ kind, className = base }: MarkImageProps) {
   );
 }
 
-export function MarkMidnight({ className }: MarkProps) {
-  return <MarkImage kind="midnight" className={className} />;
+export function MarkPrivacy({ className }: MarkProps) {
+  return <MarkImage kind="privacy" className={className} />;
 }
 
-export function MarkFrames({ className }: MarkProps) {
-  return <MarkImage kind="frames" className={className} />;
+export function MarkWork({ className }: MarkProps) {
+  return <MarkImage kind="work" className={className} />;
 }
 
-export function MarkPath({ className }: MarkProps) {
-  return <MarkImage kind="path" className={className} />;
+export function MarkExperience({ className }: MarkProps) {
+  return <MarkImage kind="experience" className={className} />;
 }
 
 export function MarkToolkit({ className }: MarkProps) {
   return <MarkImage kind="toolkit" className={className} />;
 }
 
-export function MarkBrief({ className }: MarkProps) {
-  return <MarkImage kind="brief" className={className} />;
+export function MarkContact({ className }: MarkProps) {
+  return <MarkImage kind="contact" className={className} />;
 }
 
-export function MarkCrew({ className }: MarkProps) {
-  return <MarkImage kind="crew" className={className} />;
+export function MarkCredits({ className }: MarkProps) {
+  return <MarkImage kind="credits" className={className} />;
 }
 
 export function MarkAbout({ className }: MarkProps) {
@@ -72,3 +59,5 @@ export function MarkAbout({ className }: MarkProps) {
 export function MarkServices({ className }: MarkProps) {
   return <MarkImage kind="services" className={className} />;
 }
+
+export type { PageMarkKind };
