@@ -83,145 +83,85 @@ Five lanes. One owner. From discovery to what still runs at midnight.
 
 ## Stack
 
-Production tools from the live portfolio. Icons via [Simple Icons](https://simpleicons.org/). Source of truth: `lib/profile.ts` and `lib/tech-icons.ts`.
+Production tools from the live portfolio. Badges via [Shields.io](https://shields.io). Source of truth: `lib/profile.ts`.
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/openai/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>AI-enabled automation</strong></summary>
+<summary><strong>AI-enabled automation</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/n8n/90C0A0" width="18" height="18" alt="" valign="middle" /> n8n &nbsp;
-<img src="https://cdn.simpleicons.org/ollama/90C0A0" width="18" height="18" alt="" valign="middle" /> Ollama &nbsp;
-<img src="https://cdn.simpleicons.org/openai/90C0A0" width="18" height="18" alt="" valign="middle" /> AI-driven feature development &nbsp;
-<img src="https://cdn.simpleicons.org/openai/90C0A0" width="18" height="18" alt="" valign="middle" /> prompt engineering &nbsp;
-<img src="https://cdn.simpleicons.org/n8n/90C0A0" width="18" height="18" alt="" valign="middle" /> agentic workflows
+<p align="left">
+[![n8n](https://img.shields.io/badge/n8n-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=n8n)](https://haroonabidawan.com/toolkit "n8n") [![Ollama](https://img.shields.io/badge/Ollama-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=ollama)](https://haroonabidawan.com/toolkit "Ollama") [![AI-driven feature development](https://img.shields.io/badge/AI_features-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=openai)](https://haroonabidawan.com/toolkit "AI-driven feature development") [![prompt engineering](https://img.shields.io/badge/Prompts-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=openai)](https://haroonabidawan.com/toolkit "prompt engineering") [![agentic workflows](https://img.shields.io/badge/Agentic-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=n8n)](https://haroonabidawan.com/toolkit "agentic workflows")
 </p>
 
 </details>
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/react/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>Full stack</strong></summary>
+<summary><strong>Full stack</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/php/90C0A0" width="18" height="18" alt="" valign="middle" /> PHP (Laravel, Symfony, Yii2) &nbsp;
-<img src="https://cdn.simpleicons.org/nodedotjs/90C0A0" width="18" height="18" alt="" valign="middle" /> Node.js (NestJS) &nbsp;
-<img src="https://cdn.simpleicons.org/python/90C0A0" width="18" height="18" alt="" valign="middle" /> Python (FastAPI) &nbsp;
-<img src="https://cdn.simpleicons.org/javascript/90C0A0" width="18" height="18" alt="" valign="middle" /> JavaScript &nbsp;
-<img src="https://cdn.simpleicons.org/typescript/90C0A0" width="18" height="18" alt="" valign="middle" /> TypeScript &nbsp;
-<img src="https://cdn.simpleicons.org/csharp/90C0A0" width="18" height="18" alt="" valign="middle" /> C# &nbsp;
-<img src="https://cdn.simpleicons.org/react/90C0A0" width="18" height="18" alt="" valign="middle" /> React &nbsp;
-<img src="https://cdn.simpleicons.org/nextdotjs/90C0A0" width="18" height="18" alt="" valign="middle" /> Next.js &nbsp;
-<img src="https://cdn.simpleicons.org/vuedotjs/90C0A0" width="18" height="18" alt="" valign="middle" /> Vue.js &nbsp;
-<img src="https://cdn.simpleicons.org/nuxtdotjs/90C0A0" width="18" height="18" alt="" valign="middle" /> Nuxt.js &nbsp;
-<img src="https://cdn.simpleicons.org/react/90C0A0" width="18" height="18" alt="" valign="middle" /> gluestack &nbsp;
-<img src="https://cdn.simpleicons.org/tailwindcss/90C0A0" width="18" height="18" alt="" valign="middle" /> Tailwind CSS
+<p align="left">
+[![PHP (Laravel, Symfony, Yii2)](https://img.shields.io/badge/PHP-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=php)](https://haroonabidawan.com/toolkit "PHP (Laravel, Symfony, Yii2)") [![Node.js (NestJS)](https://img.shields.io/badge/Node.js-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=nodedotjs)](https://haroonabidawan.com/toolkit "Node.js (NestJS)") [![Python (FastAPI)](https://img.shields.io/badge/Python-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=python)](https://haroonabidawan.com/toolkit "Python (FastAPI)") [![JavaScript](https://img.shields.io/badge/JavaScript-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=javascript)](https://haroonabidawan.com/toolkit "JavaScript") [![TypeScript](https://img.shields.io/badge/TypeScript-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=typescript)](https://haroonabidawan.com/toolkit "TypeScript") [![C#](https://img.shields.io/badge/C%23-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=csharp)](https://haroonabidawan.com/toolkit "C#") [![React](https://img.shields.io/badge/React-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=react)](https://haroonabidawan.com/toolkit "React") [![Next.js](https://img.shields.io/badge/Next.js-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=nextdotjs)](https://haroonabidawan.com/toolkit "Next.js") [![Vue.js](https://img.shields.io/badge/Vue.js-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=vuedotjs)](https://haroonabidawan.com/toolkit "Vue.js") [![Nuxt.js](https://img.shields.io/badge/Nuxt.js-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=nuxtdotjs)](https://haroonabidawan.com/toolkit "Nuxt.js") [![gluestack](https://img.shields.io/badge/gluestack-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=react)](https://haroonabidawan.com/toolkit "gluestack") [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=tailwindcss)](https://haroonabidawan.com/toolkit "Tailwind CSS")
 </p>
 
 </details>
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/postgresql/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>Databases &amp; ORMs</strong></summary>
+<summary><strong>Databases & ORMs</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/postgresql/90C0A0" width="18" height="18" alt="" valign="middle" /> PostgreSQL &nbsp;
-<img src="https://cdn.simpleicons.org/mysql/90C0A0" width="18" height="18" alt="" valign="middle" /> MySQL &nbsp;
-<img src="https://cdn.simpleicons.org/microsoftsqlserver/90C0A0" width="18" height="18" alt="" valign="middle" /> MS SQL &nbsp;
-<img src="https://cdn.simpleicons.org/prisma/90C0A0" width="18" height="18" alt="" valign="middle" /> Prisma &nbsp;
-<img src="https://cdn.simpleicons.org/prisma/90C0A0" width="18" height="18" alt="" valign="middle" /> Drizzle &nbsp;
-<img src="https://cdn.simpleicons.org/supabase/90C0A0" width="18" height="18" alt="" valign="middle" /> Supabase &nbsp;
-<img src="https://cdn.simpleicons.org/redis/90C0A0" width="18" height="18" alt="" valign="middle" /> Redis
+<p align="left">
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=postgresql)](https://haroonabidawan.com/toolkit "PostgreSQL") [![MySQL](https://img.shields.io/badge/MySQL-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=mysql)](https://haroonabidawan.com/toolkit "MySQL") [![MS SQL](https://img.shields.io/badge/MS_SQL-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=microsoftsqlserver)](https://haroonabidawan.com/toolkit "MS SQL") [![Prisma](https://img.shields.io/badge/Prisma-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=prisma)](https://haroonabidawan.com/toolkit "Prisma") [![Drizzle](https://img.shields.io/badge/Drizzle-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=prisma)](https://haroonabidawan.com/toolkit "Drizzle") [![Supabase](https://img.shields.io/badge/Supabase-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=supabase)](https://haroonabidawan.com/toolkit "Supabase") [![Redis](https://img.shields.io/badge/Redis-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=redis)](https://haroonabidawan.com/toolkit "Redis")
 </p>
 
 </details>
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/docker/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>Cloud &amp; DevOps</strong></summary>
+<summary><strong>Cloud & DevOps</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/amazonaws/90C0A0" width="18" height="18" alt="" valign="middle" /> AWS (EC2, S3, RDS, Lambda, SQS, SES) &nbsp;
-<img src="https://cdn.simpleicons.org/docker/90C0A0" width="18" height="18" alt="" valign="middle" /> Docker &nbsp;
-<img src="https://cdn.simpleicons.org/githubactions/90C0A0" width="18" height="18" alt="" valign="middle" /> CI/CD &nbsp;
-<img src="https://cdn.simpleicons.org/githubactions/90C0A0" width="18" height="18" alt="" valign="middle" /> GitHub Actions &nbsp;
-<img src="https://cdn.simpleicons.org/gitlab/90C0A0" width="18" height="18" alt="" valign="middle" /> GitLab CI &nbsp;
-<img src="https://cdn.simpleicons.org/docker/90C0A0" width="18" height="18" alt="" valign="middle" /> Coolify &nbsp;
-<img src="https://cdn.simpleicons.org/traefik/90C0A0" width="18" height="18" alt="" valign="middle" /> Traefik &nbsp;
-<img src="https://cdn.simpleicons.org/nginx/90C0A0" width="18" height="18" alt="" valign="middle" /> Nginx &nbsp;
-<img src="https://cdn.simpleicons.org/linux/90C0A0" width="18" height="18" alt="" valign="middle" /> Linux &nbsp;
-<img src="https://cdn.simpleicons.org/cpanel/90C0A0" width="18" height="18" alt="" valign="middle" /> WHM / cPanel
+<p align="left">
+[![AWS (EC2, S3, RDS, Lambda, SQS, SES)](https://img.shields.io/badge/AWS-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=amazonaws)](https://haroonabidawan.com/toolkit "AWS (EC2, S3, RDS, Lambda, SQS, SES)") [![Docker](https://img.shields.io/badge/Docker-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=docker)](https://haroonabidawan.com/toolkit "Docker") [![CI/CD](https://img.shields.io/badge/CI%2FCD-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=githubactions)](https://haroonabidawan.com/toolkit "CI/CD") [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=githubactions)](https://haroonabidawan.com/toolkit "GitHub Actions") [![GitLab CI](https://img.shields.io/badge/GitLab_CI-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=gitlab)](https://haroonabidawan.com/toolkit "GitLab CI") [![Coolify](https://img.shields.io/badge/Coolify-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=docker)](https://haroonabidawan.com/toolkit "Coolify") [![Traefik](https://img.shields.io/badge/Traefik-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=traefik)](https://haroonabidawan.com/toolkit "Traefik") [![Nginx](https://img.shields.io/badge/Nginx-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=nginx)](https://haroonabidawan.com/toolkit "Nginx") [![Linux](https://img.shields.io/badge/Linux-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=linux)](https://haroonabidawan.com/toolkit "Linux") [![WHM / cPanel](https://img.shields.io/badge/cPanel-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=cpanel)](https://haroonabidawan.com/toolkit "WHM / cPanel")
 </p>
 
 </details>
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/rabbitmq/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>Architecture &amp; messaging</strong></summary>
+<summary><strong>Architecture & messaging</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/docker/90C0A0" width="18" height="18" alt="" valign="middle" /> Microservices &nbsp;
-<img src="https://cdn.simpleicons.org/amazonaws/90C0A0" width="18" height="18" alt="" valign="middle" /> Multi-tenancy &nbsp;
-<img src="https://cdn.simpleicons.org/swagger/90C0A0" width="18" height="18" alt="" valign="middle" /> REST APIs &nbsp;
-<img src="https://cdn.simpleicons.org/socketdotio/90C0A0" width="18" height="18" alt="" valign="middle" /> WebSockets &nbsp;
-<img src="https://cdn.simpleicons.org/socketdotio/90C0A0" width="18" height="18" alt="" valign="middle" /> Socket.io &nbsp;
-<img src="https://cdn.simpleicons.org/rabbitmq/90C0A0" width="18" height="18" alt="" valign="middle" /> RabbitMQ &nbsp;
-<img src="https://cdn.simpleicons.org/turborepo/90C0A0" width="18" height="18" alt="" valign="middle" /> Turbo Repos &nbsp;
-<img src="https://cdn.simpleicons.org/swagger/90C0A0" width="18" height="18" alt="" valign="middle" /> Swagger / OpenAPI &nbsp;
-<img src="https://cdn.simpleicons.org/git/90C0A0" width="18" height="18" alt="" valign="middle" /> Git &nbsp;
-<img src="https://cdn.simpleicons.org/postman/90C0A0" width="18" height="18" alt="" valign="middle" /> Postman
+<p align="left">
+[![Microservices](https://img.shields.io/badge/Microservices-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=docker)](https://haroonabidawan.com/toolkit "Microservices") [![Multi-tenancy](https://img.shields.io/badge/Multi-tenancy-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=amazonaws)](https://haroonabidawan.com/toolkit "Multi-tenancy") [![REST APIs](https://img.shields.io/badge/REST_APIs-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=swagger)](https://haroonabidawan.com/toolkit "REST APIs") [![WebSockets](https://img.shields.io/badge/WebSockets-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=socketdotio)](https://haroonabidawan.com/toolkit "WebSockets") [![Socket.io](https://img.shields.io/badge/Socket.io-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=socketdotio)](https://haroonabidawan.com/toolkit "Socket.io") [![RabbitMQ](https://img.shields.io/badge/RabbitMQ-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=rabbitmq)](https://haroonabidawan.com/toolkit "RabbitMQ") [![Turbo Repos](https://img.shields.io/badge/Turbo_Repos-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=turborepo)](https://haroonabidawan.com/toolkit "Turbo Repos") [![Swagger / OpenAPI](https://img.shields.io/badge/OpenAPI-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=swagger)](https://haroonabidawan.com/toolkit "Swagger / OpenAPI") [![Git](https://img.shields.io/badge/Git-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=git)](https://haroonabidawan.com/toolkit "Git") [![Postman](https://img.shields.io/badge/Postman-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=postman)](https://haroonabidawan.com/toolkit "Postman")
 </p>
 
 </details>
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/keycloak/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>Security &amp; auth</strong></summary>
+<summary><strong>Security & auth</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/keycloak/90C0A0" width="18" height="18" alt="" valign="middle" /> Keycloak (SSO) &nbsp;
-<img src="https://cdn.simpleicons.org/auth0/90C0A0" width="18" height="18" alt="" valign="middle" /> OAuth 2.0 &nbsp;
-<img src="https://cdn.simpleicons.org/auth0/90C0A0" width="18" height="18" alt="" valign="middle" /> JWT &nbsp;
-<img src="https://cdn.simpleicons.org/letsencrypt/90C0A0" width="18" height="18" alt="" valign="middle" /> SSL/TLS &nbsp;
-<img src="https://cdn.simpleicons.org/cloudflare/90C0A0" width="18" height="18" alt="" valign="middle" /> Zero-trust patterns
+<p align="left">
+[![Keycloak (SSO)](https://img.shields.io/badge/Keycloak-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=keycloak)](https://haroonabidawan.com/toolkit "Keycloak (SSO)") [![OAuth 2.0](https://img.shields.io/badge/OAuth_2.0-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=auth0)](https://haroonabidawan.com/toolkit "OAuth 2.0") [![JWT](https://img.shields.io/badge/JWT-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=auth0)](https://haroonabidawan.com/toolkit "JWT") [![SSL/TLS](https://img.shields.io/badge/SSL%2FTLS-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=letsencrypt)](https://haroonabidawan.com/toolkit "SSL/TLS") [![Zero-trust patterns](https://img.shields.io/badge/Zero_trust-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=cloudflare)](https://haroonabidawan.com/toolkit "Zero-trust patterns")
 </p>
 
 </details>
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/stripe/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>Payment gateways</strong></summary>
+<summary><strong>Payment gateways</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/stripe/90C0A0" width="18" height="18" alt="" valign="middle" /> Benefit &nbsp;
-<img src="https://cdn.simpleicons.org/stripe/90C0A0" width="18" height="18" alt="" valign="middle" /> Stripe &nbsp;
-<img src="https://cdn.simpleicons.org/paypal/90C0A0" width="18" height="18" alt="" valign="middle" /> PayPal &nbsp;
-<img src="https://cdn.simpleicons.org/stripe/90C0A0" width="18" height="18" alt="" valign="middle" /> CardKnox &nbsp;
-<img src="https://cdn.simpleicons.org/stripe/90C0A0" width="18" height="18" alt="" valign="middle" /> EasyPay &nbsp;
-<img src="https://cdn.simpleicons.org/stripe/90C0A0" width="18" height="18" alt="" valign="middle" /> Credimax &nbsp;
-<img src="https://cdn.simpleicons.org/stripe/90C0A0" width="18" height="18" alt="" valign="middle" /> Tap Payments &nbsp;
-<img src="https://cdn.simpleicons.org/stripe/90C0A0" width="18" height="18" alt="" valign="middle" /> AFS
+<p align="left">
+[![Benefit](https://img.shields.io/badge/Benefit-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=stripe)](https://haroonabidawan.com/toolkit "Benefit") [![Stripe](https://img.shields.io/badge/Stripe-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=stripe)](https://haroonabidawan.com/toolkit "Stripe") [![PayPal](https://img.shields.io/badge/PayPal-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=paypal)](https://haroonabidawan.com/toolkit "PayPal") [![CardKnox](https://img.shields.io/badge/CardKnox-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=stripe)](https://haroonabidawan.com/toolkit "CardKnox") [![EasyPay](https://img.shields.io/badge/EasyPay-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=stripe)](https://haroonabidawan.com/toolkit "EasyPay") [![Credimax](https://img.shields.io/badge/Credimax-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=stripe)](https://haroonabidawan.com/toolkit "Credimax") [![Tap Payments](https://img.shields.io/badge/Tap_Pay-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=stripe)](https://haroonabidawan.com/toolkit "Tap Payments") [![AFS](https://img.shields.io/badge/AFS-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=stripe)](https://haroonabidawan.com/toolkit "AFS")
 </p>
 
 </details>
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/jest/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>Testing &amp; quality</strong></summary>
+<summary><strong>Testing & quality</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/jest/90C0A0" width="18" height="18" alt="" valign="middle" /> Jest &nbsp;
-<img src="https://cdn.simpleicons.org/php/90C0A0" width="18" height="18" alt="" valign="middle" /> PHPUnit &nbsp;
-<img src="https://cdn.simpleicons.org/laravel/90C0A0" width="18" height="18" alt="" valign="middle" /> Laravel Pint &nbsp;
-<img src="https://cdn.simpleicons.org/githubactions/90C0A0" width="18" height="18" alt="" valign="middle" /> CI/CD pipelines
+<p align="left">
+[![Jest](https://img.shields.io/badge/Jest-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=jest)](https://haroonabidawan.com/toolkit "Jest") [![PHPUnit](https://img.shields.io/badge/PHPUnit-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=php)](https://haroonabidawan.com/toolkit "PHPUnit") [![Laravel Pint](https://img.shields.io/badge/Laravel_Pint-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=laravel)](https://haroonabidawan.com/toolkit "Laravel Pint") [![CI/CD pipelines](https://img.shields.io/badge/CI%2FCD-3A5A40?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=githubactions)](https://haroonabidawan.com/toolkit "CI/CD pipelines")
 </p>
 
 </details>
 
 <details>
-<summary><img src="https://cdn.simpleicons.org/kubernetes/90C0A0" width="18" height="18" alt="" valign="middle" /> <strong>Planning to learn next</strong></summary>
+<summary><strong>Planning to learn next</strong></summary>
 
-<p>
-<img src="https://cdn.simpleicons.org/kubernetes/90C0A0" width="18" height="18" alt="" valign="middle" /> Kubernetes &nbsp;
-<img src="https://cdn.simpleicons.org/apachekafka/90C0A0" width="18" height="18" alt="" valign="middle" /> Apache Kafka &nbsp;
-<img src="https://cdn.simpleicons.org/terraform/90C0A0" width="18" height="18" alt="" valign="middle" /> Terraform &nbsp;
-<img src="https://cdn.simpleicons.org/openai/90C0A0" width="18" height="18" alt="" valign="middle" /> RAG systems &nbsp;
-<img src="https://cdn.simpleicons.org/pinecone/90C0A0" width="18" height="18" alt="" valign="middle" /> vector databases &nbsp;
-<img src="https://cdn.simpleicons.org/meta/90C0A0" width="18" height="18" alt="" valign="middle" /> LlamaIndex &nbsp;
-<img src="https://cdn.simpleicons.org/langchain/90C0A0" width="18" height="18" alt="" valign="middle" /> LangChain &nbsp;
-<img src="https://cdn.simpleicons.org/scikitlearn/90C0A0" width="18" height="18" alt="" valign="middle" /> scikit-learn
+<p align="left">
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-252525?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=kubernetes)](https://haroonabidawan.com/toolkit "Kubernetes") [![Apache Kafka](https://img.shields.io/badge/Apache_Kafka-252525?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=apachekafka)](https://haroonabidawan.com/toolkit "Apache Kafka") [![Terraform](https://img.shields.io/badge/Terraform-252525?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=terraform)](https://haroonabidawan.com/toolkit "Terraform") [![RAG systems](https://img.shields.io/badge/RAG-252525?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=openai)](https://haroonabidawan.com/toolkit "RAG systems") [![vector databases](https://img.shields.io/badge/Vector_DB-252525?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=pinecone)](https://haroonabidawan.com/toolkit "vector databases") [![LlamaIndex](https://img.shields.io/badge/LlamaIndex-252525?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=meta)](https://haroonabidawan.com/toolkit "LlamaIndex") [![LangChain](https://img.shields.io/badge/LangChain-252525?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=langchain)](https://haroonabidawan.com/toolkit "LangChain") [![scikit-learn](https://img.shields.io/badge/scikit-learn-252525?style=flat-square&labelColor=0C0C0C&logoColor=90C0A0&logo=scikitlearn)](https://haroonabidawan.com/toolkit "scikit-learn")
 </p>
 
 <em>On the roadmap, not in production yet.</em>
@@ -257,11 +197,13 @@ Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Motion
 
 Public repo. Three deploy lanes only.
 
-| Branch | Use |
-| --- | --- |
-| **`production`** | Live site at [haroonabidawan.com](https://haroonabidawan.com). Default branch. |
-| **`stage`** | Pre-production QA and client review. |
-| **`dev`** | Active development and experiments. |
+| Branch | Use | Vercel |
+| --- | --- | --- |
+| **`production`** | Live site at [haroonabidawan.com](https://haroonabidawan.com). Default branch. | Production deploy |
+| **`stage`** | Pre-production QA and client review. | Preview deploy only |
+| **`dev`** | Active development and experiments. | Not deployed |
+
+Vercel branch rules live in `vercel.json`. In the Vercel dashboard: **Settings → Git → Production Branch** → set to **`production`**.
 
 ```bash
 git checkout dev        # daily work
@@ -275,6 +217,7 @@ Requires [pnpm](https://pnpm.io/).
 
 ```bash
 pnpm install
+cp .env.example .env.local   # add NEXT_PUBLIC_GA_MEASUREMENT_ID
 pnpm dev
 ```
 
@@ -302,7 +245,15 @@ pnpm lint     # ESLint
 | `/credits` | Credits & thanks |
 | `/privacy` | Privacy |
 
-Content and copy live in `lib/profile.ts`. Components in `components/`. Static assets in `public/`.
+Content and copy live in `lib/profile.ts`. Components in `components/`. Static assets in `public/`:
+
+| Folder | Contents |
+| --- | --- |
+| `public/brand/` | Logo |
+| `public/pages/` | Page header marks |
+| `public/services/` | Service lane icons |
+| `public/projects/` | Project card images |
+| `public/resume/` | CV download |
 
 ### Brand palette
 
