@@ -1,3 +1,16 @@
+const REPO_OWNER = "haroonabidawan";
+const REPO_NAME = "haroonabidawan";
+const REPO_BRANCH = "production";
+const REPO_ROOT = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
+
+function githubBlob(path: string): string {
+  return `${REPO_ROOT}/blob/${REPO_BRANCH}/${path}`;
+}
+
+function githubTree(path: string): string {
+  return `${REPO_ROOT}/tree/${REPO_BRANCH}/${path}`;
+}
+
 export const profile = {
   name: "Haroon Abid Awan",
   role: "Senior Full Stack & AI Enabled Automation Engineer",
@@ -33,9 +46,17 @@ export const profile = {
     facebook: "https://www.facebook.com/haroonabidawan/",
   },
   repo: {
-    url: "https://github.com/haroonabidawan/haroonabidawan",
-    contributing:
-      "https://github.com/haroonabidawan/haroonabidawan/blob/production/CONTRIBUTING.md",
+    url: REPO_ROOT,
+    branch: REPO_BRANCH,
+    issues: `${REPO_ROOT}/issues`,
+    docs: {
+      index: githubTree("docs"),
+      development: githubBlob("docs/development.md"),
+      contributing: githubBlob("docs/contributing.md"),
+      codeOfConduct: githubBlob("docs/code-of-conduct.md"),
+      security: githubBlob("docs/security.md"),
+      license: githubBlob("LICENSE"),
+    },
   },
   /** About page: one hook, then facts. CV.md is the source of truth. */
   about: {

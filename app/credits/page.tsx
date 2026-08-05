@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 import { PageMark } from "@/components/illustrations/page-mark";
 import { PageOutro } from "@/components/page-outro";
+import { RepoDocLinks } from "@/components/repo-doc-links";
 import { trackOutboundClick } from "@/lib/analytics";
 import { EASE_REVEAL } from "@/lib/motion";
 import { profile } from "@/lib/profile";
@@ -52,11 +53,17 @@ function OpenSeatChair() {
       </p>
       <div className="mt-5 border-t border-border/70 pt-4 text-left">
         <a
-          href={profile.repo.contributing}
+          href={profile.repo.docs.contributing}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex min-h-12 items-center gap-1.5 border border-accent/50 bg-accent/15 px-4 py-2 font-mono text-xs text-accent transition-colors hover:border-accent"
-          onClick={() => trackOutboundClick("Contribute on GitHub", profile.repo.contributing, "credits_open_seat")}
+          onClick={() =>
+            trackOutboundClick(
+              "Contribute on GitHub",
+              profile.repo.docs.contributing,
+              "credits_open_seat",
+            )
+          }
         >
           <svg
             viewBox="0 0 16 16"
@@ -68,6 +75,19 @@ function OpenSeatChair() {
           </svg>
           Contribute on GitHub
         </a>
+        <RepoDocLinks
+          className="mt-4 justify-start"
+          links={[
+            { label: "Documentation", href: profile.repo.docs.index, context: "credits_docs_index" },
+            {
+              label: "Development guide",
+              href: profile.repo.docs.development,
+              context: "credits_docs_development",
+            },
+            { label: "Security", href: profile.repo.docs.security, context: "credits_docs_security" },
+            { label: "Issues", href: profile.repo.issues, context: "credits_issues" },
+          ]}
+        />
       </div>
     </ChairCard>
   );
@@ -248,6 +268,20 @@ export default function CreditsPage() {
           </div>
         </div>
       </motion.div>
+
+      <motion.section
+        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: reduceMotion ? 0 : 0.75, delay: reduceMotion ? 0 : 0.16, ease: EASE_REVEAL }}
+        className="mx-auto mt-10 w-full max-w-2xl border-t border-border px-2 pt-8 text-center md:px-4"
+      >
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">Open source</p>
+        <p className="mt-3 text-base leading-relaxed text-secondary-foreground">
+          This site is public on GitHub. Docs, contributing guidelines, and security reporting live in the
+          repository.
+        </p>
+        <RepoDocLinks className="mt-5" />
+      </motion.section>
 
       <PageOutro
         links={[
